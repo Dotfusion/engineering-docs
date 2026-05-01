@@ -8,9 +8,6 @@ Project-specific documentation belongs inside each project repository under `/do
 
 ## Table of contents
 
-<div style="display:flex; gap:1rem">
-<div style="flex:1">
-
 ### Engineering
 
 - [Engineering principles](engineering/engineering-principles.md)
@@ -28,9 +25,6 @@ Project-specific documentation belongs inside each project repository under `/do
 
 - [Testing strategy](quality/testing-strategy.md)
 
-</div>
-<div style="flex:1">
-
 ### Delivery
 
 - [CI/CD](delivery/ci-cd.md)
@@ -47,8 +41,6 @@ Project-specific documentation belongs inside each project repository under `/do
 
 - [Documentation standards](agents/documentation-standards.md)
 - [AGENTS.md](agents/AGENTS.md)
-
-</div></div>
 
 ## Visibility rule
 
