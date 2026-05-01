@@ -6,6 +6,42 @@ It defines how we work across projects: engineering principles, development work
 
 Project-specific documentation belongs inside each project repository under `/docs`.
 
+## Table of contents
+
+### Engineering
+
+- [Engineering principles](engineering/engineering-principles.md)
+- [Code standards](development/code-standards.md)
+
+### Process
+
+- [Team working model](process/team-working-model.md)
+
+### Development
+
+- [Development workflow](development/development-workflow.md)
+
+### Quality
+
+- [Testing strategy](quality/testing-strategy.md)
+
+### Delivery
+
+- [CI/CD](delivery/ci-cd.md)
+
+### Observability
+
+- [Monitoring](observability/monitoring.md)
+
+### Security
+
+- [Security guidelines](security/security-guidelines.md)
+
+### Documentation & AI
+
+- [Documentation standards](agents/documentation-standards.md)
+- [AGENTS.md](agents/AGENTS.md)
+
 ## Visibility rule
 
 This repository is intended to be **public**.
@@ -34,11 +70,3 @@ We use two documentation levels:
 Project docs should reference global docs instead of duplicating them.
 
 Gitbook will collect all these documents and organize them in a "wiki-style" way for our team. 
-
-## Start here
-
-- [Engineering principles](engineering/engineering-principles.md)
-- [Team working model](process/team-working-model.md)
-- [Development workflow](development/development-workflow.md)
-- [Documentation standards](agents/documentation-standards.md)
-- [AGENTS.md](agents/AGENTS.md)
