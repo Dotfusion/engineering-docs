@@ -22,6 +22,8 @@ Do not write marketing copy.
 
 Do not overuse bullet lists. Use them when they make scanning easier.
 
+Never use em dash. Find another grammar instead. 
+
 ## Documentation rules
 
 When writing documentation:
