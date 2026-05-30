@@ -6,7 +6,7 @@ This document describes how the engineering team works across projects.
 
 ### Software engineering manager / full-stack architect
 
-Responsible for technical direction, architecture support, engineering standards, delivery health, and reducing technical risk. May also take Developers responsibilities as needed. 
+Responsible for technical direction, architecture support, engineering standards, delivery health, and reducing technical risk. May also take on Developer responsibilities as needed.
 
 ### Developers
 
@@ -36,7 +36,7 @@ That means:
 - project-specific exceptions are visible
 - new developers can onboard without relying only on meetings
 
-# Asynchronous collaboration
+## Asynchronous collaboration
 
 The team operates across time zones (Canada and Cambodia).  
 Asynchronous work is the default mode of collaboration.

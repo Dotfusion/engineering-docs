@@ -10,7 +10,7 @@ A future developer should be able to understand the system without needing the o
 
 ## Make decisions visible
 
-Important decisions must be recorded. Product & Operations team is dedicating time and efforts into building great Business desicions documentations. We, engineering team, should do the same and maintain a living documentation that help each of us do our job as best as we can. 
+Important decisions must be recorded. The Product & Operations team invests real time and effort into building great business-decision documentation. We, the engineering team, should do the same: maintain living documentation that helps each of us do our jobs as well as we can.
 
 A decision is important when it affects architecture, delivery, operations, security, cost, team workflow, or long-term maintainability.
 

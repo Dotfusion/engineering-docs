@@ -111,6 +111,8 @@ Before major framework upgrades, especially React, Next.js, Astro, or CMS SDK up
 Dependency updates should be treated like code changes. They must be **reviewed, tested, and documented** when they affect architecture, build behavior, deployment, or runtime behavior.
 
 
+## Error handling
+
 Errors must be handled explicitly.
 
 Do not silently swallow errors.

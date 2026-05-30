@@ -14,6 +14,22 @@ Project documentation describes the reality of one project.
 
 Project documentation should not copy global standards. It should reference them and explain differences.
 
+## Project README
+
+Every project repository has a `README.md` at its root as the entry point for
+anyone joining the project. It is generated and kept current with the
+`project-readme` Claude Code skill (in this repo under
+`agents/skills/project-readme/`), which is the **source of truth** for README
+structure and our documentation conventions, including the link back to these
+global docs.
+
+This document explains the *why*; the skill encodes the *how*. When a README
+convention changes, change it in the skill. Always read and verify generated
+output before committing.
+
+See [Claude Code plugins — setup](PLUGIN-SETUP.md) for how the skill reaches
+the team.
+
 ## Required sections for project docs
 
 Each project should have:

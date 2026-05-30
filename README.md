@@ -41,6 +41,7 @@ Project-specific documentation belongs inside each project repository under `/do
 
 - [Documentation standards](agents/documentation-standards.md)
 - [AGENTS.md](agents/AGENTS.md)
+- [Claude Code plugins — setup](agents/PLUGIN-SETUP.md)
 
 ## Visibility rule
 

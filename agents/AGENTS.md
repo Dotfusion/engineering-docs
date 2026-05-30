@@ -79,7 +79,10 @@ Bad:
 
 ## When generating docs from code
 
-When reading a codebase to generate documentation:
+For project READMEs specifically, use the `project-readme` skill
+(`agents/skills/project-readme/`) — it is the canonical, executable version of
+the steps below and stays in sync with our standards. The principles here apply
+to any documentation generated from a codebase:
 
 1. Inspect package files, framework configuration, deployment configuration, and environment examples.
 2. Identify the actual stack before writing.
