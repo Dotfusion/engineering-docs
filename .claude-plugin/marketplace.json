@@ -1,0 +1,16 @@
+{
+  "name": "dotfusion",
+  "owner": {
+    "name": "Dotfusion Engineering"
+  },
+  "description": "Dotfusion internal Claude Code plugins.",
+  "plugins": [
+    {
+      "name": "dotfusion-docs",
+      "source": "./",
+      "description": "Skills following Dotfusion engineering standards (project README generation, and so on).",
+      "skills": "./agents/skills",
+      "strict": false
+    }
+  ]
+}
