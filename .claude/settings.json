@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s \"https://api.github.com/repos/currents-dev/playwright-best-practices-skill/git/trees/main?recursive=1\")",
+      "Bash(curl -s \"https://api.github.com/repos/microsoft/playwright-cli/git/trees/main?recursive=1\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/SKILL.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/microsoft/playwright-cli/main/skills/playwright-cli/SKILL.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/microsoft/playwright-cli/main/package.json\")",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(gh api *)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/browser-apis/iframes.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/browser-apis/service-workers.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/browser-apis/websockets.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/debugging/error-testing.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/debugging/flaky-tests.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/debugging/console-errors.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/debugging/debugging.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/frameworks/angular.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/frameworks/nextjs.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/frameworks/react.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/frameworks/vue.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/infrastructure-ci-cd/ci-cd.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/infrastructure-ci-cd/docker.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/infrastructure-ci-cd/github-actions.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/infrastructure-ci-cd/gitlab.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/infrastructure-ci-cd/other-providers.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/infrastructure-ci-cd/parallel-sharding.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/infrastructure-ci-cd/performance.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/infrastructure-ci-cd/reporting.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/infrastructure-ci-cd/test-coverage.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/architecture/pom-vs-fixtures.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/architecture/test-architecture.md\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/currents-dev/playwright-best-practices-skill/main/architecture/when-to-mock.md\")",
+      "Bash(git -C /Users/andredotfusion/dotfusion/engineering-docs diff HEAD -- .claude-plugin/marketplace.json)"
+    ]
+  }
+}
