@@ -25,6 +25,11 @@ Project-specific documentation belongs inside each project repository under `/do
 
 - [Testing strategy](quality/testing-strategy.md)
 
+### Accessibility
+
+- [Accessibility (a11y)](accessibility/accessibility.md)
+- [Manual testing checklist](accessibility/manual-testing-checklist.md)
+
 ### Delivery
 
 - [CI/CD](delivery/ci-cd.md)
