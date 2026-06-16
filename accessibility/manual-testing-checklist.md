@@ -31,6 +31,7 @@ Automated tools (axe, pa11y, Lighthouse) catch only part of this list. Treat a g
 
 - [ ] Images convey meaning through alt text, and decorative images have empty alt text.
 - [ ] Icon-only buttons and links have an accessible name.
+- [ ] Link text describes its destination. There is no bare "read more" or "click here" without context.
 - [ ] Links are distinguishable from text by more than color, and links that open a new tab or window say so.
 - [ ] Information is never conveyed by color, shape, size, position, or sound alone.
 - [ ] Text and meaningful UI meet AA contrast (normal text 4.5:1, large text and non-text UI such as icons, borders, and focus indicators 3:1).
@@ -43,6 +44,7 @@ Automated tools (axe, pa11y, Lighthouse) catch only part of this list. Treat a g
 - [ ] Inputs that collect known user data use an appropriate `autocomplete` value.
 - [ ] Required fields and formats are communicated in text, not by color or placeholder alone.
 - [ ] Errors are announced, linked to their field, and explain how to fix the problem.
+- [ ] On a failed submission, focus moves to the first error or to an error summary.
 - [ ] Related controls (radio groups, checkbox groups) are grouped with a clear group label.
 - [ ] Submissions involving legal, financial, or data changes can be reversed, checked, or confirmed before they take effect.
 

@@ -41,6 +41,8 @@ Our standard is WCAG 2.1 Level AA.
 
 This is the level required by AODA and by most accessibility commitments our clients make. We adopt version 2.1 (rather than the older 2.0 that AODA strictly mandates) because 2.1 adds criteria that matter for modern usage, including mobile, touch, and low-vision needs, while remaining fully backward compatible with 2.0.
 
+Where WCAG 2.2 adds AA criteria that are reasonable to meet, we adopt them too. Target size and focus appearance are the common examples, and the [Manual testing checklist](manual-testing-checklist.md) already includes them. 2.1 AA remains the commitment, and 2.2 items are an improvement on top, not a separate target.
+
 Meeting AA means, among other things:
 
 - Text and interactive elements have sufficient color contrast.
@@ -59,6 +61,10 @@ Accessibility cannot be proven by tools alone. Automated checks typically catch 
 
 This is the default toolchain for Dotfusion web projects. Each project should confirm in its own `/docs` which of these it has configured and how to run them.
 
+### Linting (write time)
+
+- `eslint-plugin-jsx-a11y` for React and Next.js projects. It catches many accessibility mistakes in the editor and in CI before code is merged, so problems are fixed at the cheapest point.
+
 ### Automated checks (CI and local)
 
 - axe-core, the engine behind most accessibility testing, run two ways: directly for component and page checks, and through our Playwright end-to-end suite so accessibility assertions live with the rest of the tests. See the [Playwright best practices](../agents/skills/playwright-best-practices/SKILL.md) skill, which documents accessibility testing with axe-core.
@@ -70,12 +76,25 @@ We run more than one engine on purpose. pa11y, axe, and Lighthouse overlap but d
 ### Manual and assistive tooling (review time)
 
 - axe DevTools or the equivalent browser extension for on-page inspection during review.
-- WAVE devtools 
-- A screen reader for real verification: VoiceOver 
+- WAVE DevTools for a visual overlay of structure, contrast, and ARIA issues.
+- A screen reader for real verification: VoiceOver on macOS and iOS, NVDA on Windows.
 - Keyboard-only navigation, which needs no tooling beyond the Tab, Shift+Tab, Enter, Space, and arrow keys.
 - Browser zoom and the device toolbar to check reflow and small-screen behavior.
 
 Treat automated results as a floor, not a pass. A green axe run with no manual testing does not mean the page is accessible.
+
+## Third-party and embedded content
+
+Some pages embed content we do not own, such as a payment or booking flow, a map, a chat widget, or a video player inside an iframe. The accessibility of that content is the vendor's responsibility, and the parent site cannot fully control it.
+
+For embedded content we:
+
+- apply the styling and configuration controls the vendor exposes,
+- give the iframe an accessible `title`,
+- test the embedded flow with a keyboard and a screen reader as part of the surrounding journey,
+- document any gaps and report them to the client and the vendor, rather than claiming conformance over code we do not own.
+
+We do not claim WCAG conformance for third-party content we cannot fix. We state clearly what is ours and what is the vendor's.
 
 ## Manual testing
 
