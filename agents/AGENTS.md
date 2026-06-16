@@ -10,19 +10,44 @@ Documentation should reduce dependency on individual memory.
 
 ## Writing style
 
-Write clearly and directly.
+This section is the canonical writing standard for this repository. The `writing-guidelines` skill applies a broader prose checklist on top of it, but where the two disagree, the rules here win. The skill is told to defer to this document.
 
-Use plain technical language.
+### Voice
 
-Avoid hype, filler, and vague statements.
+Write clearly and directly. Use plain technical language. Prefer concrete instructions over abstract advice. Do not write marketing copy.
 
-Prefer concrete instructions over abstract advice.
+Use active voice and address the reader directly with "you". First-person plural ("we", "our") is the correct voice for a team handbook: use it for shared standards and team decisions ("we use 1Password", "our standard is WCAG 2.1 AA"). This is intentional and is not a writing error.
 
-Do not write marketing copy.
+Keep paragraphs to a few sentences. Each paragraph covers one idea.
 
-Do not overuse bullet lists. Use them when they make scanning easier.
+### Words to avoid
 
-Never use em dash. Find another grammar instead. 
+- Do not use "easy", "simple", or "quick" to describe an action. They pressure the reader and read as marketing. Describe the action concretely instead ("one command", "the default settings").
+- Cut filler: "very", "just", "really".
+- Replace a vague qualifier with a specific claim when a number exists. Where no figure exists because a standard spans many projects, a hedge like "most projects" or "often" is acceptable. Do not invent a number.
+
+### Lists
+
+- Do not overuse bullet lists. Use them when they make scanning easier.
+- Introduce every list with a colon.
+- For a term-and-description list, lead with a bold lead-in followed by a period, then the explanation: `- **Lead-in.** Explanation.` This matches the existing strong docs (for example the testing docs) and is the house style.
+- Do not put a period at the end of a list item unless it is a full sentence.
+
+### Headings
+
+- Use sentence case for headings: "Configure environment variables", not "Configure Environment Variables".
+- Make subheadings descriptive enough to guess the section from the heading alone. Avoid bare generic headings like "Overview" or "Notes".
+
+### Code
+
+- Every code block has a language tag.
+- Explain in prose what a code block does. Do not drop a block without context.
+
+### Punctuation
+
+- Never use an em dash. Use a colon, comma, period, or rephrase.
+- Use straight quotes (`"` and `'`), not curly quotes. This keeps prose consistent with code blocks and safe to copy and paste. This is the repository convention and overrides any external guideline that prefers curly quotes.
+- Spell out an acronym on first use, then use the short form.
 
 ## Documentation rules
 
@@ -82,7 +107,7 @@ Bad:
 ## When generating docs from code
 
 For project READMEs specifically, use the `project-readme` skill
-(`agents/skills/project-readme/`) — it is the canonical, executable version of
+(`agents/skills/project-readme/`). It is the canonical, executable version of
 the steps below and stays in sync with our standards. The principles here apply
 to any documentation generated from a codebase:
 

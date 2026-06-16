@@ -1,4 +1,4 @@
-# Dotfusion Claude Code plugins — setup
+# Dotfusion Claude Code plugins setup
 
 Our team skills are distributed as a Claude Code plugin from this repo
 (`Dotfusion/engineering-docs`), which doubles as a plugin marketplace.
@@ -8,8 +8,8 @@ human-readable explainer that points back to it.
 ## Recommended: zero-touch org install with auto-updates
 
 An org owner registers the marketplace in managed settings so it appears under
-"Your organization", installs for everyone, and auto-updates on every push —
-no per-developer action:
+"Your organization", installs for everyone, and auto-updates on every push,
+with no per-developer action:
 
 ```json
 {
@@ -61,7 +61,7 @@ or explicitly via `/dotfusion-docs:project-readme`.
 
 ## Authoring skills locally
 
-To iterate without publishing, point Claude Code at your local checkout — the
+To iterate without publishing, point Claude Code at your local checkout. The
 local copy wins for that session:
 
 ```text

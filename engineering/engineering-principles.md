@@ -14,7 +14,7 @@ Important decisions must be recorded. The Product & Operations team invests real
 
 A decision is important when it affects architecture, delivery, operations, security, cost, team workflow, or long-term maintainability.
 
-Use an Architecture Decision Record (ADR) when a decision changes how the system is built or operated.
+Use an [Architecture Decision Record (ADR)](architecture-decision-records.md) when a decision changes how the system is built or operated.
 
 ## Keep project-specific complexity local
 
@@ -35,3 +35,10 @@ When possible, break changes into small increments that can be shipped safely.
 Deployment, monitoring, error handling, rollback, and support are part of engineering work.
 
 A feature is not complete if nobody knows how to operate it.
+
+## Related
+
+- [Architecture Decision Records](architecture-decision-records.md)
+- [Code standards](../development/code-standards.md)
+- [Development workflow](../development/development-workflow.md)
+- [Documentation standards](../agents/documentation-standards.md)

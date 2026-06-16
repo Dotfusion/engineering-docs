@@ -1,17 +1,17 @@
 # Dotfusion Engineering docs
 
-This repository contains the global engineering documentation for the team. 
+This repository contains the global engineering documentation for the team.
 
-It defines how we work across projects: engineering principles, development workflow, code standards, review expectations, testing strategy, delivery practices, documentation standards, and AI-agent instructions to help developers writing documentation.
+It defines how we work across projects: engineering principles, development workflow, code standards, review expectations, testing strategy, delivery and observability practices, security, accessibility, documentation standards, and the AI-agent instructions that help developers write and maintain documentation.
 
-Project-specific documentation belongs inside each project repository under `/docs`.
+Project-specific documentation belongs inside each project repository under `/docs`. Project docs reference these global standards and document only what is different for that project.
 
 ## Table of contents
 
 ### Engineering
 
 - [Engineering principles](engineering/engineering-principles.md)
-- [Code standards](development/code-standards.md)
+- [Architecture Decision Records](engineering/architecture-decision-records.md)
 
 ### Process
 
@@ -20,10 +20,13 @@ Project-specific documentation belongs inside each project repository under `/do
 ### Development
 
 - [Development workflow](development/development-workflow.md)
+- [Code standards](development/code-standards.md)
 
 ### Quality
 
 - [Testing strategy](quality/testing-strategy.md)
+- [Testing types](quality/testing/testing-types.md)
+- [Playwright E2E testing](quality/testing/e2e-testing.md)
 
 ### Accessibility
 
@@ -41,18 +44,49 @@ Project-specific documentation belongs inside each project repository under `/do
 ### Security
 
 - [Security guidelines](security/security-guidelines.md)
+- [How to manage .env files](security/how-to-manage-env.md)
+- [Code security scanning](security/code-security-scanning.md)
 
 ### Documentation & AI
 
 - [Documentation standards](agents/documentation-standards.md)
 - [AGENTS.md](agents/AGENTS.md)
-- [Claude Code plugins — setup](agents/PLUGIN-SETUP.md)
+- [Claude Code plugins setup](agents/PLUGIN-SETUP.md)
+
+## Claude Code plugin and skills
+
+This repository also doubles as a Claude Code plugin marketplace. The skills under
+[`agents/skills/`](agents/skills/) (README and docs generators, Playwright and React
+best practices, writing guidelines) are distributed to the team through the plugin.
+See [Claude Code plugins setup](agents/PLUGIN-SETUP.md) for installation and updates.
+
+## How these docs are organized
+
+Every standard follows the same shape so the collection reads as one handbook:
+
+1. A short statement of purpose.
+2. The current standard, described concretely.
+3. Where the boundary sits between this global default and project-specific reality.
+4. A `Related` section linking the neighbouring docs.
+
+When a standard changes for everyone, change it here. When it changes for one project, record the exception in that project's `/docs`.
+
+## Documentation model
+
+We use two documentation levels:
+
+1. **Global documentation.** Shared engineering standards, principles, workflows, and conventions. This repository.
+2. **Project documentation.** Project-specific architecture, setup, integrations, deployment details, runbooks, decisions, and exceptions to global standards. The `/docs` folder in each project repository.
+
+Project docs should reference global docs instead of duplicating them.
+
+GitBook collects these documents and organizes them in a wiki-style view for the team.
 
 ## Visibility rule
 
 This repository is intended to be **public**.
 
-### Do not include:
+### Do not include
 
 - client-specific information
 - private architecture details
@@ -62,17 +96,3 @@ This repository is intended to be **public**.
 - contractual or commercial information
 
 If a document only applies to one client or one project, it belongs in that project's private repository.
-
-## Documentation model
-
-We use two documentation levels:
-
-1. **Global documentation**  
-   Shared engineering standards, principles, workflows, and conventions.
-
-2. **Project documentation**  
-   Project-specific architecture, setup, integrations, deployment details, runbooks, decisions, and exceptions to global standards.
-
-Project docs should reference global docs instead of duplicating them.
-
-Gitbook will collect all these documents and organize them in a "wiki-style" way for our team. 

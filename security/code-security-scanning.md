@@ -14,8 +14,8 @@ We use static application security testing (SAST) to catch web vulnerabilities i
 
 We standardise on Semgrep.
 
-- **Open-source CLI (Semgrep CE)** — free, runs locally, no account required. The baseline for CI scanning.
-- **Hosted platform** — adds cross-file analysis, a larger rule library, supply-chain and secrets scanning, and a central dashboard. Free tier available for small teams.
+- **Open-source CLI (Semgrep CE).** Free, runs locally, no account required. The baseline for CI scanning.
+- **Hosted platform.** Adds cross-file analysis, a larger rule library, supply-chain and secrets scanning, and a central dashboard. Free tier available for small teams.
 
 Both run code locally by default; source is not sent anywhere unless the hosted platform is explicitly enabled.
 
@@ -37,8 +37,15 @@ Both run code locally by default; source is not sent anywhere unless the hosted 
 
 ## Optional: edit-time scanning
 
-A developer-side integration can scan code as it is written and nudge toward secure patterns. This is a convenience layer that shifts checks earlier — it complements, but does not replace, the CI gate.
+A developer-side integration can scan code as it is written and nudge toward secure patterns. This is a convenience layer that shifts checks earlier. It complements, but does not replace, the CI gate.
 
 ## Project documentation
 
 Scanner configuration, ignore rules, and any per-project exceptions belong in each project's private `/docs`, not here.
+
+## Related
+
+- [Security guidelines](security-guidelines.md)
+- [How to manage .env files](how-to-manage-env.md)
+- [CI/CD](../delivery/ci-cd.md)
+- [Development workflow](../development/development-workflow.md)

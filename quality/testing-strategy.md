@@ -41,3 +41,11 @@ Each project should document:
 - which flows are considered critical
 - what is tested manually
 - known testing gaps
+
+## Related
+
+- [Testing types](testing/testing-types.md)
+- [Playwright E2E testing](testing/e2e-testing.md)
+- [Accessibility](../accessibility/accessibility.md)
+- [Development workflow](../development/development-workflow.md)
+- [CI/CD](../delivery/ci-cd.md)

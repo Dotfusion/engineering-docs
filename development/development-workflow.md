@@ -56,3 +56,11 @@ Reviewers should look for:
 ## Documentation expectation
 
 If a change affects how the system works, how it is deployed, how it is configured, or how it is supported, documentation must be updated in the same pull request.
+
+## Related
+
+- [Engineering principles](../engineering/engineering-principles.md)
+- [Code standards](code-standards.md)
+- [CI/CD](../delivery/ci-cd.md)
+- [Testing strategy](../quality/testing-strategy.md)
+- [Architecture Decision Records](../engineering/architecture-decision-records.md)

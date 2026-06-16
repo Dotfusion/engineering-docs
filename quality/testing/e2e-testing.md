@@ -1,6 +1,6 @@
 # Playwright E2E Testing
 
-This document describes how to set up and write Playwright end-to-end tests across Dotfusion projects. It is based on the `playwright-best-practices` skill vendored in this repo — see `agents/skills/playwright-best-practices/` for the full reference library.
+This document describes how to set up and write Playwright end-to-end tests across Dotfusion projects. It is based on the `playwright-best-practices` skill vendored in this repo: see `agents/skills/playwright-best-practices/` for the full reference library.
 
 For AI assistance while writing or debugging tests, invoke the skill directly in Claude Code:
 
@@ -76,10 +76,10 @@ export default defineConfig({
 
 Key choices explained:
 
-- `retries: process.env.CI ? 2 : 0` — retries only in CI. Retrying locally hides real flakiness during development.
-- `trace: 'on-first-retry'` — captures a trace when a test retries so you can inspect failures without always paying the performance cost.
-- `forbidOnly: !!process.env.CI` — fails the CI run if a `test.only` is accidentally committed.
-- `webServer` — starts the dev server automatically if it is not already running.
+- `retries: process.env.CI ? 2 : 0`: retries only in CI. Retrying locally hides real flakiness during development.
+- `trace: 'on-first-retry'`: captures a trace when a test retries so you can inspect failures without always paying the performance cost.
+- `forbidOnly: !!process.env.CI`: fails the CI run if a `test.only` is accidentally committed.
+- `webServer`: starts the dev server automatically if it is not already running.
 
 > Reference: `core/configuration.md` in the `playwright-best-practices` skill.
 
@@ -90,7 +90,7 @@ Key choices explained:
 ```
 e2e/
   auth/
-    auth.setup.ts          # global auth setup — runs once, saves session
+    auth.setup.ts          # global auth setup: runs once, saves session
     login.spec.ts
     signup.spec.ts
   dashboard/
@@ -107,7 +107,7 @@ e2e/
     supabase.ts            # Supabase test utilities
 playwright/
   .auth/
-    user.json              # saved session state — gitignored
+    user.json              # saved session state: gitignored
 playwright.config.ts
 ```
 
@@ -130,7 +130,7 @@ test('user can delete a project from the dashboard')
 test('DELETE /api/projects returns 200')
 ```
 
-Add `playwright/.auth/` to `.gitignore` — never commit session tokens.
+Add `playwright/.auth/` to `.gitignore`. Never commit session tokens.
 
 > Reference: `core/test-suite-structure.md` in the `playwright-best-practices` skill.
 
@@ -159,10 +159,10 @@ test.describe('Dashboard', () => {
 **Web-first assertions** auto-retry until the condition is met or the timeout expires:
 
 ```typescript
-// Web-first — retries until visible or timeout
+// Web-first: retries until visible or timeout
 await expect(page.getByRole('heading')).toBeVisible();
 
-// Not web-first — evaluates once, does not retry
+// Not web-first: evaluates once, does not retry
 expect(await page.getByRole('heading').isVisible()).toBe(true);
 ```
 
@@ -171,11 +171,11 @@ Always use web-first assertions. The second form will fail on elements that appe
 **Auto-waiting:** Actions like `click()`, `fill()`, and `press()` automatically wait for the element to be visible, stable, and enabled. Do not add manual waits before actions.
 
 ```typescript
-// Bad — the timeout is a guess, not a guarantee
+// Bad: the timeout is a guess, not a guarantee
 await page.waitForTimeout(2000);
 await page.getByRole('button', { name: 'Submit' }).click();
 
-// Good — Playwright waits for the button automatically
+// Good: Playwright waits for the button automatically
 await page.getByRole('button', { name: 'Submit' }).click();
 await expect(page.getByRole('status')).toContainText('Saved');
 ```
@@ -196,7 +196,7 @@ Prefer locators that survive markup and styling refactors. Order of preference:
 | 3 | `getByPlaceholder` | Inputs without a label |
 | 4 | `getByTestId` | Components without accessible semantics |
 | 5 | `getByText` | Static display text unlikely to change |
-| 6 | CSS / XPath | Last resort — avoid |
+| 6 | CSS / XPath | Last resort: avoid |
 
 ```typescript
 // Preferred
@@ -204,7 +204,7 @@ await page.getByRole('button', { name: 'Submit' }).click();
 await page.getByLabel('Email address').fill('user@example.com');
 await page.getByTestId('save-button').click();
 
-// Avoid — brittle, breaks on style or markup changes
+// Avoid: brittle, breaks on style or markup changes
 await page.locator('.btn.btn-primary.rounded-lg').click();
 await page.locator('div:nth-child(3) > form > button:last-child').click();
 ```
@@ -256,7 +256,7 @@ The `playwright.config.ts` shown in [section 1](#1-setup--install) wires the `se
 ### Using the auth session in tests
 
 ```typescript
-// e2e/dashboard/dashboard.spec.ts — runs already authenticated
+// e2e/dashboard/dashboard.spec.ts: runs already authenticated
 import { test, expect } from '@playwright/test';
 
 test('authenticated user sees their projects', async ({ page }) => {
@@ -332,7 +332,7 @@ test('rejects invalid credentials', async ({ page }) => {
 
 ### Fixtures
 
-Best for: cross-cutting setup and teardown — seeding test data, providing pre-built page objects, injecting API clients.
+Best for: cross-cutting setup and teardown, such as seeding test data, providing pre-built page objects, and injecting API clients.
 
 ```typescript
 // e2e/fixtures/index.ts
@@ -353,7 +353,7 @@ export { expect } from '@playwright/test';
 ```
 
 ```typescript
-// e2e/auth/login.spec.ts — using the fixture
+// e2e/auth/login.spec.ts: using the fixture
 import { test, expect } from '../fixtures';
 
 test('rejects invalid credentials', async ({ loginPage, page }) => {
@@ -447,7 +447,7 @@ npx playwright test e2e/dashboard
 # Run a single file
 npx playwright test e2e/auth/login.spec.ts
 
-# Headed mode — watch the browser
+# Headed mode: watch the browser
 npx playwright test --headed
 
 # Step-through debugger
@@ -569,15 +569,15 @@ await page.getByRole('button', { name: 'Submit' }).click();
 await expect(page.getByRole('status')).toContainText('Saved');
 ```
 
-**Make tests independent — never rely on state from a previous test:**
+**Make tests independent: never rely on state from a previous test:**
 
 ```typescript
-// Bad — assumes a previous test created the item
+// Bad: assumes a previous test created the item
 test('deletes the first item', async ({ page }) => {
   await page.getByTestId('item-0').getByRole('button', { name: 'Delete' }).click();
 });
 
-// Good — creates its own data
+// Good: creates its own data
 test('deletes an item', async ({ page }) => {
   await page.goto('/items/new');
   await page.getByLabel('Name').fill('Temp item');
@@ -594,7 +594,7 @@ test('deletes an item', async ({ page }) => {
 
 ## 10. When to Use Playwright-CLI vs Handwritten Tests
 
-The `playwright-cli` skill drives the `@playwright/cli` binary — an interactive browser automation tool. It is a **scratchpad tool for exploration and codegen**, not a replacement for the test runner.
+The `playwright-cli` skill drives the `@playwright/cli` binary: an interactive browser automation tool. It is a **scratchpad tool for exploration and codegen**, not a replacement for the test runner.
 
 | Use `/dotfusion-docs:playwright-cli` when... | Write tests by hand when... |
 |----------------------------------------------|------------------------------|
@@ -619,7 +619,7 @@ npm install -g @playwright/cli@latest
 playwright-cli codegen http://localhost:3000
 ```
 
-Playwright opens a browser and an inspector window. Click around in the browser — it generates Playwright test code as you interact. Copy the generated selectors and actions into your `.spec.ts` files as a starting point, then add assertions and fixtures.
+Playwright opens a browser and an inspector window. Click around in the browser and it generates Playwright test code as you interact. Copy the generated selectors and actions into your `.spec.ts` files as a starting point, then add assertions and fixtures.
 
 > Invoke `/dotfusion-docs:playwright-cli` in Claude Code to get AI help driving the CLI interactively. Invoke `/dotfusion-docs:playwright-best-practices` to get guidance on writing, debugging, or refactoring the resulting tests.
 
@@ -661,7 +661,14 @@ Add `.github/workflows/e2e.yml` from [section 8](#8-running-tests-locally-and-in
 
 ### Step 7: Expand coverage incrementally
 
-Add tests for the next highest-risk flow. Do not aim for coverage percentage — aim for catching the failures that matter most before they reach production.
+Add tests for the next highest-risk flow. Do not aim for coverage percentage: aim for catching the failures that matter most before they reach production.
 
 > Invoke `/dotfusion-docs:playwright-best-practices` for project-specific test writing guidance.
 > Use `/dotfusion-docs:playwright-cli` with the codegen command to generate initial test scaffolding from the live UI.
+
+## Related
+
+- [Testing strategy](../testing-strategy.md)
+- [Testing types](./testing-types.md)
+- [Accessibility](../../accessibility/accessibility.md)
+- [CI/CD](../../delivery/ci-cd.md)

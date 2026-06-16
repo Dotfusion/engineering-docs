@@ -66,9 +66,9 @@ Avoid:
 
 Prefer:
 
-> “I’m implementing X in project Y. I tried approach A and B but ran into issue Z.  
-> I think option A is better because of X.  
-> Can you confirm or suggest a better approach?”
+> "I'm implementing X in project Y. I tried approach A and B but ran into issue Z.
+> I think option A is better because of X.
+> Can you confirm or suggest a better approach?"
 
 ### Documentation as default
 
@@ -132,3 +132,10 @@ When answering a repeated question:
 1. Answer the question
 2. Add or update the documentation
 3. Share the link to the documentation instead of rewriting the answer next time :)
+
+## Related
+
+- [Engineering principles](../engineering/engineering-principles.md)
+- [Documentation standards](../agents/documentation-standards.md)
+- [Architecture Decision Records](../engineering/architecture-decision-records.md)
+- [Development workflow](../development/development-workflow.md)

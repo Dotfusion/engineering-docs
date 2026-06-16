@@ -1,5 +1,5 @@
 ---
-description: Review docs/prose for Vercel Writing Guidelines compliance
+description: Review docs/prose for Dotfusion writing guidelines compliance
 argument-hint: <file-or-pattern>
 ---
 
@@ -8,6 +8,20 @@ argument-hint: <file-or-pattern>
 Review these files for compliance: $ARGUMENTS
 
 Read files, check against rules below. Output concise but comprehensive: sacrifice grammar for brevity. High signal-to-noise.
+
+## Repository context (read first)
+
+This repository is Dotfusion's internal engineering handbook, not Vercel product documentation. The base rules below come from Vercel's writing handbook and most still apply, but `agents/AGENTS.md` is the canonical writing standard for this repository. Where AGENTS.md and a rule below disagree, AGENTS.md wins. Do not report a deferred item as a violation.
+
+Specific deferrals for this repository:
+
+- **First-person team voice is correct.** "We" and "our" are the house voice for shared standards and team decisions. Do not flag them.
+- **List lead-ins use `- **Lead-in.** Explanation.`** (bold lead-in plus period), not the `- **Term**: description` colon form.
+- **Straight quotes, not curly.** Straight `"` and `'` are the convention. Do not flag them or suggest curly quotes.
+- **Cross-project hedges are allowed.** Words like "most projects", "often", or "usually" are acceptable where a standard spans many projects and no real figure exists. Do not demand a cited number for these.
+- **Vercel-product-specific rules do not apply:** `meta.contentType` and other frontmatter fields, dashboard deep links, the AI Gateway model catalog, model strings in examples, the ACME demo account, and `vercel/examples` repos. Skip the "Planning & content type", "Models in examples", "Money & pricing pages", and Vercel-link rules unless the page is genuinely about those topics.
+
+Everything else (active voice, banned words `easy`/`simple`/`quick`, filler `very`/`just`/`really`, no em dashes, sentence-case headings, descriptive headings, language tags on code blocks, acronyms spelled out, short paragraphs, AI-generated tells) applies in full.
 
 ## Rules
 

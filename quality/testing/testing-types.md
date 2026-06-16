@@ -330,3 +330,10 @@ Start with the layer closest to the code. Move up only when the behavior cannot 
 5. Does the feature need client sign-off? Include a UAT step in the pull request.
 
 Each test added at a higher level should replace several tests at a lower level, not add to them.
+
+## Related
+
+- [Testing strategy](../testing-strategy.md)
+- [Playwright E2E testing](./e2e-testing.md)
+- [Accessibility](../../accessibility/accessibility.md)
+- [CI/CD](../../delivery/ci-cd.md)

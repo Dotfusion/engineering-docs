@@ -71,3 +71,9 @@ Automated tools (axe, pa11y, Lighthouse) catch only part of this list. Treat a g
 ## Screen reader pass
 
 - [ ] A pass through the main flow with a screen reader makes sense: names, roles, states, and order are all understandable.
+
+## Related
+
+- [Accessibility](accessibility.md)
+- [Testing strategy](../quality/testing-strategy.md)
+- [Development workflow](../development/development-workflow.md)

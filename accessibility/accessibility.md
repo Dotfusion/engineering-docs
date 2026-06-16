@@ -121,3 +121,10 @@ Each project should document, in its own `/docs`:
 - which accessibility tools are actually configured and how to run them
 - any documented exceptions, with the reason
 - known accessibility gaps and the plan to close them
+
+## Related
+
+- [Manual testing checklist](manual-testing-checklist.md)
+- [Testing strategy](../quality/testing-strategy.md)
+- [Testing types](../quality/testing/testing-types.md)
+- [Playwright E2E testing](../quality/testing/e2e-testing.md)

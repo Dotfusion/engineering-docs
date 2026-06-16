@@ -14,7 +14,7 @@ Code should be:
 - easy to delete or replace
 - explicit about error handling
 - structured around business meaning, not only technical layers
-- respect Dotfusion philosophy for a composable architecture 
+- respectful of the Dotfusion philosophy of composable architecture
 
 ## Naming
 
@@ -50,8 +50,8 @@ Secrets and environment-specific values **must not be committed**.
 
 Project documentation must explain required environment variables without exposing actual values.
 
-An `.env.sample` file must exist in every project using environment variables. 
-Project documentation should also explain how to get specific env vars.
+An `.env.sample` file must exist in every project using environment variables.
+Project documentation should also explain how to get specific env vars. See [How to manage .env files](../security/how-to-manage-env.md) for the secret workflow.
 
 ## Dependency usage
 
@@ -94,6 +94,7 @@ or:
 ```bash
 npm install --legacy-peer-deps
 ```
+
 These flags hide dependency conflicts instead of solving them.
 
 If one of these flags is temporarily required, the reason must be documented in the project documentation, including:
@@ -109,7 +110,6 @@ Package versions should not drift indefinitely. Each project should define a lig
 Before major framework upgrades, especially React, Next.js, Astro, or CMS SDK upgrades, review breaking changes and test the affected flows.
 
 Dependency updates should be treated like code changes. They must be **reviewed, tested, and documented** when they affect architecture, build behavior, deployment, or runtime behavior.
-
 
 ## Error handling
 
@@ -131,12 +131,21 @@ try {
   throw new Error("Unable to process payment")
 }
 ```
+
 Over:
+
 ```js
 try {
   await processPayment()
 } catch (e) {}
 ```
 
-Error handling should distinguish between expected errors (validation, user input) and unexpected errors (system failures, bugs)
+Error handling should distinguish between expected errors (validation, user input) and unexpected errors (system failures, bugs).
 
+## Related
+
+- [Engineering principles](../engineering/engineering-principles.md)
+- [Development workflow](development-workflow.md)
+- [Security guidelines](../security/security-guidelines.md)
+- [How to manage .env files](../security/how-to-manage-env.md)
+- [Testing strategy](../quality/testing-strategy.md)

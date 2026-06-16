@@ -27,7 +27,7 @@ This document explains the *why*; the skill encodes the *how*. When a README
 convention changes, change it in the skill. Always read and verify generated
 output before committing.
 
-See [Claude Code plugins — setup](PLUGIN-SETUP.md) for how the skill reaches
+See [Claude Code plugins setup](PLUGIN-SETUP.md) for how the skill reaches
 the team.
 
 ## Required sections for project docs
@@ -67,3 +67,10 @@ Documentation should be updated when:
 - a new integration is added
 - a decision is made
 - a recurring issue is discovered
+
+## Related
+
+- [AGENTS.md](AGENTS.md)
+- [Claude Code plugins setup](PLUGIN-SETUP.md)
+- [Engineering principles](../engineering/engineering-principles.md)
+- [Architecture Decision Records](../engineering/architecture-decision-records.md)

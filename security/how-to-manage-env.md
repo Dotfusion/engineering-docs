@@ -136,3 +136,10 @@ If a secret is leaked (committed to git, pasted in chat, included in a log), tre
 5. **Review access logs.** Check the affected service for unauthorized activity during the exposure window.
 
 The key principle: assume the worst and rotate fast. A few minutes of downtime from a key rotation is far cheaper than a breach.
+
+## Related
+
+- [Security guidelines](security-guidelines.md)
+- [Code security scanning](code-security-scanning.md)
+- [Code standards](../development/code-standards.md)
+- [CI/CD](../delivery/ci-cd.md)
