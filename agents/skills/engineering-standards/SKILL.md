@@ -49,7 +49,8 @@ These do work, not just routing. Invoke them directly when the task matches:
 - `project-readme` to generate or refresh the root `README.md`.
 - `project-docs` to scaffold or audit the project's `/docs` folder.
 - `writing-guidelines` to review any prose you produce.
-- `finish-the-install` for the per-project setup of the Next.js + AgilityCMS boilerplate.
+- `finish-the-install-agility` for the per-project setup of the Next.js + AgilityCMS boilerplate.
+- `finish-the-install-storyblok` for the per-project setup of the Next.js + Storyblok boilerplate.
 
 ## Non-negotiable rules
 

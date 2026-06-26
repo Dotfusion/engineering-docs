@@ -56,8 +56,17 @@ an update always pulls the latest.
 
 ## Using a skill
 
-The README skill triggers automatically when you ask Claude to document a repo,
-or explicitly via `/dotfusion-docs:project-readme`.
+Skills trigger automatically when your request matches their description, or you
+can invoke one explicitly with `/dotfusion-docs:<skill-name>`. For example, the
+README skill runs when you ask Claude to document a repo, or via
+`/dotfusion-docs:project-readme`.
+
+Start from `engineering-standards`: it is the single entry point that routes a
+task to the standard that governs it and names the non-negotiable rules. The
+`finish-the-install-agility` and `finish-the-install-storyblok` skills complete
+per-project setup right after cloning a boilerplate. See the
+[README skills table](../README.md#claude-code-plugin-and-skills) for the full
+list.
 
 ## Authoring skills locally
 

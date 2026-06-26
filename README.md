@@ -56,9 +56,20 @@ Project-specific documentation belongs inside each project repository under `/do
 ## Claude Code plugin and skills
 
 This repository also doubles as a Claude Code plugin marketplace. The skills under
-[`agents/skills/`](agents/skills/) (README and docs generators, Playwright and React
-best practices, writing guidelines) are distributed to the team through the plugin.
+[`agents/skills/`](agents/skills/) are distributed to the team through the plugin.
 See [Claude Code plugins setup](agents/PLUGIN-SETUP.md) for installation and updates.
+
+| Skill | What it does |
+| --- | --- |
+| [`engineering-standards`](agents/skills/engineering-standards/) | Single entry point to these standards. Routes a task to the document that governs it and states the non-negotiable rules that apply to every change. |
+| [`finish-the-install-agility`](agents/skills/finish-the-install-agility/) | Completes the per-project setup of a repo cloned from the Next.js + AgilityCMS boilerplate (env vars, brand colors, fonts, metadata), then verifies the install. |
+| [`finish-the-install-storyblok`](agents/skills/finish-the-install-storyblok/) | Completes the per-project setup of a repo cloned from the Next.js + Storyblok boilerplate (region, tokens, secrets, brand colors, fonts, metadata), then verifies the install. |
+| [`project-readme`](agents/skills/project-readme/) | Generates and refreshes a project's root `README.md`. |
+| [`project-docs`](agents/skills/project-docs/) | Scaffolds and audits a project's `/docs` folder, including ADRs. |
+| [`writing-guidelines`](agents/skills/writing-guidelines/) | Reviews docs and prose against our writing style. |
+| [`playwright-best-practices`](agents/skills/playwright-best-practices/) | Patterns for writing, debugging, and structuring Playwright tests. |
+| [`playwright-cli`](agents/skills/playwright-cli/) | Spec-driven test generation and ad-hoc page inspection. |
+| [`react-best-practices`](agents/skills/react-best-practices/) | React and Next.js performance rules (skill name `vercel-react-best-practices`). |
 
 ## How these docs are organized
 
