@@ -1,15 +1,15 @@
 ---
-name: finish-the-install
+name: finish-the-install-agility
 description: Finish setting up a project cloned from the Dotfusion Next.js and AgilityCMS boilerplate. Use when the developer says "let's finish the install", "finish the setup", "set up this project", or right after cloning the template. Configures AgilityCMS environment variables, brand colors, fonts, and site metadata, then verifies the install.
 ---
 
-# Finish the install
+# Finish the install (AgilityCMS)
 
 This skill completes the per-project setup of a repository cloned from the Dotfusion Next.js and AgilityCMS boilerplate. Work through the steps in order. Ask the developer for the values you need in one batched set of questions before changing files. Never commit secrets, and never overwrite a value the developer did not ask you to change.
 
 ## Step 1: Confirm the project
 
-Check that this is the boilerplate before doing anything: `package.json` name is `boilerplate-nextjs-agilitycms` (or a renamed fork of it) and an `.env.sample` exists at the root. If it does not look like the boilerplate, stop and tell the developer.
+Check that this is the boilerplate before doing anything: `package.json` name is `boilerplate-nextjs-agilitycms` (or a renamed fork of it) and an `.env.sample` exists at the root. If it does not look like the boilerplate, stop and tell the developer. If `package.json` name is `boilerplate-nextjs-storyblok`, invoke `finish-the-install-storyblok` instead.
 
 ## Step 2: Collect the values
 
