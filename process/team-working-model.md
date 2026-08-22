@@ -130,7 +130,7 @@ When answering a repeated question:
 
 1. Answer the question
 2. Add or update the documentation
-3. Share the link to the documentation instead of rewriting the answer next time :)
+3. Share the link to the documentation instead of rewriting the answer next time.
 
 ## Related
 

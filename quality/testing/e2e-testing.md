@@ -4,6 +4,8 @@ This document is the Dotfusion default for setting up and writing Playwright end
 
 The full reference library sits in the vendored [`playwright-best-practices`](../../agents/skills/playwright-best-practices/SKILL.md) skill, which covers cases this document does not.
 
+Everything here is a default. The values a project actually uses (its `baseURL`, which browsers it runs, which flows it treats as critical, and which of these patterns it needs) belong in that project's own `/docs`, because they differ per project and this repository is public.
+
 For AI assistance while writing or debugging tests, invoke the skill directly in Claude Code:
 
 ```text
@@ -243,17 +245,23 @@ test('authenticated user sees their projects', async ({ page }) => {
 });
 ```
 
-### Environment variables
+### Test account credentials
 
-Store credentials in `.env.local` (gitignored) locally and as GitHub Actions secrets in CI:
+A test account is a real credential, so it follows the same rules as every other secret in [How to manage .env files](../../security/how-to-manage-env.md): it lives in the project's 1Password Developer environment, `.env.sample` carries the reference rather than the value, and nobody writes it into a file by hand.
+
+Add `E2E_EMAIL` and `E2E_PASSWORD` as 1Password references in `.env.sample`, then run the suite through `op` so the values are injected at process start and never land on disk:
 
 ```bash
-# .env.local
-E2E_EMAIL=test@example.com
-E2E_PASSWORD=supersecretpassword
+op run --env-file=".env.sample" -- npx playwright test
 ```
 
-Never hard-code credentials in test files. See [Run tests locally and in CI](#run-tests-locally-and-in-ci) for how to pass secrets in GitHub Actions.
+When a tool needs a real file on disk, generate it rather than typing it:
+
+```bash
+op inject -i .env.sample -o .env.local
+```
+
+In CI, pass them as GitHub Actions secrets, as the workflow in [Run tests locally and in CI](#run-tests-locally-and-in-ci) does. Never hard-code a credential in a test file, and never commit `.env.local`.
 
 > Reference: `advanced/authentication.md` and `advanced/authentication-flows.md` in the `playwright-best-practices` skill for OAuth, magic link, and multi-role patterns.
 
@@ -573,12 +581,13 @@ The `playwright-cli` skill drives the `@playwright/cli` binary: an interactive b
 
 ### Install the CLI binary
 
-This repo has no `package.json`, so install globally:
+Install it globally, since it is a developer tool rather than a project dependency:
 
 ```bash
 npm install -g @playwright/cli@latest
-# Requires Node.js 18+
 ```
+
+Use the Node version the project pins in `.nvmrc`. Node 18 reached end of life in April 2025, so treat Node 20 as the floor and prefer the version our pipelines run.
 
 ### Codegen workflow
 

@@ -18,7 +18,7 @@ Find the moment you are in. The skill column is the one to invoke, not a suggest
 | --- | --- | --- | --- |
 | You clone a new project from a boilerplate | The README and the full `/docs` set | Repository root and `/docs` | `project-readme`, then `project-docs` |
 | You join a project and the docs are missing or stale | An audit first, then the fixes | `/docs` | `project-docs` |
-| You add or rename an environment variable | The variable, what it is for, and where its value comes from | `setup.md`, `deployment.md`, and `.env.template` | `project-docs` |
+| You add or rename an environment variable | The variable, what it is for, and where its value comes from | `setup.md`, `deployment.md`, and `.env.sample` | `project-docs` |
 | You add or change an integration | What the service does, how it is configured, what breaks when it is down | `integrations.md` | `project-docs` |
 | You change the build, the deploy trigger, or rollback | The new flow, and any migration constraint on rolling back | `deployment.md` | `project-docs` |
 | You change local setup or a script | The command a new developer actually runs | `README.md` and `setup.md` | `project-readme`, `project-docs` |

@@ -42,6 +42,7 @@ Find a skill by the task in front of you, not by its name.
 | --- | --- | --- |
 | About to write or change code | [`engineering-standards`](agents/skills/engineering-standards/) | Routes the task to the standard that governs it and names the rules that block a merge. Start here. |
 | Setting up a freshly cloned project | [`finish-the-install-agility`](agents/skills/finish-the-install-agility/) [`finish-the-install-storyblok`](agents/skills/finish-the-install-storyblok/) | Completes per-project setup for the AgilityCMS or Storyblok boilerplate: environment variables, brand colors, fonts, metadata, then verifies it |
+| About to open a pull request | [`pr-review`](agents/skills/pr-review/) | Reviews a diff against the handbook: the rules that block a merge, correctness, accessibility, secrets, tests, and whether docs changed with behavior |
 | Documenting a repository | [`project-readme`](agents/skills/project-readme/) | Writes the root `README.md` from the actual codebase, asking about what it cannot determine |
 | Setting up or auditing project docs | [`project-docs`](agents/skills/project-docs/) | Scaffolds `/docs`, fills it from the code, audits it for drift, and records architecture decisions |
 | Writing any prose | [`writing-guidelines`](agents/skills/writing-guidelines/) | Reviews a document against our writing standard |
@@ -52,7 +53,7 @@ Find a skill by the task in front of you, not by its name.
 
 ## The handbook
 
-Twenty-four standards, grouped by what you are doing. If you are new, [Start here](start-here.md) routes you by situation instead.
+Every standard, grouped by what you are doing. If you are new, [Start here](start-here.md) routes you by situation instead.
 
 ### Before you write code
 

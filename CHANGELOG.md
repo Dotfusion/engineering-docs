@@ -23,6 +23,14 @@ Newest first. Date format is `YYYY-MM-DD`.
 - Pull request and issue templates, and a `CODEOWNERS` file.
 - `.gitbook.yaml` and `SUMMARY.md`, so the GitBook navigation is deliberate rather than inferred.
 
+### Added, second pass
+
+- `agents/skills/pr-review/`, a skill that reviews a diff against the handbook: the rules that block a merge, correctness, accessibility, secrets, tests, privacy, performance, and whether documentation changed with behavior. Registered in the README table, the `engineering-standards` router, `start-here.md`, and `development-workflow.md`.
+- CI now lints Dotfusion's own skills under `agents/skills/` in a second job. They had never been checked, and were the worst-offending files in the repository.
+- `scripts/lint-docs.mjs` gained a `Related`-section rule, real hard-wrap detection, a marketing-phrase rule, and a British-spelling list widened from 8 patterns to 22.
+- `agents/PLUGIN-SETUP.md` gained a troubleshooting section.
+- `Related` sections added to `agents/AGENTS.md`, `agents/PLUGIN-SETUP.md`, the root `AGENTS.md`, and five skills that lacked one.
+
 ### Fixed
 
 - `project-docs` skill contradicted the ADR standard: it named decision records `YYYY-MM-DD-title.md` where the standard specifies a zero-padded sequence number, listed three of the four statuses, omitted `Alternatives considered`, and did not state that an accepted ADR is immutable. The skill now matches `engineering/architecture-decision-records.md` and links to it.

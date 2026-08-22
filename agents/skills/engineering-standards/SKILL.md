@@ -44,15 +44,17 @@ The canonical source is [`Dotfusion/engineering-docs`](https://github.com/Dotfus
 | Documenting your work | Any change to behavior, setup, deployment, integrations, or operations | [documenting-your-work.md](https://github.com/Dotfusion/engineering-docs/blob/main/development/documenting-your-work.md) |
 | Documentation standards | Deciding what a project must document, and where | [documentation-standards.md](https://github.com/Dotfusion/engineering-docs/blob/main/agents/documentation-standards.md) |
 | Writing style | Writing any prose: docs, ADRs, PR descriptions, comments | [agents/AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/agents/AGENTS.md) (see also `writing-guidelines` skill) |
+| Changing a standard | A standard is wrong, or you have worked around it more than once | [CONTRIBUTING.md](https://github.com/Dotfusion/engineering-docs/blob/main/CONTRIBUTING.md) (add a [CHANGELOG.md](https://github.com/Dotfusion/engineering-docs/blob/main/CHANGELOG.md) entry for a changed rule) |
 | Terminology | An acronym or term is unfamiliar | [glossary.md](https://github.com/Dotfusion/engineering-docs/blob/main/engineering/glossary.md) |
 
 ## Activity-specific skills
 
-These do work, not just routing. Invoke them directly when the task matches:
+These do work rather than routing. Invoke them directly when the task matches:
 
 - `vercel-react-best-practices` for React and Next.js performance rules. Folder is `react-best-practices`; the skill name in its frontmatter is `vercel-react-best-practices`.
 - `playwright-best-practices` for Playwright test writing, debugging, and structure (covers accessibility checks with axe-core).
 - `playwright-cli` for spec-driven test generation and ad-hoc page inspection.
+- `pr-review` to review a change against these standards before it merges.
 - `project-readme` to generate or refresh the root `README.md`.
 - `project-docs` to scaffold or audit the project's `/docs` folder.
 - `writing-guidelines` to review any prose you produce.
@@ -64,14 +66,14 @@ These do work, not just routing. Invoke them directly when the task matches:
 These apply to every change. A violation blocks merge.
 
 1. **Never commit a secret.** No keys, tokens, or environment values in git. Manage secrets through 1Password (`op run` or `op inject`). See [how-to-manage-env.md](https://github.com/Dotfusion/engineering-docs/blob/main/security/how-to-manage-env.md).
-2. **Never use `--force` or `--legacy-peer-deps`.** If a peer conflict appears, stop and report it. If a workaround is unavoidable, record the reason in the project's `/docs/overrides.md`.
+2. **Never use `--force` or `--legacy-peer-deps`.** If a peer conflict appears, stop and report it. A workaround needs the developer's explicit agreement and a record in the project's `/docs/overrides.md` covering all five points [code-standards.md](https://github.com/Dotfusion/engineering-docs/blob/main/development/code-standards.md) requires: which package causes the conflict, why the conflict exists, why the workaround is acceptable for now, what the proper fix is, and when to revisit it.
 3. **`NEXT_PUBLIC_` is a public contract.** A variable with that prefix is embedded in the browser bundle forever. Confirm public-by-design before adding it. The correct fix for "this var isn't working on the client" is a server-side route, not a public prefix.
 4. **No silent error swallowing.** Every caught error is logged or surfaced with context. Distinguish expected errors from unexpected ones.
 5. **Update the docs in the same PR.** Behavior, setup, deployment, or operations change means `/docs` and `README.md` change in the same pull request. The trigger-to-file-to-skill map is in [documenting-your-work.md](https://github.com/Dotfusion/engineering-docs/blob/main/development/documenting-your-work.md).
 6. **Record significant decisions as ADRs.** Anything affecting architecture, delivery, operations, security, cost, or long-term maintainability goes under `/docs/decisions/NNNN-slug.md`. ADRs are immutable once accepted.
 7. **Mark unknowns explicitly.** Use the literal token `Unknown:` followed by what is not confirmed. Do not guess.
 8. **Pipeline is the gate.** Every PR runs install/build, lint and type-check, tests, and Semgrep SAST. High and critical SAST findings block merge. Required checks are enforced as branch-protection rules.
-9. **UI changes pass the accessibility checklist.** Target is WCAG 2.1 AA. Run `eslint-plugin-jsx-a11y`, axe-core in tests, and the manual checklist from [manual-testing-checklist.md](https://github.com/Dotfusion/engineering-docs/blob/main/accessibility/manual-testing-checklist.md).
+9. **UI changes pass the accessibility checklist.** Target is WCAG 2.1 AA, plus the WCAG 2.2 AA criteria we have adopted on top of it (target size and focus appearance). The manual checklist enforces both. Run `eslint-plugin-jsx-a11y`, axe-core in tests, and the manual checklist from [manual-testing-checklist.md](https://github.com/Dotfusion/engineering-docs/blob/main/accessibility/manual-testing-checklist.md).
 10. **Never put personal data in a log or an error report.** Log an identifier you can join against, not the request body, the form submission, or the user record. Scrub request bodies, headers, and cookies in the error tracker. See [data-and-privacy.md](https://github.com/Dotfusion/engineering-docs/blob/main/security/data-and-privacy.md).
 11. **Never use production personal data outside production.** Seed development, test, and preview environments with synthetic data.
 12. **Ask before assuming.** When a decision is not covered by a standard or by the developer's prior input, ask.
@@ -91,7 +93,7 @@ Pull requests are small enough to review with confidence. Each PR includes a cle
 
 ## Writing style for any prose
 
-Sentence-case headings. Active voice, address the reader as "you", use "we" for team standards. Straight quotes (`"` and `'`), not curly. No em dash. American spelling. No horizontal rules between sections, and no hard-wrapped paragraphs. Do not use "easy", "simple", or "quick" to describe an action. Every code block has a language tag. Run the `writing-guidelines` skill on any document you produce, and `node scripts/lint-docs.mjs` when working inside the engineering-docs repository itself.
+Sentence-case headings. Active voice, address the reader as "you", use "we" for team standards. Straight quotes (`"` and `'`), not curly. No em dash. American spelling. No horizontal rules between sections, and no hard-wrapped paragraphs. Do not use "easy", "simple", or "quick" to describe an action. <!-- lint-ignore --> Every code block has a language tag. Run the `writing-guidelines` skill on any document you produce, and `node scripts/lint-docs.mjs` when working inside the engineering-docs repository itself.
 
 ## Output
 

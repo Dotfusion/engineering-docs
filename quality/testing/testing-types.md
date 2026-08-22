@@ -17,7 +17,7 @@ For E2E setup and examples, see [e2e-testing.md](./e2e-testing.md).
 | Smoke | Critical paths only | Medium | App is not broken at deploy | Playwright (subset) |
 | Regression | Previously broken behavior | Varies | A specific bug stays fixed | Any |
 | Visual regression | Pixel-level UI rendering | Medium | Layout and style | Playwright |
-| Accessibility | WCAG compliance | Fast to medium | Screen reader and keyboard use | axe-core / Playwright |
+| Accessibility | WCAG compliance | Fast to medium | Structure, contrast, and ARIA only | axe-core / Playwright |
 | Performance | Response time and load | Slow | Speed under real conditions | k6 / Lighthouse |
 | Contract | API shape between services | Fast | Provider and consumer agree | Pact |
 | Acceptance (UAT) | Complete feature or workflow | Slow | Meets business requirements | Manual or Playwright |
@@ -230,7 +230,7 @@ On first run, Playwright creates the baseline screenshot. On subsequent runs, it
 
 An accessibility test checks whether the application is usable by people who rely on assistive technologies such as screen readers and keyboards. It also checks conformance with WCAG guidelines.
 
-**Automated checks** catch about 30 to 40 percent of accessibility issues. They are fast and should run on every pull request.
+**Automated checks** catch only a portion of accessibility issues, as [Accessibility](../../accessibility/accessibility.md) explains. They are fast, so run them on every pull request, and treat a clean run as a floor rather than a pass.
 
 ```ts
 // Using axe-core via @axe-core/playwright
@@ -301,7 +301,7 @@ Start with the layer closest to the code. Move up only when the behavior cannot 
 4. Is this a known bug I am fixing? Add a regression test at the lowest appropriate level.
 5. Does the feature need client sign-off? Include a UAT step in the pull request.
 
-Each test added at a higher level should replace several tests at a lower level, not add to them.
+Prefer the lowest level that can verify the behavior. Reach for a higher level when a lower one cannot see the thing you need to check, not as an additional layer over tests that already cover it.
 
 ## Related
 

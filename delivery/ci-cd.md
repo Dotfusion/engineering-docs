@@ -24,6 +24,8 @@ Every pull request should run an automated pipeline before it can merge. The def
 
 A pull request that fails any required check does not merge. Required checks should be enforced as branch protection rules, not left to convention.
 
+Our boilerplates gate the end-to-end and Lighthouse jobs behind a `RUN_E2E` repository variable, so those jobs are inert until it is set to `true`. Setting it is part of finishing the install, not an optional extra: a project merging pull requests without end-to-end tests does not meet this standard. Both `finish-the-install` skills now set it during verification. If a project deliberately runs without end-to-end tests, that is an exception to record in its `/docs`, with the reason.
+
 ```mermaid
 flowchart LR
     PR(["Pull request opened"]) --> I["Install and build<br/>no force, no legacy-peer-deps"]

@@ -1,6 +1,6 @@
 # Start here
 
-This handbook holds twenty-four standards. Nobody reads it front to back, and nobody should. Find your situation below.
+This handbook holds every engineering standard we work to. Nobody reads it front to back, and nobody should. Find your situation below.
 
 ## I am new to the engineering team
 
@@ -29,6 +29,7 @@ Without the skill, three documents cover most cases: [Code standards](developmen
 
 ## I am about to open a pull request
 
+- Invoke [`pr-review`](agents/skills/pr-review/) on your own change first. It checks the rules that block a merge before a reviewer has to.
 - [Development workflow](development/development-workflow.md) for what the pull request should contain.
 - [Manual testing checklist](accessibility/manual-testing-checklist.md) if the change touches the interface.
 - [Architecture Decision Records](engineering/architecture-decision-records.md) if you made a decision someone will later ask about.

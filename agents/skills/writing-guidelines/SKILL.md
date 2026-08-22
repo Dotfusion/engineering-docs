@@ -27,3 +27,9 @@ When a user provides a file or pattern argument:
 4. Output findings using the format specified there
 
 If no files specified, ask the user which files to review.
+
+## Related
+
+- [AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/agents/AGENTS.md), the canonical standard that wins on any conflict
+- [Documenting your work](https://github.com/Dotfusion/engineering-docs/blob/main/development/documenting-your-work.md)
+- [Contributing](https://github.com/Dotfusion/engineering-docs/blob/main/CONTRIBUTING.md)

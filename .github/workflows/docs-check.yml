@@ -21,8 +21,22 @@ jobs:
         with:
           node-version: 22
 
-      - name: Enforce the writing standard
+      - name: Enforce the writing standard on the handbook
         run: node scripts/lint-docs.mjs
+
+      # agents/skills/ is skipped by the directory walk because most of it is
+      # vendored third-party work under its own license. Our own skills are the
+      # executable form of these standards, so they are held to them explicitly.
+      - name: Enforce the writing standard on our own skills
+        run: |
+          node scripts/lint-docs.mjs \
+            agents/skills/engineering-standards/SKILL.md \
+            agents/skills/pr-review/SKILL.md \
+            agents/skills/project-readme/SKILL.md \
+            agents/skills/project-docs/SKILL.md \
+            agents/skills/finish-the-install-agility/SKILL.md \
+            agents/skills/finish-the-install-storyblok/SKILL.md \
+            agents/skills/writing-guidelines/SKILL.md
 
   marketplace:
     name: Plugin marketplace manifest

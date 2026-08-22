@@ -50,7 +50,7 @@ Secrets and environment-specific values **must not be committed**.
 
 Project documentation must explain required environment variables without exposing actual values.
 
-An `.env.sample` file must exist in every project using environment variables.
+An `.env.sample` file must exist in every project using environment variables. It is the committed list of variable names, never values. See [How to manage .env files](../security/how-to-manage-env.md).
 Project documentation should also explain how to get specific env vars. See [How to manage .env files](../security/how-to-manage-env.md) for the secret workflow.
 
 ## Dependency usage

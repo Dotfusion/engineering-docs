@@ -43,6 +43,8 @@ Each pull request should include:
 
 Code review is used to improve quality, share knowledge, and reduce risk.
 
+The [`pr-review`](../agents/skills/pr-review/) skill applies this list to a diff, and a developer is expected to run it on their own change before asking for a review. It reports findings; a person approves.
+
 Reviewers should look for:
 
 - correctness

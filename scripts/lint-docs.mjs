@@ -20,6 +20,15 @@ import { join, dirname, resolve, relative } from "node:path";
 const ROOT = process.cwd();
 const SKIP_DIRS = new Set([".git", "node_modules", "agents/skills"]);
 
+// Indexes, logs, and templates are not standards, so they carry no Related section.
+const NO_RELATED = new Set([
+  "README.md",
+  "SUMMARY.md",
+  "CHANGELOG.md",
+  "assets/README.md",
+  ".github/pull_request_template.md",
+]);
+
 const RULES = [
   {
     id: "em-dash",
@@ -44,13 +53,18 @@ const RULES = [
   {
     id: "british-spelling",
     test: (line) =>
-      /\b(standardise[ds]?|standardising|organisation[s]?|honour[s]?|behaviour[s]?|colour[s]?|neighbouring|neighbour[s]?|licence[sd]?|analyse[ds]?|prioritise[ds]?|recognise[ds]?)\b/i.test(line),
+      /\b(standardis(e[ds]?|ing)|organis(e[ds]?|ation[s]?|ing)|honour[s]?|behaviour[s]?|colour[s]?|neighbour(s|ing|hood)?|licence[sd]?|analys(e[ds]?|ing)|prioritis(e[ds]?|ing)|recognis(e[ds]?|ing)|judgement[s]?|centre[sd]?|defence|offence|labour|favour(ite)?[s]?|programme[s]?|catalogue[sd]?|fulfilment|travelled|cancelled|modelling|labelled|whilst|amongst|towards)\b/i.test(line),
     message: "British spelling; this handbook uses American spelling",
   },
   {
     id: "hard-wrap",
     test: (line) => /\S {2,}$/.test(line),
     message: "trailing spaces used as a line break; put the paragraph on one line",
+  },
+  {
+    id: "banned-phrase",
+    test: (line) => /\b(in order to|utili[sz]e[ds]?|leverage[ds]?|seamless(ly)?|empower(s|ed)?|best-in-class|cutting-edge|game-chang(er|ing))\b/i.test(line),
+    message: "marketing or padded wording; state the action plainly",
   },
   {
     id: "bare-link-text",
@@ -179,6 +193,39 @@ function lintFile(file) {
   });
 
   if (inFence) findings.push(`${file}:${lines.length} - unclosed code fence`);
+
+  // Hard-wrapped prose: a prose line ending mid-sentence with prose after it.
+  if (!disabled.has("hard-wrap-paragraph")) {
+    const isProse = (l) =>
+      l.trim() !== "" && !/^\s*(#|[-*+]\s|\d+\.\s|\||>|```|<)/.test(l);
+    let fence = false;
+    let comment = false;
+    let front = lines[0]?.trim() === "---";
+    for (let i = 0; i < lines.length - 1; i++) {
+      if (front) {
+        if (i > 0 && lines[i].trim() === "---") front = false;
+        continue;
+      }
+      if (lines[i].startsWith("```")) { fence = !fence; continue; }
+      if (fence) continue;
+      if (lines[i].includes("<!--") && !lines[i].includes("-->")) comment = true;
+      if (comment) {
+        if (lines[i].includes("-->")) comment = false;
+        continue;
+      }
+      if (lines[i].includes("<!-- lint-ignore -->")) continue;
+      if (isProse(lines[i]) && isProse(lines[i + 1]) && !/[.:;,!?)\]`"']$/.test(lines[i].trimEnd())) {
+        findings.push(`${file}:${i + 1} - hard-wrapped paragraph; keep each paragraph on one line`);
+      }
+    }
+  }
+
+  // Every document ends with a Related section linking its neighbours.
+  if (!disabled.has("related-section") && !NO_RELATED.has(file)) {
+    if (!/^## Related$/m.test(text)) {
+      findings.push(`${file}:${lines.length} - no "## Related" section (agents/AGENTS.md requires one)`);
+    }
+  }
 }
 
 const args = process.argv.slice(2);

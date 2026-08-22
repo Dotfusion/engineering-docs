@@ -8,7 +8,7 @@ Key rules:
 
 - Never commit a `.env`, `.env.local`, or similar file containing real values.
 - Never share secrets over Slack, email, or any chat tool. Messages are logged and not access-controlled like a secrets manager.
-- `.env.template` (or `.env.example`) files are safe to commit. They contain variable names with no values, or 1Password references.
+- `.env.sample` is safe to commit, and every project has one. It lists the variable names with no values, or with 1Password references. `.env.sample` is the name we use; a repo carrying `.env.template` or `.env.example` predates the convention and should be renamed.
 
 ## 1Password to rule them all
 
@@ -53,7 +53,7 @@ Never create a `.env` file by hand. Pull secrets from 1Password instead.
 Wrap your dev command with `op run`. Secrets are injected as environment variables at process start and never written to disk:
 
 ```bash
-op run --env-file=".env.template" -- npm run dev
+op run --env-file=".env.sample" -- npm run dev
 ```
 
 ### Option B: Materialize a local file
@@ -61,7 +61,7 @@ op run --env-file=".env.template" -- npm run dev
 When a tool requires a real `.env` file on disk (some ORMs, Docker Compose, etc.):
 
 ```bash
-op inject -i .env.template -o .env.local
+op inject -i .env.sample -o .env.local
 ```
 
 Add `.env.local` (and any real `.env*` file) to `.gitignore`. Regenerate it from 1Password whenever secrets rotate rather than editing it manually.
@@ -69,7 +69,7 @@ Add `.env.local` (and any real `.env*` file) to `.gitignore`. Regenerate it from
 ### Adding a new secret
 
 1. Add the secret to the 1Password Developer environment for the project.
-2. Add the corresponding reference to `.env.template`, never the value.
+2. Add the corresponding reference to `.env.sample`, never the value.
 3. Tell the team so everyone can re-pull.
 
 ## Public vs private environment variables
@@ -82,7 +82,7 @@ A variable without the `NEXT_PUBLIC_` prefix is only available on the server. Ne
 
 ```env
 DATABASE_URL=postgres://...
-STRIPE_SECRET_KEY=sk_live_...
+STRIPE_SECRET_KEY=your_stripe_secret_key_here
 SENDGRID_API_KEY=SG...
 ```
 
@@ -93,7 +93,7 @@ These are the variables that must be kept in 1Password. They never reach the use
 A variable prefixed with `NEXT_PUBLIC_` is embedded directly into the JavaScript bundle at build time. Every user who loads the page can read it. It appears in the compiled JS files, in browser DevTools, and in any cached or CDN-distributed copy of the build.
 
 ```env
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key_here
 NEXT_PUBLIC_ANALYTICS_ID=G-XXXXXXXX
 NEXT_PUBLIC_API_URL=https://api.example.com
 ```

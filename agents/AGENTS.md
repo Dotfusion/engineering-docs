@@ -28,7 +28,7 @@ Keep paragraphs to a few sentences. Each paragraph covers one idea.
 
 ### Spelling
 
-Use American spelling: "standardize", "organization", "color", "behavior", "honor", "analyze", "license" as both noun and verb. This is a convention, not a judgement about which is correct. Picking one keeps the handbook consistent and lets the linter enforce it.
+Use American spelling: "standardize", "organization", "color", "behavior", "honor", "analyze", "license" as both noun and verb. This is a convention, not a judgment about which is correct. Picking one keeps the handbook consistent and lets the linter enforce it.
 
 ### Lists
 
@@ -70,7 +70,9 @@ node scripts/lint-docs.mjs
 
 Two escape hatches exist for the case where a rule is being quoted rather than broken. End a line with `<!-- lint-ignore -->` to skip that line, or put `<!-- lint-disable: rule-id, rule-id -->` anywhere in a file to skip those rules in it. Use them for quotations, not for prose you would rather not fix.
 
-The rules that need human judgement stay on the pull request checklist: title case, active voice, paragraph length, and whether a claim is true.
+The rules that need human judgment stay on the pull request checklist: title case, active voice, paragraph length, and whether a claim is true.
+
+Dotfusion's own skills under `agents/skills/` are checked by the same linter, in a second job, because a skill is the executable form of a standard and is held to it. The vendored third-party skills are not, since they carry their own licenses and conventions.
 
 ## Documentation rules
 
@@ -125,17 +127,22 @@ Good:
 
 Bad:
 
-> This project leverages a robust and scalable deployment strategy designed to empower seamless delivery.
+> This project leverages a robust and scalable deployment strategy designed to empower seamless delivery. <!-- lint-ignore -->
 
 ## When generating docs from code
 
-For project READMEs specifically, use the `project-readme` skill
-(`agents/skills/project-readme/`). It is the canonical, executable version of
-the steps below and stays in sync with our standards. The principles here apply
-to any documentation generated from a codebase:
+For project READMEs specifically, use the `project-readme` skill (`agents/skills/project-readme/`). It is the canonical, executable version of the steps below and stays in sync with our standards. The principles here apply to any documentation generated from a codebase:
 
 1. Inspect package files, framework configuration, deployment configuration, and environment examples.
 2. Identify the actual stack before writing.
 3. Prefer facts from the repository over assumptions.
 4. Create a short `Unknowns` section when something cannot be confirmed.
 5. Do not describe unused tools as active.
+
+## Related
+
+- [Documentation standards](documentation-standards.md)
+- [Documenting your work](../development/documenting-your-work.md)
+- [Contributing](../CONTRIBUTING.md)
+- [Glossary](../engineering/glossary.md)
+- [Claude Code plugins setup](PLUGIN-SETUP.md)

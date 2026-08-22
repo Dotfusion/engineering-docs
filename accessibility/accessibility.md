@@ -8,7 +8,7 @@ The hands-on test steps live in a separate [Manual testing checklist](manual-tes
 
 ## Why we follow AODA
 
-Dotfusion operates in Ontario, Canada. The Accessibility for Ontarians with Disabilities Act (AODA) is provincial legislation whose goal is an accessible Ontario by 2025. Its Integrated Accessibility Standards Regulation requires that public websites and web content meet a recognized technical standard for accessibility.
+Dotfusion operates in Ontario, Canada. The Accessibility for Ontarians with Disabilities Act (AODA) is provincial legislation that set a target of an accessible Ontario. Its Integrated Accessibility Standards Regulation requires that public websites and web content meet a recognized technical standard for accessibility.
 
 We follow AODA for three reasons:
 
