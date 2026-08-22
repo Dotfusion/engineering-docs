@@ -1,0 +1,40 @@
+name: Report an error
+description: Something in these documents is wrong, out of date, broken, or unclear.
+title: "Error: "
+labels: ["correction"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Where
+      description: The file path, and the heading or line if you have it.
+      placeholder: security/how-to-manage-env.md, "Public vs private environment variables"
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem
+      options:
+        - Factually wrong
+        - Out of date
+        - Broken link
+        - Unclear or ambiguous
+        - Contradicts another document
+        - Typo or formatting
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: What is wrong
+      description: What the document says, and what you expected instead.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        Do not include client names, credentials, environment values, internal
+        URLs, or exploitable vulnerability detail. This repository and its issues
+        are public. To report a security concern, contact the team privately
+        instead of opening an issue.

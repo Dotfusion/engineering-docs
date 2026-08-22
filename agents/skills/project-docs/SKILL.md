@@ -114,10 +114,24 @@ List the findings, then offer to fix them. Do not silently rewrite docs.
 
 When a developer makes or records an architecture decision:
 
-1. Create `docs/decisions/YYYY-MM-DD-short-title.md` from the ADR template in `docs/decisions/`.
-2. Fill in: Date, Status (proposed / accepted / superseded), Context, Decision, Consequences.
-3. Keep it short and factual — capture *why*, not a tutorial.
+1. Name the file with a zero-padded sequence number and a short slug, continuing
+   from the highest existing number in `docs/decisions/`:
+   `docs/decisions/0003-move-image-processing-to-a-queue.md`. Sequence numbers,
+   not dates, so one ADR can reference another as "superseded by 0007".
+2. Fill in: Status, Date, Deciders, Context, Decision, Alternatives considered,
+   Consequences. Status is one of `Proposed`, `Accepted`,
+   `Superseded by [NNNN](NNNN-slug.md)`, or `Deprecated`.
+3. Keep it short and factual — capture *why*, not a tutorial. An ADR longer than
+   a page usually contains more than one decision.
+4. **Alternatives considered is the most valuable section.** It answers "why not
+   X?" before anyone asks. Never leave it empty.
 
+An accepted ADR is immutable. When a decision changes, write a new ADR that
+supersedes it and update the old one's status and link — never rewrite the
+original.
+
+The canonical template and the full rules are in
+[architecture-decision-records.md](https://github.com/Dotfusion/engineering-docs/blob/main/engineering/architecture-decision-records.md).
 Use an ADR when a decision changes how the system is built or operated, or
 introduces an exception to a global standard (also note the exception in
 `overrides.md`).

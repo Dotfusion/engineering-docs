@@ -16,7 +16,7 @@ Typical triggers:
 - a deliberate deviation from these global standards
 - a tradeoff where the rejected option was reasonable and someone will later ask why it was not chosen
 
-Do not write an ADR for routine, easily reversible choices. The test is whether the reasoning will be missed later. If yes, record it.
+Do not write an ADR for a routine choice that is cheap to reverse. The test is whether the reasoning will be missed later. If yes, record it.
 
 ## Where ADRs live
 

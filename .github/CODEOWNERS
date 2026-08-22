@@ -1,0 +1,11 @@
+# Every change to a global standard is reviewed by engineering leadership.
+# Replace the placeholder below with a real GitHub team or handle before this
+# file takes effect. An unresolvable owner is silently ignored by GitHub.
+#
+# To confirm: the GitHub team or handle that owns these standards.
+
+* @Dotfusion/engineering
+
+# The writing standard and the skills that enforce it change together.
+/agents/                @Dotfusion/engineering
+/.claude-plugin/        @Dotfusion/engineering

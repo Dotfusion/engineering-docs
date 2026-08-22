@@ -62,10 +62,12 @@ README skill runs when you ask Claude to document a repo, or via
 `/dotfusion-docs:project-readme`.
 
 Start from `engineering-standards`: it is the single entry point that routes a
-task to the standard that governs it and names the non-negotiable rules. The
+task to the standard that governs it and names the non-negotiable rules. If you
+are new to the handbook itself, [start-here.md](../start-here.md) routes you by
+what you are trying to do. The
 `finish-the-install-agility` and `finish-the-install-storyblok` skills complete
 per-project setup right after cloning a boilerplate. See the
-[README skills table](../README.md#claude-code-plugin-and-skills) for the full
+[skills table](../README.md#what-the-skills-do) for the full
 list.
 
 ## Authoring skills locally

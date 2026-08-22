@@ -1,31 +1,17 @@
-# Playwright E2E Testing
+# Playwright end-to-end testing
 
-This document describes how to set up and write Playwright end-to-end tests across Dotfusion projects. It is based on the `playwright-best-practices` skill vendored in this repo: see `agents/skills/playwright-best-practices/` for the full reference library.
+This document is the Dotfusion default for setting up and writing Playwright end-to-end tests. It covers the configuration, folder layout, locator strategy, authentication pattern, mocking approach, and CI setup we use across projects. For the reasoning behind what to test at this level, read [Testing strategy](../testing-strategy.md) first, then [Testing types](testing-types.md) to confirm end-to-end is the right level for the behavior in front of you.
+
+The full reference library sits in the vendored [`playwright-best-practices`](../../agents/skills/playwright-best-practices/SKILL.md) skill, which covers cases this document does not.
 
 For AI assistance while writing or debugging tests, invoke the skill directly in Claude Code:
 
-```
+```text
 /dotfusion-docs:playwright-best-practices
 /dotfusion-docs:playwright-cli
 ```
 
-## Table of Contents
-
-1. [Setup & Install](#1-setup--install)
-2. [Folder Structure & Naming Conventions](#2-folder-structure--naming-conventions)
-3. [Writing Your First E2E Test](#3-writing-your-first-e2e-test)
-4. [Locator Strategy](#4-locator-strategy)
-5. [Authentication: Supabase Session Reuse](#5-authentication-supabase-session-reuse)
-6. [Page Object Model vs Fixtures](#6-page-object-model-vs-fixtures)
-7. [API & Network Mocking](#7-api--network-mocking)
-8. [Running Tests Locally and in CI](#8-running-tests-locally-and-in-ci)
-9. [Debugging Flaky Tests](#9-debugging-flaky-tests)
-10. [When to Use Playwright-CLI vs Handwritten Tests](#10-when-to-use-playwright-cli-vs-handwritten-tests)
-11. [Adding E2E Tests to an Existing Project](#11-adding-e2e-tests-to-an-existing-project)
-
----
-
-## 1. Setup & Install
+## Set up Playwright in a new project
 
 ```bash
 npm install --save-dev @playwright/test
@@ -83,11 +69,9 @@ Key choices explained:
 
 > Reference: `core/configuration.md` in the `playwright-best-practices` skill.
 
----
+## Folder structure and naming conventions
 
-## 2. Folder Structure & Naming Conventions
-
-```
+```text
 e2e/
   auth/
     auth.setup.ts          # global auth setup: runs once, saves session
@@ -134,9 +118,7 @@ Add `playwright/.auth/` to `.gitignore`. Never commit session tokens.
 
 > Reference: `core/test-suite-structure.md` in the `playwright-best-practices` skill.
 
----
-
-## 3. Writing Your First E2E Test
+## Write your first test
 
 ```typescript
 // e2e/dashboard/dashboard.spec.ts
@@ -183,9 +165,7 @@ await expect(page.getByRole('status')).toContainText('Saved');
 > Reference: `core/assertions-waiting.md` in the `playwright-best-practices` skill.
 > Use `/dotfusion-docs:playwright-best-practices` in Claude Code to get guidance on writing new tests.
 
----
-
-## 4. Locator Strategy
+## Locator strategy
 
 Prefer locators that survive markup and styling refactors. Order of preference:
 
@@ -218,9 +198,7 @@ For `getByTestId` to work, add `data-testid` attributes to components that lack 
 
 > Reference: `core/locators.md` in the `playwright-best-practices` skill.
 
----
-
-## 5. Authentication: Supabase Session Reuse
+## Authentication: reusing a Supabase session
 
 Logging in before every test is slow and fragile. Log in once in a global setup step, save the browser's `storageState` (cookies + localStorage), and inject it into every test automatically.
 
@@ -251,7 +229,7 @@ setup('authenticate via Supabase', async ({ page }) => {
 });
 ```
 
-The `playwright.config.ts` shown in [section 1](#1-setup--install) wires the `setup` project as a dependency of `chromium`, so the saved session is injected automatically into every test. No extra imports needed in test files.
+The `playwright.config.ts` shown in [Set up Playwright in a new project](#set-up-playwright-in-a-new-project) wires the `setup` project as a dependency of `chromium`, so the saved session is injected automatically into every test. No extra imports needed in test files.
 
 ### Using the auth session in tests
 
@@ -275,13 +253,11 @@ E2E_EMAIL=test@example.com
 E2E_PASSWORD=supersecretpassword
 ```
 
-Never hard-code credentials in test files. See [section 8](#8-running-tests-locally-and-in-ci) for how to pass secrets in GitHub Actions.
+Never hard-code credentials in test files. See [Run tests locally and in CI](#run-tests-locally-and-in-ci) for how to pass secrets in GitHub Actions.
 
 > Reference: `advanced/authentication.md` and `advanced/authentication-flows.md` in the `playwright-best-practices` skill for OAuth, magic link, and multi-role patterns.
 
----
-
-## 6. Page Object Model vs Fixtures
+## Page Object Model compared with fixtures
 
 Both patterns eliminate repetition. The choice depends on what you are abstracting.
 
@@ -367,9 +343,7 @@ test('rejects invalid credentials', async ({ loginPage, page }) => {
 
 > Reference: `architecture/pom-vs-fixtures.md` and `core/page-object-model.md` in the `playwright-best-practices` skill.
 
----
-
-## 7. API & Network Mocking
+## Mocking APIs and network traffic
 
 Use `page.route()` to intercept requests and return controlled responses. This is the primary way to test error states, loading states, and edge cases that are hard to reproduce against a real backend.
 
@@ -428,9 +402,7 @@ test('sends correct payload on form submit', async ({ page }) => {
 
 > Reference: `testing-patterns/api-testing.md`, `testing-patterns/graphql-testing.md`, and `architecture/when-to-mock.md` in the `playwright-best-practices` skill.
 
----
-
-## 8. Running Tests Locally and in CI
+## Run tests locally and in CI
 
 ### Local commands
 
@@ -533,9 +505,7 @@ jobs:
 
 > Reference: `infrastructure-ci-cd/github-actions.md` and `infrastructure-ci-cd/parallel-sharding.md` in the `playwright-best-practices` skill for HTML report merging across shards and advanced CI patterns.
 
----
-
-## 9. Debugging Flaky Tests
+## Debug a flaky test
 
 Flakiness almost always comes from: race conditions (waiting for arbitrary time instead of real conditions), shared state between tests, or non-deterministic data. The trace viewer is the fastest way to diagnose any of them.
 
@@ -590,9 +560,7 @@ test('deletes an item', async ({ page }) => {
 > Reference: `debugging/flaky-tests.md` and `debugging/debugging.md` in the `playwright-best-practices` skill.
 > Invoke `/dotfusion-docs:playwright-best-practices` with the error message from a failing test for step-by-step diagnosis.
 
----
-
-## 10. When to Use Playwright-CLI vs Handwritten Tests
+## When to use playwright-cli instead of handwritten tests
 
 The `playwright-cli` skill drives the `@playwright/cli` binary: an interactive browser automation tool. It is a **scratchpad tool for exploration and codegen**, not a replacement for the test runner.
 
@@ -601,7 +569,7 @@ The `playwright-cli` skill drives the `@playwright/cli` binary: an interactive b
 | Exploring an unfamiliar page before writing tests | Tests need assertions, fixtures, or POM structure |
 | Generating test scaffolding via codegen | Tests run in CI |
 | Inspecting a selector in a live browser | Tests need `storageState` auth or API mocks |
-| Quickly verifying a UI state ad-hoc | You need retries, parallelism, and a test report |
+| Checking a UI state ad hoc | You need retries, parallelism, and a test report |
 
 ### Install the CLI binary
 
@@ -612,7 +580,7 @@ npm install -g @playwright/cli@latest
 # Requires Node.js 18+
 ```
 
-### Typical codegen workflow
+### Codegen workflow
 
 ```bash
 # Start a codegen session against your local dev server
@@ -623,9 +591,7 @@ Playwright opens a browser and an inspector window. Click around in the browser 
 
 > Invoke `/dotfusion-docs:playwright-cli` in Claude Code to get AI help driving the CLI interactively. Invoke `/dotfusion-docs:playwright-best-practices` to get guidance on writing, debugging, or refactoring the resulting tests.
 
----
-
-## 11. Adding E2E Tests to an Existing Project
+## Add end-to-end tests to an existing project
 
 Follow these steps to add Playwright to a project that already has unit or integration tests.
 
@@ -638,7 +604,7 @@ npx playwright install chromium
 
 ### Step 2: Add playwright.config.ts at the project root
 
-Copy the config from [section 1](#1-setup--install). Update `baseURL` to match the project's dev server port and `command` in `webServer` to match the start script.
+Copy the config from [Set up Playwright in a new project](#set-up-playwright-in-a-new-project). Update `baseURL` to match the project's dev server port and `command` in `webServer` to match the start script.
 
 ### Step 3: Create the directory structure
 
@@ -649,7 +615,7 @@ echo 'playwright/.auth/' >> .gitignore
 
 ### Step 4: Add the auth setup (projects using Supabase auth)
 
-Copy `e2e/auth/auth.setup.ts` from [section 5](#5-authentication-supabase-session-reuse) and update the label selectors to match the actual login UI. Add `E2E_EMAIL` and `E2E_PASSWORD` to `.env.local`.
+Copy `e2e/auth/auth.setup.ts` from [Authentication: reusing a Supabase session](#authentication-reusing-a-supabase-session) and update the label selectors to match the actual login UI. Add `E2E_EMAIL` and `E2E_PASSWORD` to `.env.local`.
 
 ### Step 5: Write one test for the highest-risk user flow
 
@@ -657,7 +623,7 @@ Identify the flow where a regression would be discovered latest or have the high
 
 ### Step 6: Add CI
 
-Add `.github/workflows/e2e.yml` from [section 8](#8-running-tests-locally-and-in-ci). Add `E2E_EMAIL` and `E2E_PASSWORD` as repository secrets under Settings > Secrets and Variables > Actions.
+Add `.github/workflows/e2e.yml` from [Run tests locally and in CI](#run-tests-locally-and-in-ci). Add `E2E_EMAIL` and `E2E_PASSWORD` as repository secrets under Settings > Secrets and Variables > Actions.
 
 ### Step 7: Expand coverage incrementally
 

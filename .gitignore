@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.idea/
+*.swp
+*.swo
+.vscode/*
+!.vscode/extensions.json
+
+# Node, for the docs check scripts
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Local environment
+.env
+.env.*
+!.env.template
+!.env.example

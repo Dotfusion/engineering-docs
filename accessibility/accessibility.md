@@ -111,7 +111,7 @@ Validation catches problems late. The following practices prevent them and raise
 - Test with a real screen reader periodically, not only with automated tools. Half a day with VoiceOver or NVDA teaches more than any score.
 - Build a small library of accessible, reviewed components and reuse it. Solving focus management or a combobox once, correctly, is better than solving it badly many times.
 - Include people with disabilities in testing when a project allows it. Real users find issues that no checklist predicts.
-- Keep learning from primary sources. The W3C WCAG quick reference and the ARIA Authoring Practices Guide are the references to trust over generic blog posts.
+- Keep learning from primary sources. The W3C "How to Meet WCAG" quick reference and the ARIA Authoring Practices Guide are the references to trust over generic blog posts. <!-- lint-ignore -->
 
 ## Documentation
 
@@ -125,6 +125,8 @@ Each project should document, in its own `/docs`:
 ## Related
 
 - [Manual testing checklist](manual-testing-checklist.md)
+- [Design handoff](../process/design-handoff.md)
+- [Performance](../quality/performance.md)
 - [Testing strategy](../quality/testing-strategy.md)
 - [Testing types](../quality/testing/testing-types.md)
 - [Playwright E2E testing](../quality/testing/e2e-testing.md)

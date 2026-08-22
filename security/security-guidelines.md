@@ -11,6 +11,7 @@ This repository is public, so this document stays high-level. Project-specific s
 | Security guidelines (this document) | The baseline principles every project follows |
 | [How to manage .env files](how-to-manage-env.md) | Secret handling with 1Password, public vs private env vars, and the leak incident process |
 | [Code security scanning](code-security-scanning.md) | Static application security testing (SAST) as a CI gate, using Semgrep |
+| [Data handling and privacy](data-and-privacy.md) | Collecting less personal data, keeping it out of logs, and what to do when it leaks |
 
 ## Principles
 
@@ -57,5 +58,7 @@ Each project should document privately, in its own `/docs`:
 
 - [How to manage .env files](how-to-manage-env.md)
 - [Code security scanning](code-security-scanning.md)
+- [Data handling and privacy](data-and-privacy.md)
+- [Incident response](../delivery/incident-response.md)
 - [Code standards](../development/code-standards.md)
 - [CI/CD](../delivery/ci-cd.md)

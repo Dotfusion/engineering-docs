@@ -1,0 +1,59 @@
+name: Docs check
+
+on:
+  pull_request:
+    paths:
+      - "**/*.md"
+      - ".claude-plugin/**"
+      - "scripts/lint-docs.mjs"
+      - ".github/workflows/docs-check.yml"
+  push:
+    branches: [main]
+
+jobs:
+  style-and-links:
+    name: Style and internal links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Enforce the writing standard
+        run: node scripts/lint-docs.mjs
+
+  marketplace:
+    name: Plugin marketplace manifest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate marketplace.json
+        run: |
+          node --input-type=module -e '
+            import { readFileSync, existsSync } from "node:fs";
+            const manifest = JSON.parse(readFileSync(".claude-plugin/marketplace.json", "utf8"));
+            if (!manifest.plugins?.length) {
+              console.error("marketplace.json declares no plugins");
+              process.exit(1);
+            }
+            for (const plugin of manifest.plugins) {
+              if (!plugin.skills) continue;
+              if (!existsSync(plugin.skills)) {
+                console.error(`plugin "${plugin.name}" points at a missing skills directory: ${plugin.skills}`);
+                process.exit(1);
+              }
+            }
+            console.log("marketplace.json is valid");
+          '
+
+      - name: Every skill declares a name and a description
+        run: |
+          fail=0
+          for skill in agents/skills/*/SKILL.md; do
+            grep -q "^name:" "$skill" || { echo "$skill is missing a name"; fail=1; }
+            grep -q "^description:" "$skill" || { echo "$skill is missing a description"; fail=1; }
+          done
+          exit $fail

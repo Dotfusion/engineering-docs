@@ -69,6 +69,8 @@ Each project should document, in its own `/docs`:
 ## Related
 
 - [CI/CD](../delivery/ci-cd.md)
+- [Incident response](../delivery/incident-response.md)
+- [Performance](../quality/performance.md)
 - [Testing strategy](../quality/testing-strategy.md)
 - [Engineering principles](../engineering/engineering-principles.md)
 - [Team working model](../process/team-working-model.md)

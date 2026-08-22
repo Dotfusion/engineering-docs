@@ -24,6 +24,24 @@ Every pull request should run an automated pipeline before it can merge. The def
 
 A pull request that fails any required check does not merge. Required checks should be enforced as branch protection rules, not left to convention.
 
+```mermaid
+flowchart LR
+    PR(["Pull request opened"]) --> I["Install and build<br/>no force, no legacy-peer-deps"]
+    I --> L["Lint and type-check<br/>includes jsx-a11y"]
+    L --> T["Tests<br/>unit, integration, component, E2E"]
+    T --> S["SAST<br/>Semgrep, diff-aware"]
+    S --> D{"All required<br/>checks pass?"}
+    D -->|"no"| X["Blocked<br/>fix and push again"]
+    D -->|"yes"| M(["Ready to merge"])
+    X --> I
+
+    style PR fill:#1f2937,stroke:#111827,color:#f9fafb
+    style M fill:#166534,stroke:#14532d,color:#f0fdf4
+    style X fill:#7f1d1d,stroke:#450a0a,color:#fef2f2
+```
+
+The stages are ordered by cost, so the cheapest check fails first. A build that will not install does not need to wait on an end-to-end suite to tell you so.
+
 ## Environments
 
 Most of our projects use three logical environments:
@@ -33,6 +51,23 @@ Most of our projects use three logical environments:
 - **Production.** The live environment serving real users.
 
 Not every project needs a dedicated staging environment. Preview environments cover much of the same need for smaller projects. Each project documents which environments it actually has.
+
+```mermaid
+flowchart LR
+    B["Feature branch"] -->|"push"| PRV["<b>Preview</b><br/>one per pull request<br/>ephemeral"]
+    PRV -->|"review and approve"| MAIN["main"]
+    MAIN -->|"merge<br/>(automatic)"| STG["<b>Staging</b><br/>where a project has one<br/>client review, UAT"]
+    STG -->|"promote<br/>(gated where the client<br/>reviews each release)"| PROD["<b>Production</b>"]
+    PROD -.->|"platform rollback"| LKG["Last known-good build"]
+    LKG -.->|"promote"| PROD
+
+    style PRV fill:#f3f4f6,stroke:#9ca3af,color:#111827
+    style STG fill:#fef3c7,stroke:#d97706,color:#111827
+    style PROD fill:#166534,stroke:#14532d,color:#f0fdf4
+    style LKG fill:#f3f4f6,stroke:#9ca3af,color:#111827
+```
+
+The deploy trigger for each arrow is a project decision, and stating it explicitly is what stops a surprise deploy.
 
 ## Deployment
 
@@ -74,6 +109,8 @@ A project is not properly documented until a developer can answer:
 ## Related
 
 - [Observability and monitoring](../observability/monitoring.md)
+- [Incident response](incident-response.md)
+- [Performance](../quality/performance.md)
 - [Code security scanning](../security/code-security-scanning.md)
 - [How to manage .env files](../security/how-to-manage-env.md)
 - [Testing strategy](../quality/testing-strategy.md)

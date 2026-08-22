@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question about working with Dotfusion
+    url: https://www.dotfusion.com
+    about: For commercial or project questions, contact us through the website rather than opening an issue here.

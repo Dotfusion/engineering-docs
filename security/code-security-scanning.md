@@ -12,7 +12,7 @@ We use static application security testing (SAST) to catch web vulnerabilities i
 
 ## Tooling
 
-We standardise on Semgrep.
+We standardize on Semgrep.
 
 - **Open-source CLI (Semgrep CE).** Free, runs locally, no account required. The baseline for CI scanning.
 - **Hosted platform.** Adds cross-file analysis, a larger rule library, supply-chain and secrets scanning, and a central dashboard. Free tier available for small teams.
@@ -30,8 +30,8 @@ Both run code locally by default; source is not sent anywhere unless the hosted 
 ## Licensing and cost
 
 - The open-source CLI (Semgrep CE) is free with no account and no contributor limit. It is always available as a zero-cost CI baseline.
-- The hosted platform's full feature set is free for organisations at or under 10 monthly contributors. Beyond that it moves to paid per-contributor licensing.
-- The free threshold is **contributor-based, not per-repository**. A contributor is counted once across the whole organisation even when they commit to many repos, and adding more repositories does not raise the count.
+- The hosted platform's full feature set is free for organizations at or under 10 monthly contributors. Beyond that it moves to paid per-contributor licensing.
+- The free threshold is **contributor-based, not per-repository**. A contributor is counted once across the whole organization even when they commit to many repos, and adding more repositories does not raise the count.
 - Practical consequence: a small team can enable scanning across **all** repositories at no cost, as long as the number of distinct people committing across everything stays within the free contributor limit.
 - A "contributor" is anyone who commits to a scanned private repo within Semgrep's recent activity window (roughly the last 30 days per their billing docs). Watch for contractors and non-deduplicated CI bots, which can push the count up.
 

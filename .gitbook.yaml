@@ -1,0 +1,10 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+
+redirects:
+  engineering/adr: engineering/architecture-decision-records.md
+  security/env: security/how-to-manage-env.md
+  quality/e2e: quality/testing/e2e-testing.md

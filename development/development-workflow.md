@@ -57,10 +57,13 @@ Reviewers should look for:
 
 If a change affects how the system works, how it is deployed, how it is configured, or how it is supported, documentation must be updated in the same pull request.
 
+[Documenting your work](documenting-your-work.md) covers what to write at each point in the work, and which skill to invoke for it. A reviewer treats a missing documentation update the same way as a missing test.
+
 ## Related
 
 - [Engineering principles](../engineering/engineering-principles.md)
 - [Code standards](code-standards.md)
 - [CI/CD](../delivery/ci-cd.md)
 - [Testing strategy](../quality/testing-strategy.md)
+- [Documenting your work](documenting-your-work.md)
 - [Architecture Decision Records](../engineering/architecture-decision-records.md)

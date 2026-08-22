@@ -4,7 +4,7 @@ These principles guide technical decisions across all projects.
 
 ## Build for maintainability
 
-We prefer clear, simple, maintainable solutions over clever ones.
+We prefer clear, maintainable solutions over clever ones.
 
 A future developer should be able to understand the system without needing the original author in the room.
 
@@ -39,6 +39,8 @@ A feature is not complete if nobody knows how to operate it.
 ## Related
 
 - [Architecture Decision Records](architecture-decision-records.md)
+- [Boilerplates and templates](boilerplates-and-templates.md)
+- [Glossary](glossary.md)
 - [Code standards](../development/code-standards.md)
 - [Development workflow](../development/development-workflow.md)
 - [Documentation standards](../agents/documentation-standards.md)

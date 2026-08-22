@@ -45,7 +45,8 @@ Each project should document:
 ## Related
 
 - [Testing types](testing/testing-types.md)
-- [Playwright E2E testing](testing/e2e-testing.md)
+- [Playwright end-to-end testing](testing/e2e-testing.md)
+- [Performance](performance.md)
 - [Accessibility](../accessibility/accessibility.md)
 - [Development workflow](../development/development-workflow.md)
 - [CI/CD](../delivery/ci-cd.md)

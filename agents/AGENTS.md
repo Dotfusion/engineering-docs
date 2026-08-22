@@ -22,9 +22,13 @@ Keep paragraphs to a few sentences. Each paragraph covers one idea.
 
 ### Words to avoid
 
-- Do not use "easy", "simple", or "quick" to describe an action. They pressure the reader and read as marketing. Describe the action concretely instead ("one command", "the default settings").
-- Cut filler: "very", "just", "really".
+- Do not use "easy", "simple", or "quick" to describe an action. <!-- lint-ignore --> They pressure the reader and read as marketing. Describe the action concretely instead ("one command", "the default settings").
+- Cut filler: "very", "just", "really". <!-- lint-ignore -->
 - Replace a vague qualifier with a specific claim when a number exists. Where no figure exists because a standard spans many projects, a hedge like "most projects" or "often" is acceptable. Do not invent a number.
+
+### Spelling
+
+Use American spelling: "standardize", "organization", "color", "behavior", "honor", "analyze", "license" as both noun and verb. This is a convention, not a judgement about which is correct. Picking one keeps the handbook consistent and lets the linter enforce it.
 
 ### Lists
 
@@ -47,7 +51,26 @@ Keep paragraphs to a few sentences. Each paragraph covers one idea.
 
 - Never use an em dash. Use a colon, comma, period, or rephrase.
 - Use straight quotes (`"` and `'`), not curly quotes. This keeps prose consistent with code blocks and safe to copy and paste. This is the repository convention and overrides any external guideline that prefers curly quotes.
-- Spell out an acronym on first use, then use the short form.
+- Spell out an acronym on first use, then use the short form. Terms used across several documents are defined once in the [Glossary](../engineering/glossary.md).
+
+### Structure and source formatting
+
+- Do not use a horizontal rule (`---`) to separate sections. A heading does the same job and appears in the navigation.
+- Do not hard-wrap a paragraph, and never use trailing spaces as a line break. Keep each paragraph on one line in the source and let the editor wrap it.
+- Anchor text names its destination. No "here", "this", "link", or a bare URL.
+- Every document ends with a `Related` section linking its neighboring documents.
+
+### Enforcement
+
+`scripts/lint-docs.mjs` enforces the rules on this page that can be checked mechanically, and verifies every internal link and anchor. It runs on every pull request. Run it before committing:
+
+```bash
+node scripts/lint-docs.mjs
+```
+
+Two escape hatches exist for the case where a rule is being quoted rather than broken. End a line with `<!-- lint-ignore -->` to skip that line, or put `<!-- lint-disable: rule-id, rule-id -->` anywhere in a file to skip those rules in it. Use them for quotations, not for prose you would rather not fix.
+
+The rules that need human judgement stay on the pull request checklist: title case, active voice, paragraph length, and whether a claim is true.
 
 ## Documentation rules
 

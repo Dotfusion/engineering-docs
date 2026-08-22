@@ -5,16 +5,14 @@ This document defines the testing types used across Dotfusion projects and expla
 For overall testing philosophy, see [testing-strategy.md](../testing-strategy.md).
 For E2E setup and examples, see [e2e-testing.md](./e2e-testing.md).
 
----
-
-## Quick reference
+## Choosing a type at a glance
 
 | Type | Scope | Speed | Confidence | Primary tool |
 |------|-------|-------|------------|--------------|
-| Unit | One function or module | Very fast | Logic only | Vitest / Jest |
+| Unit | One function or module | Milliseconds | Logic only | Vitest / Jest |
 | Integration | Multiple modules together | Fast | Wiring between parts | Vitest + Testing Library |
 | Component | One UI component in isolation | Fast | Rendering and interaction | Testing Library / Playwright CT |
-| Snapshot | Rendered output | Very fast | Prevents unintended changes | Vitest / Jest |
+| Snapshot | Rendered output | Milliseconds | Prevents unintended changes | Vitest / Jest |
 | End-to-end (E2E) | Full app in a real browser | Slow | Full user flow | Playwright |
 | Smoke | Critical paths only | Medium | App is not broken at deploy | Playwright (subset) |
 | Regression | Previously broken behavior | Varies | A specific bug stays fixed | Any |
@@ -23,8 +21,6 @@ For E2E setup and examples, see [e2e-testing.md](./e2e-testing.md).
 | Performance | Response time and load | Slow | Speed under real conditions | k6 / Lighthouse |
 | Contract | API shape between services | Fast | Provider and consumer agree | Pact |
 | Acceptance (UAT) | Complete feature or workflow | Slow | Meets business requirements | Manual or Playwright |
-
----
 
 ## Unit tests
 
@@ -63,8 +59,6 @@ describe('formatCurrency', () => {
 
 **Speed.** Milliseconds. Run on every file save.
 
----
-
 ## Integration tests
 
 An integration test verifies that two or more modules work together correctly. Dependencies are real, not mocked (or mocked only at the outer boundary, such as an external API or database).
@@ -87,8 +81,6 @@ it('returns projects for the authenticated user', async () => {
 ```
 
 **Speed.** Fast to medium. Run on every commit.
-
----
 
 ## Component tests
 
@@ -114,8 +106,6 @@ it('calls onChange when the user types', async () => {
 
 **Speed.** Fast. Run on every commit.
 
----
-
 ## Snapshot tests
 
 A snapshot test captures the rendered output of a component (HTML, JSON, or any serializable value) and fails if the output changes unexpectedly.
@@ -134,9 +124,7 @@ it('renders a warning badge', () => {
 });
 ```
 
-**Speed.** Very fast. Run on every commit.
-
----
+**Speed.** Milliseconds. Run on every commit.
 
 ## End-to-end (E2E) tests
 
@@ -163,13 +151,11 @@ test('new user completes onboarding', async ({ page }) => {
 
 **Speed.** Slow (seconds per test). Run on pull request and on main branch.
 
----
-
 ## Smoke tests
 
 A smoke test is a small subset of E2E tests that checks whether the application starts and its most critical paths are working. The name comes from hardware testing: power on the device and check that nothing catches fire.
 
-**When to run them.** Immediately after a deployment, before running the full E2E suite, or as a quick health check in staging.
+**When to run them.** Immediately after a deployment, before running the full E2E suite, or as a health check in staging.
 
 A smoke test does not test every feature. It verifies that the app loads, the user can log in, and the primary flow works.
 
@@ -202,8 +188,6 @@ npx playwright test --grep @smoke
 
 **Speed.** Medium (a few seconds). Runs immediately after deploy.
 
----
-
 ## Regression tests
 
 A regression test verifies that a specific bug, once fixed, does not come back. The term describes the intent, not a separate tool or syntax. A regression test is a unit test, integration test, or E2E test written specifically in response to a known bug.
@@ -220,8 +204,6 @@ it('handles negative amounts without throwing', () => {
 ```
 
 Add a comment referencing the issue or PR so future readers understand why the test exists.
-
----
 
 ## Visual regression tests
 
@@ -244,8 +226,6 @@ On first run, Playwright creates the baseline screenshot. On subsequent runs, it
 
 **Speed.** Medium. Run on pull request.
 
----
-
 ## Accessibility tests
 
 An accessibility test checks whether the application is usable by people who rely on assistive technologies such as screen readers and keyboards. It also checks conformance with WCAG guidelines.
@@ -265,8 +245,6 @@ test('login page has no accessibility violations', async ({ page }) => {
 ```
 
 **Manual checks** are required for anything involving focus order, screen reader announcements, and keyboard navigation. Automated tools cannot replace a real screen reader test.
-
----
 
 ## Performance tests
 
@@ -297,17 +275,13 @@ export default function () {
 
 For frontend performance, use Lighthouse or Playwright's `page.goto()` with `waitUntil: 'networkidle'` and measure Core Web Vitals.
 
----
-
 ## Contract tests
 
-A contract test verifies that two services agree on the shape of the data they exchange: the API request format, response structure, and status codes. One side defines the contract (usually the consumer), and both sides run tests to confirm they honour it.
+A contract test verifies that two services agree on the shape of the data they exchange: the API request format, response structure, and status codes. One side defines the contract (usually the consumer), and both sides run tests to confirm they honor it.
 
 **When to write them.** Projects that consume or provide APIs shared with other services or teams. Not necessary for projects that own both sides of the API.
 
 A common tool is [Pact](https://docs.pact.io/).
-
----
 
 ## Acceptance tests (UAT)
 
@@ -316,8 +290,6 @@ User acceptance testing (UAT) verifies that a feature meets the agreed business 
 UAT can be manual or automated. When it is automated, the tests are usually written in plain language using a tool like Cucumber, or they are Playwright tests that map directly to acceptance criteria.
 
 **When to do it.** Before releasing a feature that has specific acceptance criteria agreed on with a client or product owner. Include UAT notes in the pull request when relevant.
-
----
 
 ## How to choose
 

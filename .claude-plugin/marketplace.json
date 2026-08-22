@@ -1,14 +1,15 @@
 {
   "name": "dotfusion",
   "owner": {
-    "name": "Dotfusion Engineering"
+    "name": "Dotfusion Engineering",
+    "url": "https://github.com/Dotfusion/engineering-docs"
   },
-  "description": "Dotfusion internal Claude Code plugins.",
+  "description": "Dotfusion's engineering standards, as Claude Code skills.",
   "plugins": [
     {
       "name": "dotfusion-docs",
       "source": "./",
-      "description": "Skills following Dotfusion engineering standards (project README generation, and so on).",
+      "description": "Applies Dotfusion's engineering standards while you work: routes a task to the standard that governs it, generates and audits project READMEs and /docs, finishes the per-project setup of our Next.js boilerplates, and reviews prose, tests, React performance, and accessibility.",
       "skills": "./agents/skills",
       "strict": false
     }

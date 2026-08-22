@@ -38,8 +38,7 @@ That means:
 
 ## Asynchronous collaboration
 
-The team operates across time zones (Canada and Cambodia).  
-Asynchronous work is the default mode of collaboration.
+The team operates across time zones, from Canada and from the rest of the world. Asynchronous work is the default mode of collaboration.
 
 This means work should not depend on immediate responses.
 
@@ -135,6 +134,7 @@ When answering a repeated question:
 
 ## Related
 
+- [Design handoff](design-handoff.md)
 - [Engineering principles](../engineering/engineering-principles.md)
 - [Documentation standards](../agents/documentation-standards.md)
 - [Architecture Decision Records](../engineering/architecture-decision-records.md)

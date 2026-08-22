@@ -10,8 +10,8 @@ Code should be:
 
 - readable
 - consistent
-- easy to test
-- easy to delete or replace
+- straightforward to test
+- straightforward to delete or replace
 - explicit about error handling
 - structured around business meaning, not only technical layers
 - respectful of the Dotfusion philosophy of composable architecture
@@ -59,7 +59,7 @@ Prefer adding dependencies only when they provide clear value.
 
 Before adding a dependency, consider:
 
-- can this be implemented simply in-house?
+- can this be implemented in-house without much code?
 - is the dependency actively maintained?
 - does it introduce unnecessary complexity?
 
@@ -118,7 +118,7 @@ Errors must be handled explicitly.
 Do not silently swallow errors.
 
 - Always log or surface errors appropriately
-- Provide meaningful error messages (for developers, not just users)
+- Provide meaningful error messages (for developers, not only users)
 - Avoid generic catch blocks without context
 
 Prefer:
@@ -146,6 +146,7 @@ Error handling should distinguish between expected errors (validation, user inpu
 
 - [Engineering principles](../engineering/engineering-principles.md)
 - [Development workflow](development-workflow.md)
+- [Performance](../quality/performance.md)
 - [Security guidelines](../security/security-guidelines.md)
 - [How to manage .env files](../security/how-to-manage-env.md)
 - [Testing strategy](../quality/testing-strategy.md)

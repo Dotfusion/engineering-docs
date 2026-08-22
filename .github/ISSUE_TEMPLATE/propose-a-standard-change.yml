@@ -1,0 +1,50 @@
+name: Propose a change to a standard
+description: Argue for changing how we work across every project.
+title: "Standard: "
+labels: ["standard-change"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for a change that should apply to every Dotfusion project. A
+        change that applies to one project belongs in that project's own
+        repository as a documented exception, not here.
+  - type: input
+    id: document
+    attributes:
+      label: Which document
+      description: The path of the standard you want to change, or "new document".
+      placeholder: development/code-standards.md
+    validations:
+      required: true
+  - type: textarea
+    id: current
+    attributes:
+      label: What the standard says now
+      description: Quote the current rule so the change is reviewable against it.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: What it should say instead
+    validations:
+      required: true
+  - type: textarea
+    id: reasoning
+    attributes:
+      label: Why
+      description: What went wrong under the current standard, or what this unblocks. Concrete cases carry more weight than preference.
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: What this affects
+      description: Other documents, skills, boilerplates, or live projects that would need to change with it.
+  - type: checkboxes
+    id: adr
+    attributes:
+      label: Decision record
+      options:
+        - label: This change is significant enough that the reasoning should be recorded, not only the outcome
