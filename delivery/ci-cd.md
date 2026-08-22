@@ -90,6 +90,7 @@ Common hosting providers across our projects:
 
 - Vercel
 - Netlify
+- Microsoft Azure
 - Amazon Web Services
 
 Project documentation must clearly identify where each project is hosted and how its pipeline is configured.
