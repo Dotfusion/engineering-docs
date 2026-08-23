@@ -49,6 +49,7 @@
 
 ## How the team works
 
+- [Developer onboarding](process/developer-onboarding.md)
 - [Team working model](process/team-working-model.md)
 - [Design handoff](process/design-handoff.md)
 

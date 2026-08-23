@@ -40,6 +40,7 @@ Find a skill by the task in front of you, not by its name.
 
 | When you are | Use | What it does |
 | --- | --- | --- |
+| Starting your first week | [`onboarding`](agents/skills/onboarding/) | Verifies your accounts and toolchain, walks the required reading, gets your assigned project running, and finishes at your first merged pull request |
 | About to write or change code | [`engineering-standards`](agents/skills/engineering-standards/) | Routes the task to the standard that governs it and names the rules that block a merge. Start here. |
 | Setting up a freshly cloned project | [`finish-the-install-agility`](agents/skills/finish-the-install-agility/) [`finish-the-install-storyblok`](agents/skills/finish-the-install-storyblok/) | Completes per-project setup for the AgilityCMS or Storyblok boilerplate: environment variables, brand colors, fonts, metadata, then verifies it |
 | About to open a pull request | [`pr-review`](agents/skills/pr-review/) | Reviews a diff against the handbook: the rules that block a merge, correctness, accessibility, secrets, tests, and whether docs changed with behavior |
@@ -96,6 +97,7 @@ Every standard, grouped by what you are doing. If you are new, [Start here](star
 
 ### How the team works
 
+- [Developer onboarding](process/developer-onboarding.md). A new developer's first week: the accounts they need and who grants each, the tools, the required reading, and where onboarding ends.
 - [Team working model](process/team-working-model.md). Roles, asynchronous collaboration across time zones, and handoffs.
 - [Design handoff](process/design-handoff.md). What engineering needs from a design before build starts.
 

@@ -31,6 +31,17 @@ Newest first. Date format is `YYYY-MM-DD`.
 - `agents/PLUGIN-SETUP.md` gained a troubleshooting section.
 - `Related` sections added to `agents/AGENTS.md`, `agents/PLUGIN-SETUP.md`, the root `AGENTS.md`, and five skills that lacked one.
 
+### Added, onboarding pass
+
+- `process/developer-onboarding.md`, covering a new developer's first week: the four accounts and the role that grants each, the day zero tool install for a machine with nothing on it, the required reading, and the finish line. Registered in `README.md`, `SUMMARY.md`, and `start-here.md`.
+- `agents/skills/onboarding/`, a skill that runs the first week rather than describing it. It verifies accounts and toolchain instead of asking, keeps state in `~/.dotfusion/onboarding.md` so it resumes across days, holds the required reading behind a soft gate that records a skip rather than dropping it, works from the assigned project's own documentation in phase 5, and finishes at the developer's first merged pull request. It never handles a secret value.
+
+### Changed, onboarding pass
+
+- `development/code-standards.md` gained a `Toolchain` section stating that `.nvmrc` is the answer for Node, that Node 20 is the floor, and that npm is the package manager. None of this had been written down, and `quality/testing/e2e-testing.md` now points here instead of carrying the Node rule at the end of a Playwright document.
+- `agents/skills/engineering-standards/SKILL.md` gained a `Where to read the handbook` section. The plugin is the whole repository, so every handbook document is already on each developer's machine; the skill now reads from the working directory, then `${CLAUDE_PLUGIN_ROOT}`, and treats the GitHub URL as a fallback. Answers no longer need the network, and the local copy is greppable.
+- `start-here.md` now routes a new engineer to `process/developer-onboarding.md` rather than listing the four reads itself.
+
 ### Fixed
 
 - `project-docs` skill contradicted the ADR standard: it named decision records `YYYY-MM-DD-title.md` where the standard specifies a zero-padded sequence number, listed three of the four statuses, omitted `Alternatives considered`, and did not state that an accepted ADR is immutable. The skill now matches `engineering/architecture-decision-records.md` and links to it.

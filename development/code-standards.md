@@ -53,6 +53,14 @@ Project documentation must explain required environment variables without exposi
 An `.env.sample` file must exist in every project using environment variables. It is the committed list of variable names, never values. See [How to manage .env files](../security/how-to-manage-env.md).
 Project documentation should also explain how to get specific env vars. See [How to manage .env files](../security/how-to-manage-env.md) for the secret workflow.
 
+## Toolchain
+
+Every project pins its Node version in `.nvmrc`, and that file is the answer to "which Node do I use". Read it rather than assuming, because projects move at different times.
+
+Node 18 reached end of life in April 2025, so Node 20 is the floor. Prefer the version our pipelines run when a project has not pinned one yet, and add the `.nvmrc` while you are there.
+
+npm is the package manager. Both boilerplates use it, the skills that finish an install run it, and a project that needs a different one documents the reason in its own `/docs`. Do not introduce a second lockfile into a repository.
+
 ## Dependency usage
 
 Prefer adding dependencies only when they provide clear value.

@@ -587,7 +587,7 @@ Install it globally, since it is a developer tool rather than a project dependen
 npm install -g @playwright/cli@latest
 ```
 
-Use the Node version the project pins in `.nvmrc`. Node 18 reached end of life in April 2025, so treat Node 20 as the floor and prefer the version our pipelines run.
+Run it on the Node version the project pins in `.nvmrc`. The versions we build against are in [Code standards](../../development/code-standards.md#toolchain).
 
 ### Codegen workflow
 
