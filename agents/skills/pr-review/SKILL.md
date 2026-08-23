@@ -7,7 +7,7 @@ description: Review a change against Dotfusion's engineering standards before it
 
 Review a change the way a Dotfusion reviewer would: against the standards, with a file and line for every finding, ordered so the developer fixes what blocks a merge first.
 
-You are not a linter. The pipeline already runs lint, type-check, tests, and Semgrep, so do not repeat what a machine reports. Your job is the part automation cannot do: whether the change is correct, whether it violates a rule that blocks a merge, and whether it left something undocumented.
+You are not a linter. The pipeline already runs lint, type-check, and tests (and Semgrep where a project has it configured, which is optional today), so do not repeat what a machine reports. Your job is the part automation cannot do: whether the change is correct, whether it violates a rule that blocks a merge, and whether it left something undocumented.
 
 Never approve. Report findings and let a person decide.
 

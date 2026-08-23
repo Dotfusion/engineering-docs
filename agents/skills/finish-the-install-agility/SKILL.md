@@ -80,11 +80,11 @@ Run, in order, and fix anything that fails before reporting success:
 
 If the Agility values resolve from 1Password, also run `npm run build` to confirm the site builds against the instance.
 
-Then confirm the pipeline matches [CI/CD](https://github.com/Dotfusion/engineering-docs/blob/main/delivery/ci-cd.md), which requires end-to-end tests and Semgrep on every pull request:
+Then confirm the pipeline matches [CI/CD](https://github.com/Dotfusion/engineering-docs/blob/main/delivery/ci-cd.md), which requires end-to-end tests on every pull request:
 
 - Set the `RUN_E2E` repository variable to `true`. It gates the end-to-end and Lighthouse jobs, and a project that merges without them does not meet the delivery standard. This is part of the install, not an optional extra.
-- Confirm the Semgrep job runs on a pull request.
 - Set the required checks as branch-protection rules before the first feature branch exists. Adding them to a repository with open pull requests is more disruptive than adding them now.
+- Semgrep SAST is optional today, left to the project's discretion; see [Code security scanning](https://github.com/Dotfusion/engineering-docs/blob/main/security/code-security-scanning.md) if the client wants it set up.
 
 ## Step 11: Report and hand off
 

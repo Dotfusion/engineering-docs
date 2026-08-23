@@ -19,6 +19,10 @@ We standardize on Semgrep.
 
 Both run code locally by default; source is not sent anywhere unless the hosted platform is explicitly enabled.
 
+## Current status
+
+This is the target setup. Today, adoption is optional and left to each project's discretion: most projects do not have SAST wired into their pipeline yet. Set it up on a project when you can, and record the choice either way in that project's `/docs`.
+
 ## How we use it
 
 - Run on every pull request.

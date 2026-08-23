@@ -29,7 +29,7 @@ These apply to every project unless its documentation states a justified excepti
 - **Validate and sanitize all untrusted input.** Treat anything from a user, a webhook, or a third party as untrusted. Use parameterized queries; never build queries by string concatenation.
 - **Be deliberate about what reaches the browser.** Understand the difference between server-only and public environment variables before shipping (see [How to manage .env files](how-to-manage-env.md)).
 - **Protect privileged actions.** Authenticate and authorize every admin interface and every action that changes or exposes data. Do not depend on a route being hidden.
-- **Keep dependencies current and scanned.** Maintain dependencies (see [Code standards](../development/code-standards.md)) and run SAST on every pull request (see [Code security scanning](code-security-scanning.md)).
+- **Keep dependencies current and scanned.** Maintain dependencies (see [Code standards](../development/code-standards.md)). Running SAST on every pull request is the target state; today it is optional per project (see [Code security scanning](code-security-scanning.md)).
 - **Manage access over its full lifecycle.** Grant access when someone joins a project and remove it when they leave or no longer need it. Stale access is a common and avoidable risk.
 - **Prefer established, audited libraries for security primitives.** Do not hand-roll authentication, session handling, password hashing, or cryptography.
 

@@ -20,7 +20,7 @@ Every pull request should run an automated pipeline before it can merge. The def
 1. **Install and build.** Dependencies install cleanly (no `--force` or `--legacy-peer-deps`, per [Code standards](../development/code-standards.md)) and the project builds.
 2. **Lint and type-check.** Static analysis, formatting, and type checks run and must pass. This includes `eslint-plugin-jsx-a11y` where applicable (see [Accessibility](../accessibility/accessibility.md)).
 3. **Tests.** The project's unit, integration, and component tests run. End-to-end and smoke tests run on pull request and on the main branch (see [Testing strategy](../quality/testing-strategy.md) and [Testing types](../quality/testing/testing-types.md)).
-4. **Security scanning.** Static application security testing runs on every pull request and fails the build on high or critical findings (see [Code security scanning](../security/code-security-scanning.md)).
+4. **Security scanning.** Static application security testing, failing the build on high or critical findings (see [Code security scanning](../security/code-security-scanning.md)). This is the target state. Today, SAST is optional and left to each project's discretion rather than a required stage, and most projects do not have it wired in yet.
 
 A pull request that fails any required check does not merge. Required checks should be enforced as branch protection rules, not left to convention.
 
@@ -31,7 +31,7 @@ flowchart LR
     PR(["Pull request opened"]) --> I["Install and build<br/>no force, no legacy-peer-deps"]
     I --> L["Lint and type-check<br/>includes jsx-a11y"]
     L --> T["Tests<br/>unit, integration, component, E2E"]
-    T --> S["SAST<br/>Semgrep, diff-aware"]
+    T --> S["SAST<br/>Semgrep, diff-aware<br/>optional today"]
     S --> D{"All required<br/>checks pass?"}
     D -->|"no"| X["Blocked<br/>fix and push again"]
     D -->|"yes"| M(["Ready to merge"])
