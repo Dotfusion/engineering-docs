@@ -4,14 +4,9 @@ This handbook holds every engineering standard we work to. Nobody reads it front
 
 ## I am new to the engineering team
 
-Read these four, in order. They cover how we work before they cover what we build.
+[Developer onboarding](process/developer-onboarding.md) covers the whole first week: the four accounts you need and who grants each, the tools to install on a new machine, the four documents to read, and where onboarding ends. Start there rather than here.
 
-1. [Engineering principles](engineering/engineering-principles.md). The ideas everything else follows from.
-2. [Team working model](process/team-working-model.md). Roles, and how a team spread across Canada and the rest of the world makes progress without waiting on each other.
-3. [Development workflow](development/development-workflow.md). Branching, pull requests, and what a reviewer will ask you about.
-4. [How to manage .env files](security/how-to-manage-env.md). Set up 1Password before your first project, because you will need it on day one.
-
-Then install the skills from the [marketplace section](README.md#install-our-claude-code-skills), so you meet the rest of this handbook during the work instead of when you remember to look for it.
+The short version, if you have a laptop and nothing else on it: install the Claude desktop app, install the command line client from inside it, add our plugin, and run `/dotfusion-docs:onboarding`. The skill walks the rest, including the reading, and tells you what your machine is missing instead of leaving you to find out.
 
 Keep the [Glossary](engineering/glossary.md) open for the first week. It defines every acronym the handbook uses, including AODA, WCAG, SAST, ADR, POUR, and UAT.
 

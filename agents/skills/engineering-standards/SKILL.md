@@ -7,15 +7,27 @@ description: Authoritative pointer to Dotfusion's engineering standards. Use bef
 
 This skill is the single entry point to Dotfusion's engineering standards. It does not duplicate the standards. It tells you which document applies to the task in front of you and states the rules you must never violate.
 
-The canonical source is [`Dotfusion/engineering-docs`](https://github.com/Dotfusion/engineering-docs). Read the linked document before acting on a topic, then return here for the next one.
+The canonical source is [`Dotfusion/engineering-docs`](https://github.com/Dotfusion/engineering-docs). Read the governing document before acting on a topic, then return here for the next one. Read it from disk, per "Where to read the handbook" below.
 
 ## How to use this skill
 
 1. Identify the task type (new code, refactor, dependency change, env change, CI change, UI change, infrastructure change, decision, doc change).
 2. Open the standards row below that matches the task.
-3. Apply the rules from the linked document.
+3. Read that document, resolving its path with the order in "Where to read the handbook", and apply its rules.
 4. Confirm the non-negotiable rules are not violated.
 5. If a decision is not covered, ask the developer. Do not invent defaults.
+
+## Where to read the handbook
+
+Every path in the table below is relative to the root of `engineering-docs`. Resolve it in this order and stop at the first one that works. Do not fetch a URL for a file you already have.
+
+1. **The working directory**, when it is a checkout of this repository. Confirm it by the presence of `.claude-plugin/marketplace.json` at the root rather than by a folder name, since a client project can also contain a `security/` folder.
+2. **The installed plugin**, at `${CLAUDE_PLUGIN_ROOT}/<path>`. The plugin is this whole repository, not only `agents/skills`, so every handbook document is on the developer's machine and tracks `main` wherever auto-update is on.
+3. **The network**, only when neither of the above resolves: `https://raw.githubusercontent.com/Dotfusion/engineering-docs/main/<path>`.
+
+Two things this buys, beyond speed. Answers keep working with no network, which matters behind a client VPN. And the handbook becomes searchable: a grep across the local copy answers "where does the handbook say X" with a file and a line, which is the correct way to answer a question that does not map onto one row of the table.
+
+The GitHub links in the table are for a human reading this skill on GitHub, and for tier three. They are not the first place to look.
 
 ## Standards index
 
