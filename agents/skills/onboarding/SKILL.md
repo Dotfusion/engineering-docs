@@ -1,6 +1,6 @@
 ---
 name: onboarding
-description: Runs a new Dotfusion developer's first week end to end: verifies their four accounts, verifies and fixes the toolchain on a new Mac, sets up 1Password access, walks the required reading behind a soft gate, gets their assigned client project running locally, and finishes at their first merged pull request. Use when a developer says they are new, "onboard me", "it's my first day", "I just joined", "set up my machine", "what do I do first", or when someone asks how to onboard a new developer. For Dotfusion engineering hires only; point partners and outsourced developers at engineering-standards instead.
+description: Runs a new Dotfusion developer's first week end to end. Verifies their four accounts, verifies and fixes the toolchain on a new Mac, sets up 1Password access, walks the required reading behind a soft gate, gets their assigned client project running locally, and finishes at their first merged pull request. Use when a developer says they are new, "onboard me", "it's my first day", "I just joined", "set up my machine", "what do I do first", or when someone asks how to onboard a new developer. For Dotfusion engineering hires only; point partners and outsourced developers at engineering-standards instead.
 ---
 
 # Onboarding a new developer

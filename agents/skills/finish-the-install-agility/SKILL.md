@@ -1,6 +1,6 @@
 ---
 name: finish-the-install-agility
-description: Finish setting up an AgilityCMS project cloned from the Dotfusion Next.js and AgilityCMS boilerplate (package name boilerplate-nextjs-agilitycms). Use when the developer says "let's finish the install", "finish the setup", "set up this project", or right after cloning the template, AND the repository uses AgilityCMS. Check package.json first: for boilerplate-nextjs-storyblok use finish-the-install-storyblok instead. Sets up secrets in 1Password, then the Agility region and locale, brand colors, fonts, and site metadata, then verifies the install and the pipeline.
+description: Finish setting up an AgilityCMS project cloned from the Dotfusion Next.js and AgilityCMS boilerplate (package name boilerplate-nextjs-agilitycms). Use when the developer says "let's finish the install", "finish the setup", "set up this project", or right after cloning the template, AND the repository uses AgilityCMS. Check package.json first, and for boilerplate-nextjs-storyblok use finish-the-install-storyblok instead. Sets up secrets in 1Password, then the Agility region and locale, brand colors, fonts, and site metadata, then verifies the install and the pipeline.
 ---
 
 # Finish the install (AgilityCMS)

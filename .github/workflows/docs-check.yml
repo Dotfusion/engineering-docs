@@ -26,17 +26,23 @@ jobs:
 
       # agents/skills/ is skipped by the directory walk because most of it is
       # vendored third-party work under its own license. Our own skills are the
-      # executable form of these standards, so they are held to them explicitly.
+      # executable form of these standards, so they are held to them.
+      #
+      # The exclusion list is vendored skills, not an inclusion list of ours, so
+      # a new Dotfusion skill is checked from its first commit. Adding a name
+      # here is a deliberate decision to exempt third-party work; forgetting to
+      # add one of ours is not possible.
       - name: Enforce the writing standard on our own skills
         run: |
-          node scripts/lint-docs.mjs \
-            agents/skills/engineering-standards/SKILL.md \
-            agents/skills/pr-review/SKILL.md \
-            agents/skills/project-readme/SKILL.md \
-            agents/skills/project-docs/SKILL.md \
-            agents/skills/finish-the-install-agility/SKILL.md \
-            agents/skills/finish-the-install-storyblok/SKILL.md \
-            agents/skills/writing-guidelines/SKILL.md
+          vendored="accessibility playwright-best-practices playwright-cli react-best-practices"
+          files=""
+          for skill in agents/skills/*/SKILL.md; do
+            name=$(basename "$(dirname "$skill")")
+            case " $vendored " in *" $name "*) continue ;; esac
+            files="$files $skill"
+          done
+          echo "Checking:$files"
+          node scripts/lint-docs.mjs $files
 
   marketplace:
     name: Plugin marketplace manifest
@@ -71,3 +77,38 @@ jobs:
             grep -q "^description:" "$skill" || { echo "$skill is missing a description"; fail=1; }
           done
           exit $fail
+
+      # A skill whose frontmatter is not valid YAML does not load, and nothing
+      # reports it: the skill is silently absent. The failure that bit us was an
+      # unquoted value containing ": ", which YAML reads as a nested mapping.
+      - name: Every skill's frontmatter parses
+        run: |
+          node --input-type=module -e '
+            import { readFileSync } from "node:fs";
+            import { globSync } from "node:fs";
+            let failed = 0;
+            for (const file of globSync("agents/skills/*/SKILL.md")) {
+              const text = readFileSync(file, "utf8");
+              const match = /^---\n([\s\S]*?)\n---\n/.exec(text);
+              if (!match) {
+                console.error(`${file}: no frontmatter block`);
+                failed = 1;
+                continue;
+              }
+              for (const line of match[1].split("\n")) {
+                const kv = /^([A-Za-z0-9_-]+):\s*(.*)$/.exec(line);
+                if (!kv) continue;
+                const value = kv[2].trim();
+                const quoted = value.startsWith("\"") || value.startsWith("'"'"'");
+                if (!quoted && value.includes(": ")) {
+                  console.error(
+                    `${file}: "${kv[1]}" is an unquoted value containing ": ", which YAML reads as a nested mapping. ` +
+                    `Rephrase with a comma or a period, or quote the whole value.`
+                  );
+                  failed = 1;
+                }
+              }
+            }
+            if (!failed) console.log("Every skill frontmatter parses.");
+            process.exit(failed);
+          '

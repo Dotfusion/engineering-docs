@@ -31,6 +31,11 @@ Newest first. Date format is `YYYY-MM-DD`.
 - `agents/PLUGIN-SETUP.md` gained a troubleshooting section.
 - `Related` sections added to `agents/AGENTS.md`, `agents/PLUGIN-SETUP.md`, the root `AGENTS.md`, and five skills that lacked one.
 
+### Fixed, onboarding pass
+
+- Five skills had frontmatter that is not valid YAML. Their `description` was an unquoted value containing `": "`, which YAML reads as a nested mapping, so the block failed to parse and the skill did not load. `onboarding`, `project-docs`, `project-readme`, `finish-the-install-agility`, and `finish-the-install-storyblok` were affected, four of them since they were written. Descriptions rephrased with a comma or a period.
+- `docs-check.yml` now parses every skill's frontmatter and fails on that pattern, because a skill that does not load is silently absent rather than reported. It also lints our own skills by excluding the vendored ones by name instead of listing ours, so a new Dotfusion skill is checked from its first commit.
+
 ### Added, onboarding pass
 
 - `process/developer-onboarding.md`, covering a new developer's first week: the four accounts and the role that grants each, the day zero tool install for a machine with nothing on it, the required reading, and the finish line. Registered in `README.md`, `SUMMARY.md`, and `start-here.md`.

@@ -1,6 +1,6 @@
 ---
 name: project-docs
-description: Create and maintain a project's `/docs` folder following Dotfusion's documentation standards. Use this skill whenever a developer wants to set up project documentation, document a project, fill in or refresh `/docs`, record an architecture decision (ADR), or check whether the docs still match the code: even when phrased loosely ("the docs are stale", "document this project", "set up docs", "write a runbook", "we decided to switch to X"). It scaffolds `/docs` from the team's template-project repo, fills docs from the actual codebase, audits docs against the code for drift, and records ADRs. Prefer this over writing project docs from memory.
+description: Create and maintain a project's `/docs` folder following Dotfusion's documentation standards. Use this skill whenever a developer wants to set up project documentation, document a project, fill in or refresh `/docs`, record an architecture decision (ADR), or check whether the docs still match the code, even when phrased loosely ("the docs are stale", "document this project", "set up docs", "write a runbook", "we decided to switch to X"). It scaffolds `/docs` from the team's template-project repo, fills docs from the actual codebase, audits docs against the code for drift, and records ADRs. Prefer this over writing project docs from memory.
 ---
 
 # Project documentation (`/docs`)

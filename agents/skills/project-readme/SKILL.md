@@ -1,6 +1,6 @@
 ---
 name: project-readme
-description: Generate a thorough, project-specific README for a software repository, following our team's documentation standards. Use this skill whenever a developer wants to create, rewrite, or update a README, document a repo for onboarding, or asks for setup/deployment docs: even when they phrase it loosely ("document this repo", "the README is stale", "write setup instructions"). It analyzes the actual codebase, asks the developer about anything it cannot determine from the code rather than guessing, and bakes in team conventions like 1Password-based secret management. Prefer this over writing a README from memory.
+description: Generate a thorough, project-specific README for a software repository, following our team's documentation standards. Use this skill whenever a developer wants to create, rewrite, or update a README, document a repo for onboarding, or asks for setup/deployment docs, even when they phrase it loosely ("document this repo", "the README is stale", "write setup instructions"). It analyzes the actual codebase, asks the developer about anything it cannot determine from the code rather than guessing, and bakes in team conventions like 1Password-based secret management. Prefer this over writing a README from memory.
 ---
 
 # Project README

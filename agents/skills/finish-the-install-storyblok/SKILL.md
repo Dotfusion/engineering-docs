@@ -1,6 +1,6 @@
 ---
 name: finish-the-install-storyblok
-description: Finish setting up a Storyblok project cloned from the Dotfusion Next.js and Storyblok boilerplate (package name boilerplate-nextjs-storyblok). Use when the developer says "let's finish the install", "finish the setup", "set up this project", or right after cloning the template, AND the repository uses Storyblok. Check package.json first: for boilerplate-nextjs-agilitycms use finish-the-install-agility instead. Sets up secrets in 1Password, then the Storyblok region and space, brand colors, fonts, and site metadata, then verifies the install and the pipeline.
+description: Finish setting up a Storyblok project cloned from the Dotfusion Next.js and Storyblok boilerplate (package name boilerplate-nextjs-storyblok). Use when the developer says "let's finish the install", "finish the setup", "set up this project", or right after cloning the template, AND the repository uses Storyblok. Check package.json first, and for boilerplate-nextjs-agilitycms use finish-the-install-agility instead. Sets up secrets in 1Password, then the Storyblok region and space, brand colors, fonts, and site metadata, then verifies the install and the pipeline.
 ---
 
 # Finish the install (Storyblok)
