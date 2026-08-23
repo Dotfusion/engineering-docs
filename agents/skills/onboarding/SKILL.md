@@ -114,9 +114,11 @@ Tell them the rule that matters most: never create a `.env` file by hand, and ne
 
 ## Phase 4: the required reading
 
-Four documents. After each one, ask a single question that the document answers, and that a developer who skimmed it would get wrong. Vary the question rather than reading from a script, and aim it at what they will hit this week.
+Four documents. After each one, ask at least one question that the document answers, and that a developer who skimmed it would get wrong. Ask more than one when a single question would not tell you whether they understood it rather than just pattern-matched a keyword. Vary the questions rather than reading from a script, and aim them at what the developer will hit this week.
 
-| Document | What the question must test |
+Every question offers "I don't know" as a real option next to the others, at no cost to pick. A guess when unsure teaches you nothing; "I don't know" tells you exactly where to point them. Offer it plainly rather than as a last resort for when nothing else fits.
+
+| Document | What the questions must test |
 | --- | --- |
 | [Engineering principles](https://github.com/Dotfusion/engineering-docs/blob/main/engineering/engineering-principles.md) | Which principle decides a concrete tradeoff they will face, not whether they can list the principles |
 | [Team working model](https://github.com/Dotfusion/engineering-docs/blob/main/process/team-working-model.md) | Have them write a real question the way the document says to ask one, with context, what they tried, links, and what they need |
@@ -127,7 +129,7 @@ This is a soft gate. Before moving on, state what is unread and why it matters f
 
 Treat the last row as the one worth holding the line on. A developer who cannot answer it is about to do phase 5 against a live client system.
 
-When an answer is wrong, do not correct and move on. Name the section that should have taught it, add a finding, and give them the passage.
+No wrong answer here is a failure, and nothing about giving one, or picking "I don't know", should make a developer feel behind: a gap found now is a gap avoided in phase 5, against a live client system. When an answer is wrong or unknown, do not correct and move on. Name the section that should have taught it, add a finding, and give them the passage. Offer to let them reread it and try again rather than handing over the correct answer outright. A developer who would rather keep moving without retrying can, but the offer to retry stands every time.
 
 ## Phase 5: the project running locally
 
