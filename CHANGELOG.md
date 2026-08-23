@@ -35,6 +35,7 @@ Newest first. Date format is `YYYY-MM-DD`.
 
 - Five skills had frontmatter that is not valid YAML. Their `description` was an unquoted value containing `": "`, which YAML reads as a nested mapping, so the block failed to parse and the skill did not load. `onboarding`, `project-docs`, `project-readme`, `finish-the-install-agility`, and `finish-the-install-storyblok` were affected, four of them since they were written. Descriptions rephrased with a comma or a period.
 - `docs-check.yml` now parses every skill's frontmatter and fails on that pattern, because a skill that does not load is silently absent rather than reported. It also lints our own skills by excluding the vendored ones by name instead of listing ours, so a new Dotfusion skill is checked from its first commit.
+- `agents/skills/onboarding/SKILL.md` had two checks that did not verify what they claimed. `gh auth status` never lists organization membership, so it could not confirm the `Dotfusion` org appeared; phase 1 now uses `gh api user/orgs --jq '.[].login'`. `op whoami` can report "account is not signed in" while `op vault list` and `op account list` both succeed, so it was demoted from a pass condition to a secondary signal; `op vault list` is now the check for secrets access in phases 1 and 3.
 
 ### Added, onboarding pass
 

@@ -54,9 +54,8 @@ Four accounts gate the week. Check all four before fixing any of them, because t
 
 | Account | Check | Pass condition | Who to ask |
 | --- | --- | --- | --- |
-| GitHub organization | `gh auth status` | Authenticated, and the `Dotfusion` organization appears | The engineering manager |
+| GitHub organization | `gh api user/orgs --jq '.[].login'` | `Dotfusion` appears in the list | The engineering manager |
 | Repository access | `gh repo view <assigned repo>` | The repository resolves | Their team lead |
-| 1Password | `op whoami` | Returns an account | The engineering manager |
 | Vault access | `op vault list` | At least one vault is listed | The engineering manager |
 | Jira | The developer opens their board | They can see work assigned to them | The workspace administrator |
 | Google Workspace | The developer signs in | They can sign in | The workspace administrator |
@@ -99,7 +98,7 @@ Do not configure global npm flags, and do not install project dependencies yet.
 
 This phase proves the developer can reach secrets without any value entering the conversation.
 
-Confirm `op --version` and `op whoami` both succeed, and that `op vault list` shows at least one vault. If `op whoami` fails while `op --version` works, the desktop integration is off: send them back to the 1Password app, Settings, Developer.
+Confirm `op --version` succeeds and `op vault list` shows at least one vault: that is the real proof secrets are reachable. `op whoami` is not reliable for this: it can report "account is not signed in" even when `op vault list` and `op account list` both work, so treat it as a secondary signal, not the check itself. If `op vault list` returns nothing or errors, the desktop integration is off: send them back to the 1Password app, Settings, Developer.
 
 Explain the two workflows from [How to manage .env files](https://github.com/Dotfusion/engineering-docs/blob/main/security/how-to-manage-env.md), and say which one they will use in phase 5:
 
