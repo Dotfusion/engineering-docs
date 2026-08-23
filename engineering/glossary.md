@@ -52,7 +52,7 @@ Terms are grouped by the part of the work they belong to. Where a term has its o
 
 ## Security and data
 
-- **SAST (static application security testing).** Scanning source code for vulnerable patterns without running it. Semgrep is our standard tool for it as a pull request gate, though adoption is optional today. See [Code security scanning](../security/code-security-scanning.md).
+- **SAST (static application security testing).** Scanning source code for vulnerable patterns without running it. Semgrep is our standard tool for it as a pull request gate, though adoption is optional today: it is a cost the client has to agree to. See [Code security scanning](../security/code-security-scanning.md).
 - **Secret.** Any value that grants access to a real system: an API key, a database credential, a signing key, a service token.
 - **Secrets manager.** The system of record for secrets. Ours is 1Password. See [How to manage .env files](../security/how-to-manage-env.md).
 - **Rotation.** Revoking a credential and issuing a replacement, done immediately whenever a secret may have been exposed.

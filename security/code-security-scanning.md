@@ -21,7 +21,7 @@ Both run code locally by default; source is not sent anywhere unless the hosted 
 
 ## Current status
 
-This is the target setup. Today, adoption is optional and left to each project's discretion: most projects do not have SAST wired into their pipeline yet. Set it up on a project when you can, and record the choice either way in that project's `/docs`.
+This is the target setup. Today, adoption is optional, and most projects do not have SAST wired into their pipeline yet, because it is a cost the client has to agree to: the setup and ongoing triage time, and, past the free contributor tier, the hosted platform's licensing. Raise it with the client and get their agreement before setting it up on a project, and record the outcome either way in that project's `/docs`.
 
 ## How we use it
 

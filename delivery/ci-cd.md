@@ -20,7 +20,7 @@ Every pull request should run an automated pipeline before it can merge. The def
 1. **Install and build.** Dependencies install cleanly (no `--force` or `--legacy-peer-deps`, per [Code standards](../development/code-standards.md)) and the project builds.
 2. **Lint and type-check.** Static analysis, formatting, and type checks run and must pass. This includes `eslint-plugin-jsx-a11y` where applicable (see [Accessibility](../accessibility/accessibility.md)).
 3. **Tests.** The project's unit, integration, and component tests run. End-to-end and smoke tests run on pull request and on the main branch (see [Testing strategy](../quality/testing-strategy.md) and [Testing types](../quality/testing/testing-types.md)).
-4. **Security scanning.** Static application security testing, failing the build on high or critical findings (see [Code security scanning](../security/code-security-scanning.md)). This is the target state. Today, SAST is optional and left to each project's discretion rather than a required stage, and most projects do not have it wired in yet.
+4. **Security scanning.** Static application security testing, failing the build on high or critical findings (see [Code security scanning](../security/code-security-scanning.md)). This is the target state. Today, SAST is optional rather than a required stage, because it is a cost the client has to agree to, and most projects do not have it wired in yet.
 
 A pull request that fails any required check does not merge. Required checks should be enforced as branch protection rules, not left to convention.
 

@@ -84,7 +84,7 @@ Then confirm the pipeline matches [CI/CD](https://github.com/Dotfusion/engineeri
 
 - Set the `RUN_E2E` repository variable to `true`. It gates the end-to-end and Lighthouse jobs, and a project that merges without them does not meet the delivery standard. This is part of the install, not an optional extra.
 - Set the required checks as branch-protection rules before the first feature branch exists. Adding them to a repository with open pull requests is more disruptive than adding them now.
-- Semgrep SAST is optional today, left to the project's discretion; see [Code security scanning](https://github.com/Dotfusion/engineering-docs/blob/main/security/code-security-scanning.md) if the client wants it set up.
+- Semgrep SAST is optional today: setting it up, and its licensing past the free tier, are both a cost that needs the client's agreement first. See [Code security scanning](https://github.com/Dotfusion/engineering-docs/blob/main/security/code-security-scanning.md) if the client wants it set up.
 
 ## Step 11: Report and hand off
 

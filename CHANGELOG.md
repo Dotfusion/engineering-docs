@@ -10,7 +10,7 @@ Newest first. Date format is `YYYY-MM-DD`.
 
 ### Changed, SAST correction
 
-- The handbook stated Semgrep SAST as a required, blocking CI gate on every pull request. That was not true: most projects do not have it wired in, and adoption is optional, left to each project's discretion. Corrected in the non-negotiable rules, `delivery/ci-cd.md`, `security/security-guidelines.md`, `security/code-security-scanning.md`, `agents/skills/pr-review/SKILL.md`, `agents/skills/finish-the-install-agility/SKILL.md`, `agents/skills/finish-the-install-storyblok/SKILL.md`, and the glossary to describe it as the target state rather than current practice.
+- The handbook stated Semgrep SAST as a required, blocking CI gate on every pull request. That was not true: most projects do not have it wired in, because adoption is optional, and setting it up, plus its licensing past the free contributor tier, are both a cost the client has to agree to. Corrected in the non-negotiable rules, `delivery/ci-cd.md`, `security/security-guidelines.md`, `security/code-security-scanning.md`, `agents/skills/pr-review/SKILL.md`, `agents/skills/finish-the-install-agility/SKILL.md`, `agents/skills/finish-the-install-storyblok/SKILL.md`, and the glossary to describe it as the target state rather than current practice.
 
 ### Added
 
