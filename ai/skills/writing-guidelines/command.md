@@ -11,7 +11,7 @@ Read files, check against rules below. Output concise but comprehensive: sacrifi
 
 ## Repository context (read first)
 
-This repository is Dotfusion's internal engineering handbook, not Vercel product documentation. The base rules below come from Vercel's writing handbook and most still apply, but `agents/AGENTS.md` is the canonical writing standard for this repository. Where AGENTS.md and a rule below disagree, AGENTS.md wins. Do not report a deferred item as a violation.
+This repository is Dotfusion's internal engineering handbook, not Vercel product documentation. The base rules below come from Vercel's writing handbook and most still apply, but `ai/AGENTS.md` is the canonical writing standard for this repository. Where AGENTS.md and a rule below disagree, AGENTS.md wins. Do not report a deferred item as a violation.
 
 Specific deferrals for this repository:
 

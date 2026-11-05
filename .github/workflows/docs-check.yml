@@ -24,7 +24,7 @@ jobs:
       - name: Enforce the writing standard on the handbook
         run: node scripts/lint-docs.mjs
 
-      # agents/skills/ is skipped by the directory walk because most of it is
+      # ai/skills/ is skipped by the directory walk because most of it is
       # vendored third-party work under its own license. Our own skills are the
       # executable form of these standards, so they are held to them.
       #
@@ -36,7 +36,7 @@ jobs:
         run: |
           vendored="accessibility playwright-best-practices playwright-cli react-best-practices"
           files=""
-          for skill in agents/skills/*/SKILL.md; do
+          for skill in ai/skills/*/SKILL.md; do
             name=$(basename "$(dirname "$skill")")
             case " $vendored " in *" $name "*) continue ;; esac
             files="$files $skill"
@@ -72,7 +72,7 @@ jobs:
       - name: Every skill declares a name and a description
         run: |
           fail=0
-          for skill in agents/skills/*/SKILL.md; do
+          for skill in ai/skills/*/SKILL.md; do
             grep -q "^name:" "$skill" || { echo "$skill is missing a name"; fail=1; }
             grep -q "^description:" "$skill" || { echo "$skill is missing a description"; fail=1; }
           done
@@ -87,7 +87,7 @@ jobs:
             import { readFileSync } from "node:fs";
             import { globSync } from "node:fs";
             let failed = 0;
-            for (const file of globSync("agents/skills/*/SKILL.md")) {
+            for (const file of globSync("ai/skills/*/SKILL.md")) {
               const text = readFileSync(file, "utf8");
               const match = /^---\n([\s\S]*?)\n---\n/.exec(text);
               if (!match) {

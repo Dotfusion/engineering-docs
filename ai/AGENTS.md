@@ -72,7 +72,7 @@ Two escape hatches exist for the case where a rule is being quoted rather than b
 
 The rules that need human judgment stay on the pull request checklist: title case, active voice, paragraph length, and whether a claim is true.
 
-Dotfusion's own skills under `agents/skills/` are checked by the same linter, in a second job, because a skill is the executable form of a standard and is held to it. The vendored third-party skills are not, since they carry their own licenses and conventions.
+Dotfusion's own skills under `ai/skills/` are checked by the same linter, in a second job, because a skill is the executable form of a standard and is held to it. The vendored third-party skills are not, since they carry their own licenses and conventions.
 
 ## Documentation rules
 
@@ -131,7 +131,7 @@ Bad:
 
 ## When generating docs from code
 
-For project READMEs specifically, use the `project-readme` skill (`agents/skills/project-readme/`). It is the canonical, executable version of the steps below and stays in sync with our standards. The principles here apply to any documentation generated from a codebase:
+For project READMEs specifically, use the `project-readme` skill (`ai/skills/project-readme/`). It is the canonical, executable version of the steps below and stays in sync with our standards. The principles here apply to any documentation generated from a codebase:
 
 1. Inspect package files, framework configuration, deployment configuration, and environment examples.
 2. Identify the actual stack before writing.

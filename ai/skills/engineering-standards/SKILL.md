@@ -22,7 +22,7 @@ The canonical source is [`Dotfusion/engineering-docs`](https://github.com/Dotfus
 Every path in the table below is relative to the root of `engineering-docs`. Resolve it in this order and stop at the first one that works. Do not fetch a URL for a file you already have.
 
 1. **The working directory**, when it is a checkout of this repository. Confirm it by the presence of `.claude-plugin/marketplace.json` at the root rather than by a folder name, since a client project can also contain a `security/` folder.
-2. **The installed plugin**, at `${CLAUDE_PLUGIN_ROOT}/<path>`. The plugin is this whole repository, not only `agents/skills`, so every handbook document is on the developer's machine and tracks `main` wherever auto-update is on.
+2. **The installed plugin**, at `${CLAUDE_PLUGIN_ROOT}/<path>`. The plugin is this whole repository, not only `ai/skills`, so every handbook document is on the developer's machine and tracks `main` wherever auto-update is on.
 3. **The network**, only when neither of the above resolves: `https://raw.githubusercontent.com/Dotfusion/engineering-docs/main/<path>`.
 
 Two things this buys, beyond speed. Answers keep working with no network, which matters behind a client VPN. And the handbook becomes searchable: a grep across the local copy answers "where does the handbook say X" with a file and a line, which is the correct way to answer a question that does not map onto one row of the table.
@@ -54,8 +54,8 @@ The GitHub links in the table are for a human reading this skill on GitHub, and 
 | Design handoff | Starting build from a design, or a design change mid-build | [design-handoff.md](https://github.com/Dotfusion/engineering-docs/blob/main/process/design-handoff.md) |
 | Boilerplates and templates | Starting a new project, or changing a shared boilerplate | [boilerplates-and-templates.md](https://github.com/Dotfusion/engineering-docs/blob/main/engineering/boilerplates-and-templates.md) |
 | Documenting your work | Any change to behavior, setup, deployment, integrations, or operations | [documenting-your-work.md](https://github.com/Dotfusion/engineering-docs/blob/main/development/documenting-your-work.md) |
-| Documentation standards | Deciding what a project must document, and where | [documentation-standards.md](https://github.com/Dotfusion/engineering-docs/blob/main/agents/documentation-standards.md) |
-| Writing style | Writing any prose: docs, ADRs, PR descriptions, comments | [agents/AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/agents/AGENTS.md) (see also `writing-guidelines` skill) |
+| Documentation standards | Deciding what a project must document, and where | [documentation-standards.md](https://github.com/Dotfusion/engineering-docs/blob/main/ai/documentation-standards.md) |
+| Writing style | Writing any prose: docs, ADRs, PR descriptions, comments | [ai/AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/ai/AGENTS.md) (see also `writing-guidelines` skill) |
 | Changing a standard | A standard is wrong, or you have worked around it more than once | [CONTRIBUTING.md](https://github.com/Dotfusion/engineering-docs/blob/main/CONTRIBUTING.md) (add a [CHANGELOG.md](https://github.com/Dotfusion/engineering-docs/blob/main/CHANGELOG.md) entry for a changed rule) |
 | Terminology | An acronym or term is unfamiliar | [glossary.md](https://github.com/Dotfusion/engineering-docs/blob/main/engineering/glossary.md) |
 
@@ -121,5 +121,5 @@ When this skill is invoked, produce:
 - [Dotfusion/engineering-docs](https://github.com/Dotfusion/engineering-docs)
 - [Start here](https://github.com/Dotfusion/engineering-docs/blob/main/start-here.md)
 - [Glossary](https://github.com/Dotfusion/engineering-docs/blob/main/engineering/glossary.md)
-- [Plugin setup](https://github.com/Dotfusion/engineering-docs/blob/main/agents/PLUGIN-SETUP.md)
+- [Plugin setup](https://github.com/Dotfusion/engineering-docs/blob/main/ai/PLUGIN-SETUP.md)
 - [Contributing](https://github.com/Dotfusion/engineering-docs/blob/main/CONTRIBUTING.md)

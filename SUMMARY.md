@@ -43,9 +43,9 @@
 ## Documentation and AI
 
 - [Documenting your work](development/documenting-your-work.md)
-- [Documentation standards](agents/documentation-standards.md)
-- [Writing standard (AGENTS.md)](agents/AGENTS.md)
-- [Claude Code plugins setup](agents/PLUGIN-SETUP.md)
+- [Documentation standards](ai/documentation-standards.md)
+- [Writing standard (AGENTS.md)](ai/AGENTS.md)
+- [Claude Code plugins setup](ai/PLUGIN-SETUP.md)
 
 ## How the team works
 

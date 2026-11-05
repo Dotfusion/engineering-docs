@@ -27,7 +27,7 @@ Read enough surrounding code to judge the change in context. A diff shows what c
 
 ## Step 2: Check the rules that block a merge
 
-These come from [engineering-standards](https://github.com/Dotfusion/engineering-docs/blob/main/agents/skills/engineering-standards/SKILL.md). Any one of them is a blocking finding:
+These come from [engineering-standards](https://github.com/Dotfusion/engineering-docs/blob/main/ai/skills/engineering-standards/SKILL.md). Any one of them is a blocking finding:
 
 1. **A committed secret.** Any credential, token, or environment value in the diff. Check `.env*` files, config, test fixtures, and code comments. A test account password is a secret. See [How to manage .env files](https://github.com/Dotfusion/engineering-docs/blob/main/security/how-to-manage-env.md).
 2. **`--force` or `--legacy-peer-deps`.** Check `package.json`, lockfile changes, CI config, and Dockerfiles. Permitted only with the five-point record [code-standards.md](https://github.com/Dotfusion/engineering-docs/blob/main/development/code-standards.md) requires, in the project's `/docs/overrides.md`.
@@ -139,7 +139,7 @@ Before you show the developer anything, re-read each finding and delete any you 
 ## Related
 
 - [Development workflow](https://github.com/Dotfusion/engineering-docs/blob/main/development/development-workflow.md), the reviewer's remit
-- [engineering-standards](https://github.com/Dotfusion/engineering-docs/blob/main/agents/skills/engineering-standards/SKILL.md), the rules that block a merge
+- [engineering-standards](https://github.com/Dotfusion/engineering-docs/blob/main/ai/skills/engineering-standards/SKILL.md), the rules that block a merge
 - [Documenting your work](https://github.com/Dotfusion/engineering-docs/blob/main/development/documenting-your-work.md)
 - [Code standards](https://github.com/Dotfusion/engineering-docs/blob/main/development/code-standards.md)
 - [Accessibility](https://github.com/Dotfusion/engineering-docs/blob/main/accessibility/accessibility.md) and the [manual testing checklist](https://github.com/Dotfusion/engineering-docs/blob/main/accessibility/manual-testing-checklist.md)

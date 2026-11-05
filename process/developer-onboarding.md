@@ -2,7 +2,7 @@
 
 This document covers a new developer's first week: the accounts they need and who grants each, the tools they install on day zero, and where the `onboarding` skill takes over. It exists so that onboarding does not depend on whoever happens to be available that morning.
 
-Onboarding is for Dotfusion engineering hires. Partners, clients, and outsourced developers are covered by the [For partners and clients](../README.md#for-partners-and-clients) section of the handbook index and by [`engineering-standards`](../agents/skills/engineering-standards/), which states the rules we hold a change to without granting access to anything.
+Onboarding is for Dotfusion engineering hires. Partners, clients, and outsourced developers are covered by the [For partners and clients](../README.md#for-partners-and-clients) section of the handbook index and by [`engineering-standards`](../ai/skills/engineering-standards/), which states the rules we hold a change to without granting access to anything.
 
 ## Day zero: accounts and access
 
@@ -50,7 +50,7 @@ The check passes when `dotfusion-docs@dotfusion` appears with `Scope: managed` a
 
 Then turn auto-update on: run `/plugin`, open the Marketplaces tab, select `dotfusion`, and choose "Enable auto-update". Third-party marketplaces have auto-update off by default, so without this your skills stay pinned to today and stop matching the handbook.
 
-7. **Check that every skill loaded.** In Terminal, run the command below. It prints the plugin's components, and its `Skills (12)` line must name every skill in [the list of twelve](../agents/PLUGIN-SETUP.md#check-that-every-skill-is-installed). If one is missing, follow [the plugin troubleshooting](../agents/PLUGIN-SETUP.md#troubleshooting).
+7. **Check that every skill loaded.** In Terminal, run the command below. It prints the plugin's components, and its `Skills (12)` line must name every skill in [the list of twelve](../ai/PLUGIN-SETUP.md#check-that-every-skill-is-installed). If one is missing, follow [the plugin troubleshooting](../ai/PLUGIN-SETUP.md#troubleshooting).
 
 ```bash
 claude plugin details dotfusion-docs@dotfusion
@@ -64,7 +64,7 @@ claude plugin details dotfusion-docs@dotfusion
 
 Everything after this point is the skill's job, including the required reading. You do not need to work out what comes next.
 
-Install team skills only through the plugin. Do not copy a skill into `~/.claude/skills`, and do not upload one to claude.ai. A copy stops updating but keeps the same name, so it competes with the plugin version and Claude can follow the outdated one without telling you. [Keep one copy of each skill](../agents/PLUGIN-SETUP.md#keep-one-copy-of-each-skill) explains how to find and remove one.
+Install team skills only through the plugin. Do not copy a skill into `~/.claude/skills`, and do not upload one to claude.ai. A copy stops updating but keeps the same name, so it competes with the plugin version and Claude can follow the outdated one without telling you. [Keep one copy of each skill](../ai/PLUGIN-SETUP.md#keep-one-copy-of-each-skill) explains how to find and remove one.
 
 The rest of the toolchain, meaning Homebrew, Node, `git`, `gh`, and the 1Password CLI, is installed during the skill rather than before it, because the skill checks each one and gives you the command that fixes what is missing. See [Code standards](../development/code-standards.md#toolchain) for the versions we build against.
 
@@ -105,7 +105,7 @@ After your first pull request merges, work through that list with your team lead
 ## Related
 
 - [Start here](../start-here.md), which routes any reader by situation
-- [Claude Code plugins setup](../agents/PLUGIN-SETUP.md), for the organization-wide install and for authoring skills
+- [Claude Code plugins setup](../ai/PLUGIN-SETUP.md), for the organization-wide install and for authoring skills
 - [Code standards](../development/code-standards.md), for the toolchain versions
 - [How to manage .env files](../security/how-to-manage-env.md), for the secret workflow used in phases 3 and 5
 - [Development workflow](../development/development-workflow.md), for the standard phase 6 holds your first pull request to

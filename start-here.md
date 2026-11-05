@@ -18,13 +18,13 @@ Set up the required checks in [CI/CD](delivery/ci-cd.md) on day one. Adding them
 
 ## I am about to write code
 
-Invoke [`engineering-standards`](agents/skills/engineering-standards/) and let it route you. It names the document that governs the task and the rules that block a merge, which is faster than guessing which of these pages applies.
+Invoke [`engineering-standards`](ai/skills/engineering-standards/) and let it route you. It names the document that governs the task and the rules that block a merge, which is faster than guessing which of these pages applies.
 
 Without the skill, three documents cover most cases: [Code standards](development/code-standards.md) for how the code should read, [Testing types](quality/testing/testing-types.md) for what to test and at what level, and [Accessibility](accessibility/accessibility.md) for anything that touches the interface.
 
 ## I am about to open a pull request
 
-- Invoke [`pr-review`](agents/skills/pr-review/) on your own change first. It checks the rules that block a merge before a reviewer has to.
+- Invoke [`pr-review`](ai/skills/pr-review/) on your own change first. It checks the rules that block a merge before a reviewer has to.
 - [Development workflow](development/development-workflow.md) for what the pull request should contain.
 - [Manual testing checklist](accessibility/manual-testing-checklist.md) if the change touches the interface.
 - [Architecture Decision Records](engineering/architecture-decision-records.md) if you made a decision someone will later ask about.
@@ -39,9 +39,9 @@ Without the skill, three documents cover most cases: [Code standards](developmen
 ## I need to document something
 
 - [Documenting your work](development/documenting-your-work.md) for what to write at this point in the work, and which skill writes it. Start here.
-- [Documentation standards](agents/documentation-standards.md) for what belongs where.
-- [AGENTS.md](agents/AGENTS.md) for how to write it. This is the standard, and it wins over any other style guidance.
-- The [`project-readme`](agents/skills/project-readme/) and [`project-docs`](agents/skills/project-docs/) skills draft both from the actual codebase. Always read what they produce before committing it.
+- [Documentation standards](ai/documentation-standards.md) for what belongs where.
+- [AGENTS.md](ai/AGENTS.md) for how to write it. This is the standard, and it wins over any other style guidance.
+- The [`project-readme`](ai/skills/project-readme/) and [`project-docs`](ai/skills/project-docs/) skills draft both from the actual codebase. Always read what they produce before committing it.
 
 ## I work in product, project management, or leadership
 
@@ -56,7 +56,7 @@ You do not need the code-level documents. These four explain how engineering ope
 
 ## I am a partner, a client, or a developer working alongside Dotfusion
 
-Start with [`engineering-standards`](agents/skills/engineering-standards/), which states the rules we hold a change to. Then read whichever of [Code standards](development/code-standards.md), [Development workflow](development/development-workflow.md), and [Accessibility](accessibility/accessibility.md) is closest to the work we are sharing.
+Start with [`engineering-standards`](ai/skills/engineering-standards/), which states the rules we hold a change to. Then read whichever of [Code standards](development/code-standards.md), [Development workflow](development/development-workflow.md), and [Accessibility](accessibility/accessibility.md) is closest to the work we are sharing.
 
 [Security guidelines](security/security-guidelines.md) and [Data handling and privacy](security/data-and-privacy.md) cover the baseline we apply. Anything project-specific lives in that project's private repository rather than here, so ask us for it directly.
 

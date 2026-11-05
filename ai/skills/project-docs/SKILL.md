@@ -123,8 +123,8 @@ End with a short note to the developer in chat (not in the docs):
 
 ## Related
 
-- [Documentation standards](https://github.com/Dotfusion/engineering-docs/blob/main/agents/documentation-standards.md)
+- [Documentation standards](https://github.com/Dotfusion/engineering-docs/blob/main/ai/documentation-standards.md)
 - [Documenting your work](https://github.com/Dotfusion/engineering-docs/blob/main/development/documenting-your-work.md)
 - [Architecture Decision Records](https://github.com/Dotfusion/engineering-docs/blob/main/engineering/architecture-decision-records.md)
-- [AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/agents/AGENTS.md), the writing standard these docs must follow
+- [AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/ai/AGENTS.md), the writing standard these docs must follow
 - `project-readme` for the root `README.md`

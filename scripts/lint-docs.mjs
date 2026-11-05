@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Enforces the mechanical rules from agents/AGENTS.md, plus internal link
+ * Enforces the mechanical rules from ai/AGENTS.md, plus internal link
  * integrity. Rules that need human judgement (title case, active voice,
  * paragraph length) stay on the pull request checklist.
  *
@@ -18,7 +18,7 @@ import { readdirSync } from "node:fs";
 import { join, dirname, resolve, relative } from "node:path";
 
 const ROOT = process.cwd();
-const SKIP_DIRS = new Set([".git", "node_modules", "agents/skills"]);
+const SKIP_DIRS = new Set([".git", "node_modules", "ai/skills"]);
 
 // Indexes, logs, and templates are not standards, so they carry no Related section.
 const NO_RELATED = new Set([
@@ -223,7 +223,7 @@ function lintFile(file) {
   // Every document ends with a Related section linking its neighbours.
   if (!disabled.has("related-section") && !NO_RELATED.has(file)) {
     if (!/^## Related$/m.test(text)) {
-      findings.push(`${file}:${lines.length} - no "## Related" section (agents/AGENTS.md requires one)`);
+      findings.push(`${file}:${lines.length} - no "## Related" section (ai/AGENTS.md requires one)`);
     }
   }
 }

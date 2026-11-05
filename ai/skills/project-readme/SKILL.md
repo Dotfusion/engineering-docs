@@ -110,8 +110,8 @@ After writing, end with a short note to the developer (in chat, not in the READM
 
 ## Related
 
-- [Documentation standards](https://github.com/Dotfusion/engineering-docs/blob/main/agents/documentation-standards.md)
+- [Documentation standards](https://github.com/Dotfusion/engineering-docs/blob/main/ai/documentation-standards.md)
 - [Documenting your work](https://github.com/Dotfusion/engineering-docs/blob/main/development/documenting-your-work.md)
-- [AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/agents/AGENTS.md), the writing standard this README must follow
+- [AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/ai/AGENTS.md), the writing standard this README must follow
 - [How to manage .env files](https://github.com/Dotfusion/engineering-docs/blob/main/security/how-to-manage-env.md)
 - `project-docs` for everything under `/docs`

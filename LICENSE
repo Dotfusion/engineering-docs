@@ -25,7 +25,7 @@ SOFTWARE.
 Portions of this repository are third-party works vendored under their own
 licenses, which continue to apply:
 
-- agents/skills/playwright-best-practices/ : MIT, currents.dev
-- agents/skills/react-best-practices/      : MIT, Vercel
-- agents/skills/accessibility/             : MIT, web-quality-skills
-- agents/skills/writing-guidelines/        : adapted from Vercel's writing guidelines
+- ai/skills/playwright-best-practices/ : MIT, currents.dev
+- ai/skills/react-best-practices/      : MIT, Vercel
+- ai/skills/accessibility/             : MIT, web-quality-skills
+- ai/skills/writing-guidelines/        : adapted from Vercel's writing guidelines

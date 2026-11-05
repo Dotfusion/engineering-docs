@@ -136,6 +136,6 @@ When answering a repeated question:
 
 - [Design handoff](design-handoff.md)
 - [Engineering principles](../engineering/engineering-principles.md)
-- [Documentation standards](../agents/documentation-standards.md)
+- [Documentation standards](../ai/documentation-standards.md)
 - [Architecture Decision Records](../engineering/architecture-decision-records.md)
 - [Development workflow](../development/development-workflow.md)

@@ -1,6 +1,6 @@
 # Architecture Decision Records (ADRs)
 
-This document defines how we record significant technical decisions. It is the standard referenced by [Make decisions visible](engineering-principles.md) and by the "decisions" section required in [Documentation standards](../agents/documentation-standards.md).
+This document defines how we record significant technical decisions. It is the standard referenced by [Make decisions visible](engineering-principles.md) and by the "decisions" section required in [Documentation standards](../ai/documentation-standards.md).
 
 An Architecture Decision Record captures one decision: what we chose, why, and what it rules out. The point is that a future developer can understand why the system is the way it is without finding the person who decided it.
 
@@ -75,5 +75,5 @@ new constraints, and anything this decision commits us to.
 ## Related
 
 - [Engineering principles](engineering-principles.md)
-- [Documentation standards](../agents/documentation-standards.md)
+- [Documentation standards](../ai/documentation-standards.md)
 - [Development workflow](../development/development-workflow.md)
