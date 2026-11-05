@@ -114,7 +114,7 @@ Tell them the rule that matters most: never create a `.env` file by hand, and ne
 
 ## Phase 4: the required reading
 
-Four documents. After each one, ask at least one question that the document answers, and that a developer who skimmed it would get wrong. Ask more than one when a single question would not tell you whether they understood it rather than just pattern-matched a keyword. Vary the questions rather than reading from a script, and aim them at what the developer will hit this week.
+Four documents. After each one, ask at least one question that the document answers, and that a developer who skimmed it would get wrong. Ask more than one when a single question would not tell you whether they understood it rather than pattern-matched a keyword. Vary the questions rather than reading from a script, and aim them at what the developer will hit this week.
 
 Every question offers "I don't know" as a real option next to the others, at no cost to pick. A guess when unsure teaches you nothing; "I don't know" tells you exactly where to point them. Offer it plainly rather than as a last resort for when nothing else fits.
 
