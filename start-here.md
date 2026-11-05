@@ -4,9 +4,9 @@ This handbook holds every engineering standard we work to. Nobody reads it front
 
 ## I am new to the engineering team
 
-[Developer onboarding](process/developer-onboarding.md) covers the whole first week: the four accounts you need and who grants each, the tools to install on a new machine, the four documents to read, and where onboarding ends. Start there rather than here.
+[Developer onboarding](process/developer-onboarding.md) covers the whole first week: the five accounts you need and who grants each, the tools to install on a new machine, the four documents to read, and where onboarding ends. Start there rather than here.
 
-The short version, if you have a laptop and nothing else on it: install the Claude desktop app, install the command line client from inside it, add our plugin, and run `/dotfusion-docs:onboarding`. The skill walks the rest, including the reading, and tells you what your machine is missing instead of leaving you to find out.
+The short version, if you have a laptop and nothing else on it: install the Claude desktop app and the Claude Code command line client, sign in with your Dotfusion account so our plugin installs itself, check that all twelve team skills loaded, and run `/dotfusion-docs:onboarding`. The skill walks the rest, including the reading, and tells you what your machine is missing instead of leaving you to find out.
 
 Keep the [Glossary](engineering/glossary.md) open for the first week. It defines every acronym the handbook uses, including AODA, WCAG, SAST, ADR, POUR, and UAT.
 

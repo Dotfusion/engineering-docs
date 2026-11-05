@@ -1,6 +1,6 @@
 ---
 name: onboarding
-description: Runs a new Dotfusion developer's first week end to end. Verifies their four accounts, verifies and fixes the toolchain on a new Mac, sets up 1Password access, walks the required reading behind a soft gate, gets their assigned client project running locally, and finishes at their first merged pull request. Use when a developer says they are new, "onboard me", "it's my first day", "I just joined", "set up my machine", "what do I do first", or when someone asks how to onboard a new developer. For Dotfusion engineering hires only; point partners and outsourced developers at engineering-standards instead.
+description: Runs a new Dotfusion developer's first week end to end. Verifies their five accounts, verifies and fixes the toolchain on a new Mac, including Claude Code and every team skill from the dotfusion marketplace, sets up 1Password access, walks the required reading behind a soft gate, gets their assigned client project running locally, and finishes at their first merged pull request. Use when a developer says they are new, "onboard me", "it's my first day", "I just joined", "set up my machine", "what do I do first", or when someone asks how to onboard a new developer. For Dotfusion engineering hires only; point partners and outsourced developers at engineering-standards instead.
 ---
 
 # Onboarding a new developer
@@ -50,10 +50,11 @@ Write to it at the end of every phase, not at the end of the session. A session 
 
 ## Phase 1: accounts and access
 
-Four accounts gate the week. Check all four before fixing any of them, because two are granted outside engineering and serial waiting costs days. Report the full picture, then start the requests.
+Five accounts gate the week. Check all five before fixing any of them, because two are granted outside engineering and serial waiting costs days. Report the full picture, then start the requests.
 
 | Account | Check | Pass condition | Who to ask |
 | --- | --- | --- | --- |
+| Claude organization | `claude plugin list` | `dotfusion-docs@dotfusion` shows `Scope: managed`, which only the Dotfusion organization's settings install | The engineering manager |
 | GitHub organization | `gh api user/orgs --jq '.[].login'` | `Dotfusion` appears in the list | The engineering manager |
 | Repository access | `gh repo view <assigned repo>` | The repository resolves | Their team lead |
 | Vault access | `op vault list` | At least one vault is listed | The engineering manager |
@@ -61,6 +62,8 @@ Four accounts gate the week. Check all four before fixing any of them, because t
 | Google Workspace | The developer signs in | They can sign in | The workspace administrator |
 
 Ask the developer which repository they were assigned. Never guess a repository name, and never list the ones you find on the machine: repository names are client information and this skill is public.
+
+If the plugin shows `Scope: user`, the developer installed it by hand and their Claude account is not receiving the organization's settings. The skills still work, so this blocks nothing, but write it to `Blocked on` for the engineering manager.
 
 For every failing check, write the missing account and the owning role to `Blocked on`, tell the developer to request it now, and continue with what does not depend on it. Phases 2 and 4 need no account at all, so a developer waiting on Jira is not blocked.
 
@@ -70,6 +73,8 @@ A new Mac has none of this. Run the checks first and report the whole list, then
 
 | Tool | Check | Pass condition |
 | --- | --- | --- |
+| Claude Code | `claude --version` | A version prints |
+| Team plugin | `claude plugin list` | `dotfusion-docs@dotfusion` is listed with `Status: ✔ enabled` |
 | Homebrew | `brew --version` | A version prints |
 | Node | `node --version` | 20 or newer |
 | npm | `npm --version` | A version prints |
@@ -81,6 +86,12 @@ A new Mac has none of this. Run the checks first and report the whole list, then
 | Editor | `code --version`, or their editor's equivalent | A version prints |
 
 Two of these cannot be checked from a shell. State that plainly and ask the developer to confirm each. Never infer one from a neighboring check passing, and never mark a phase complete on an assumption.
+
+Then confirm the team skills themselves, because an enabled plugin does not prove every skill loaded or that the developer is running the current version of each:
+
+- **Every skill loaded.** Run `claude plugin details dotfusion-docs@dotfusion`. Its `Skills (12)` line, and your own list of available skills, must both match the twelve in [Check that every skill is installed](https://github.com/Dotfusion/engineering-docs/blob/main/agents/PLUGIN-SETUP.md#check-that-every-skill-is-installed). Each must appear with the `dotfusion-docs:` prefix. Name any that is missing, and add it to `Findings`.
+- **No stale copy competes with one.** Run `ls ~/.claude/skills` and `ls ~/.claude/skills/synced/*/`. A folder named after a team skill is a copy that has stopped updating, either hand-installed or uploaded to claude.ai. Walk the developer through removing it with [Keep one copy of each skill](https://github.com/Dotfusion/engineering-docs/blob/main/agents/PLUGIN-SETUP.md#keep-one-copy-of-each-skill), then check again.
+- **Auto-update is on.** A plugin with `Scope: managed` has it on already. With `Scope: user`, this cannot be checked from a shell: ask the developer to confirm it under `/plugin`, Marketplaces, `dotfusion`.
 
 Install what is missing with Homebrew:
 

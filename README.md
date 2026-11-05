@@ -26,13 +26,13 @@ All of it serves one purpose: documentation exists to reduce dependency on indiv
 
 This repository doubles as a [Claude Code](https://claude.com/claude-code) plugin marketplace. The `dotfusion-docs` plugin distributes our skills to every developer's editor, so a developer applies the standards below while writing code instead of looking them up afterward. Because the marketplace is this repository, a commit to `main` publishes a new version, and each developer picks it up the next time Claude Code starts.
 
+You do not install it by hand. The Dotfusion Claude organization installs the plugin, with auto-update on, once you sign in to Claude Code with your Dotfusion account and restart it. To confirm it, run `claude plugin list` and look for `dotfusion-docs@dotfusion`. If it is missing, install it from a Claude Code session:
+
 ```text
-/plugin marketplace add Dotfusion/engineering-docs
-/plugin install dotfusion-docs@dotfusion
-/reload-plugins
+/plugin install dotfusion-docs --marketplace Dotfusion/engineering-docs
 ```
 
-To install it once for the whole organization with auto-updates, and to author skills locally, see [Claude Code plugins setup](agents/PLUGIN-SETUP.md).
+[Claude Code plugins setup](agents/PLUGIN-SETUP.md) covers the manual install for when that does not happen, how to check that all twelve skills loaded, how to remove a stale copy of a skill, and how to author skills locally.
 
 ### What the skills do
 

@@ -6,10 +6,11 @@ Onboarding is for Dotfusion engineering hires. Partners, clients, and outsourced
 
 ## Day zero: accounts and access
 
-Four accounts, and nothing else, gate the first week. Ask for all four on your first morning, because two of them are granted by someone outside engineering and waiting on them serially costs days.
+Five accounts, and nothing else, gate the first week. Ask for all five on your first morning, because two of them are granted by someone outside engineering and waiting on them serially costs days.
 
 | Account | What it unlocks | Who grants it |
 | --- | --- | --- |
+| Claude, in the Dotfusion organization | Claude Code, and our team skills, which the organization installs for you when you sign in | The engineering manager |
 | GitHub organization membership | The handbook, the boilerplates, and the project you are joining | The engineering manager |
 | 1Password team and vault access | Every secret you will need, and the `op` workflow that replaces `.env` files | The engineering manager (`To confirm`) |
 | Jira | The work assigned to you, and the ticket your first pull request closes | The workspace administrator |
@@ -19,24 +20,43 @@ Repository access is separate from organization membership. Ask your team lead f
 
 ## Day zero: tools
 
-Install in this order. Each step needs only what the step before it installed, so a new machine with nothing on it can follow the list.
+Install in this order. Each step needs only what the step before it installed, so a new machine with nothing on it can follow the list. When you finish step 7, every team skill is installed and updates itself.
 
-1. **Install the Claude desktop app.** It requires nothing else installed first, and it includes Claude Code, so there is no separate step before you can work in a repository.
-2. **Install the command line client**, from a terminal inside the desktop app:
+1. **Install the Claude desktop app.** It requires nothing else installed first.
+2. **Install the Claude Code command line client.** Open the macOS Terminal app and run the installer:
 
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-3. **Add the marketplace and install our plugin:**
+Then confirm it installed: `claude --version` prints a version.
 
-```text
-/plugin marketplace add Dotfusion/engineering-docs
-/plugin install dotfusion-docs@dotfusion
+3. **Sign in with your Dotfusion account.** Run `claude` in Terminal and sign in with the Claude account in the Dotfusion organization, the first account in the table above. Do not sign in with a personal Claude account. Our skills come from the organization's settings, so a personal account signs in without them.
+4. **Restart Claude Code once.** Quit it, then run `claude` again. Signing in downloads the organization's settings, which install our `dotfusion-docs` plugin from the `dotfusion` marketplace, this repository, with auto-update on. Those settings apply when Claude Code starts, so the plugin installs on this second start, not on the first.
+5. **Confirm our plugin installed itself.** In Terminal, run:
+
+```bash
+claude plugin list
 ```
 
-4. **Turn auto-update on**, unless your install came from organization settings, in which case it is already on. Run `/plugin`, open the Marketplaces tab, select `dotfusion`, and choose "Enable auto-update". Third-party marketplaces have auto-update off by default, so without this step your skills stay pinned to today and stop matching the handbook.
-5. **Run the onboarding skill:**
+The check passes when `dotfusion-docs@dotfusion` appears with `Scope: managed` and `Status: ✔ enabled`. If it does, skip to step 7.
+
+6. **Only if the plugin is still missing, install it yourself.** Tell the engineering manager as well, because it means the organization's settings did not reach your account. Start a Claude Code session with `claude`, then type these two commands. The first installs the plugin from this repository's marketplace, and the second loads it into the session:
+
+```text
+/plugin install dotfusion-docs --marketplace Dotfusion/engineering-docs
+/reload-plugins
+```
+
+Then turn auto-update on: run `/plugin`, open the Marketplaces tab, select `dotfusion`, and choose "Enable auto-update". Third-party marketplaces have auto-update off by default, so without this your skills stay pinned to today and stop matching the handbook.
+
+7. **Check that every skill loaded.** In Terminal, run the command below. It prints the plugin's components, and its `Skills (12)` line must name every skill in [the list of twelve](../agents/PLUGIN-SETUP.md#check-that-every-skill-is-installed). If one is missing, follow [the plugin troubleshooting](../agents/PLUGIN-SETUP.md#troubleshooting).
+
+```bash
+claude plugin details dotfusion-docs@dotfusion
+```
+
+8. **Run the onboarding skill:**
 
 ```text
 /dotfusion-docs:onboarding
@@ -44,14 +64,16 @@ curl -fsSL https://claude.ai/install.sh | bash
 
 Everything after this point is the skill's job, including the required reading. You do not need to work out what comes next.
 
+Install team skills only through the plugin. Do not copy a skill into `~/.claude/skills`, and do not upload one to claude.ai. A copy stops updating but keeps the same name, so it competes with the plugin version and Claude can follow the outdated one without telling you. [Keep one copy of each skill](../agents/PLUGIN-SETUP.md#keep-one-copy-of-each-skill) explains how to find and remove one.
+
 The rest of the toolchain, meaning Homebrew, Node, `git`, `gh`, and the 1Password CLI, is installed during the skill rather than before it, because the skill checks each one and gives you the command that fixes what is missing. See [Code standards](../development/code-standards.md#toolchain) for the versions we build against.
 
 ## What the skill does
 
 Six phases, in order. The skill verifies rather than instructs: every check is a command with a stated pass condition, so a step is either confirmed or reported as missing, never assumed.
 
-1. **Accounts and access.** Confirms the four accounts above resolve, and names the role to ask when one does not.
-2. **Toolchain.** Homebrew, Node against the project's `.nvmrc`, npm, `git`, `gh`, the 1Password desktop app and command line tool, and your editor.
+1. **Accounts and access.** Confirms the five accounts above resolve, and names the role to ask when one does not.
+2. **Toolchain.** Claude Code and our plugin, including that every team skill loaded and no stale copy competes with one. Then Homebrew, Node against the project's `.nvmrc`, npm, `git`, `gh`, the 1Password desktop app and command line tool, and your editor.
 3. **Secrets access.** Confirms `op` works and that you can reach a vault you were added to. No secret value is ever discussed, pasted, or read back.
 4. **The required reading.** The four documents below, each followed by one question the document answers.
 5. **The project running.** Clone the repository you were assigned, pull its secrets through `op`, follow that project's own `README.md` and `/docs/setup.md`, and start it locally.
