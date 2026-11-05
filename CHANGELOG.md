@@ -8,6 +8,12 @@ Newest first. Date format is `YYYY-MM-DD`.
 
 ## Unreleased
 
+### Changed, Agility install skill
+
+- `agents/skills/finish-the-install-agility/SKILL.md` caught up with the boilerplate's signed-webhook revalidation, global data, and preview proxy. It now handles `AGILITY_WEBHOOK_SECRET` and `AGILITY_FETCH_CACHE_DURATION`, and leaves the webhook secret for after the first deploy because the webhook needs a deployed URL. It checks 1Password access with `op vault list` instead of `op whoami`, installs with `nvm use` and `npm ci` so the lockfile stays in sync with CI, and adds `format:check` to the verification.
+- New steps: rename the package, check the Agility content model through the MCP server (page template, module, global items, list reference names, home page), and hand the template's docs over to the project. The template's own overview, context, and implementation plan are deleted and the README is reset before `project-readme` and `project-docs` run. The docs that describe inherited code, `overrides.md`, and the ADRs are kept.
+- The hand-off now lists the exact GitHub secrets CI reads, turns on `RUN_E2E` only once a home page is published, and covers the webhook and preview URL setup in Agility. The skill pushes no secrets itself: every value goes from 1Password to GitHub and Vercel by the developer.
+
 ### Changed, SAST correction
 
 - The handbook stated Semgrep SAST as a required, blocking CI gate on every pull request. That was not true: most projects do not have it wired in, because adoption is optional, and setting it up, plus its licensing past the free contributor tier, are both a cost the client has to agree to. Corrected in the non-negotiable rules, `delivery/ci-cd.md`, `security/security-guidelines.md`, `security/code-security-scanning.md`, `agents/skills/pr-review/SKILL.md`, `agents/skills/finish-the-install-agility/SKILL.md`, `agents/skills/finish-the-install-storyblok/SKILL.md`, and the glossary to describe it as the target state rather than current practice.
