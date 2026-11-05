@@ -18,6 +18,12 @@ Newest first. Date format is `YYYY-MM-DD`.
 
 - The handbook stated Semgrep SAST as a required, blocking CI gate on every pull request. That was not true: most projects do not have it wired in, because adoption is optional, and setting it up, plus its licensing past the free contributor tier, are both a cost the client has to agree to. Corrected in the non-negotiable rules, `delivery/ci-cd.md`, `security/security-guidelines.md`, `security/code-security-scanning.md`, `agents/skills/pr-review/SKILL.md`, `agents/skills/finish-the-install-agility/SKILL.md`, `agents/skills/finish-the-install-storyblok/SKILL.md`, and the glossary to describe it as the target state rather than current practice.
 
+### Changed, onboarding and plugin setup
+
+- The onboarding documents told a new developer to add the marketplace and install `dotfusion-docs` by hand. Dotfusion's Claude organization already installs it through server-managed settings when a developer signs in with their Dotfusion account, so the manual install is now a fallback. `process/developer-onboarding.md` adds the Claude organization account as a fifth account, fixes the command line client step, which pointed at a terminal inside the desktop app that does not exist, and adds sign-in, the restart the organization's settings need before the plugin installs, a check that the plugin installed itself, and a `claude plugin details` check that all twelve skills loaded. The manual fallback uses the one-step `/plugin install dotfusion-docs --marketplace Dotfusion/engineering-docs`.
+- `agents/PLUGIN-SETUP.md` documents the organization install as current practice, and adds the list of twelve skills to check against, how to find and remove a stale copy of a team skill in `~/.claude/skills` or uploaded to claude.ai, and troubleshooting for both.
+- `agents/skills/onboarding/SKILL.md` now checks the Claude organization account in phase 1, and Claude Code, the plugin, every team skill, stale copies, and auto-update in phase 2. `start-here.md` and `README.md` match.
+
 ### Added
 
 - `start-here.md`, routing a reader by what they are trying to do rather than by folder.
