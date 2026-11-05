@@ -7,7 +7,7 @@ description: Runs a new Dotfusion developer's first week end to end. Verifies th
 
 This skill runs a first week rather than describing one. It checks what is actually true on the machine in front of you, tells the developer what to fix, walks the required reading, gets their assigned project running against real secrets, and stops when their first pull request merges.
 
-It is for Dotfusion engineering hires. If the developer is a partner, a client, or an outsourced contributor, say so, point them at [`engineering-standards`](https://github.com/Dotfusion/engineering-docs/tree/main/agents/skills/engineering-standards) and [start-here.md](https://github.com/Dotfusion/engineering-docs/blob/main/start-here.md), and stop. Their access model is different and this skill assumes access they will not have.
+It is for Dotfusion engineering hires. If the developer is a partner, a client, or an outsourced contributor, say so, point them at [`engineering-standards`](https://github.com/Dotfusion/engineering-docs/tree/main/ai/skills/engineering-standards) and [start-here.md](https://github.com/Dotfusion/engineering-docs/blob/main/start-here.md), and stop. Their access model is different and this skill assumes access they will not have.
 
 Read handbook documents through the resolution order in the `engineering-standards` skill, under "Where to read the handbook". The handbook is on this machine inside the installed plugin. Do not fetch a URL for a file you already have.
 
@@ -89,8 +89,8 @@ Two of these cannot be checked from a shell. State that plainly and ask the deve
 
 Then confirm the team skills themselves, because an enabled plugin does not prove every skill loaded or that the developer is running the current version of each:
 
-- **Every skill loaded.** Run `claude plugin details dotfusion-docs@dotfusion`. Its `Skills (12)` line, and your own list of available skills, must both match the twelve in [Check that every skill is installed](https://github.com/Dotfusion/engineering-docs/blob/main/agents/PLUGIN-SETUP.md#check-that-every-skill-is-installed). Each must appear with the `dotfusion-docs:` prefix. Name any that is missing, and add it to `Findings`.
-- **No stale copy competes with one.** Run `ls ~/.claude/skills` and `ls ~/.claude/skills/synced/*/`. A folder named after a team skill is a copy that has stopped updating, either hand-installed or uploaded to claude.ai. Walk the developer through removing it with [Keep one copy of each skill](https://github.com/Dotfusion/engineering-docs/blob/main/agents/PLUGIN-SETUP.md#keep-one-copy-of-each-skill), then check again.
+- **Every skill loaded.** Run `claude plugin details dotfusion-docs@dotfusion`. Its `Skills (12)` line, and your own list of available skills, must both match the twelve in [Check that every skill is installed](https://github.com/Dotfusion/engineering-docs/blob/main/ai/PLUGIN-SETUP.md#check-that-every-skill-is-installed). Each must appear with the `dotfusion-docs:` prefix. Name any that is missing, and add it to `Findings`.
+- **No stale copy competes with one.** Run `ls ~/.claude/skills` and `ls ~/.claude/skills/synced/*/`. A folder named after a team skill is a copy that has stopped updating, either hand-installed or uploaded to claude.ai. Walk the developer through removing it with [Keep one copy of each skill](https://github.com/Dotfusion/engineering-docs/blob/main/ai/PLUGIN-SETUP.md#keep-one-copy-of-each-skill), then check again.
 - **Auto-update is on.** A plugin with `Scope: managed` has it on already. With `Scope: user`, this cannot be checked from a shell: ask the developer to confirm it under `/plugin`, Marketplaces, `dotfusion`.
 
 Install what is missing with Homebrew:
@@ -155,7 +155,7 @@ Work from the project's own documentation rather than from anything you know:
 5. Install dependencies. Never pass `--force` or `--legacy-peer-deps`. A peer conflict is a stop-and-report, per [Code standards](https://github.com/Dotfusion/engineering-docs/blob/main/development/code-standards.md).
 6. Start the project and confirm it serves.
 
-When that project's documentation does not get them running, say so plainly and name exactly what was missing: an undocumented variable, a step that no longer works, a service nobody mentioned. Then offer the better first task. Running [`project-readme`](https://github.com/Dotfusion/engineering-docs/tree/main/agents/skills/project-readme) and [`project-docs`](https://github.com/Dotfusion/engineering-docs/tree/main/agents/skills/project-docs) on the repository turns the gap into their first contribution, and this is the only week they will hit every one of those gaps.
+When that project's documentation does not get them running, say so plainly and name exactly what was missing: an undocumented variable, a step that no longer works, a service nobody mentioned. Then offer the better first task. Running [`project-readme`](https://github.com/Dotfusion/engineering-docs/tree/main/ai/skills/project-readme) and [`project-docs`](https://github.com/Dotfusion/engineering-docs/tree/main/ai/skills/project-docs) on the repository turns the gap into their first contribution, and this is the only week they will hit every one of those gaps.
 
 Add every missing step to `Findings`, whether or not they fix it now.
 
@@ -167,7 +167,7 @@ Walk them through it once, small:
 
 1. A branch named to the standard in [Development workflow](https://github.com/Dotfusion/engineering-docs/blob/main/development/development-workflow.md), for example `docs/add-deployment-runbook`.
 2. A change worth merging. A documentation fix from their `Findings` list is a good first change, and it is real work.
-3. [`pr-review`](https://github.com/Dotfusion/engineering-docs/tree/main/agents/skills/pr-review) on their own diff before a person sees it.
+3. [`pr-review`](https://github.com/Dotfusion/engineering-docs/tree/main/ai/skills/pr-review) on their own diff before a person sees it.
 4. The pipeline green, per [CI/CD](https://github.com/Dotfusion/engineering-docs/blob/main/delivery/ci-cd.md). If a required check cannot run for them, that is a finding and an access problem, not their mistake.
 5. Documentation updated in the same pull request when behavior, setup, deployment, or operations changed.
 6. A reviewer requested, and the pull request merged.
@@ -189,7 +189,7 @@ Then say the part that makes onboarding compound: the findings list is the deliv
 
 - [Developer onboarding](https://github.com/Dotfusion/engineering-docs/blob/main/process/developer-onboarding.md), the handbook page this skill executes
 - [Start here](https://github.com/Dotfusion/engineering-docs/blob/main/start-here.md), which routes any reader by situation
-- [Claude Code plugins setup](https://github.com/Dotfusion/engineering-docs/blob/main/agents/PLUGIN-SETUP.md), for the install path used on day zero
+- [Claude Code plugins setup](https://github.com/Dotfusion/engineering-docs/blob/main/ai/PLUGIN-SETUP.md), for the install path used on day zero
 - [How to manage .env files](https://github.com/Dotfusion/engineering-docs/blob/main/security/how-to-manage-env.md), the source for phases 3 and 5
 - [Development workflow](https://github.com/Dotfusion/engineering-docs/blob/main/development/development-workflow.md), the standard phase 6 holds the first pull request to
 - `engineering-standards`, for handbook resolution and for every standard after onboarding

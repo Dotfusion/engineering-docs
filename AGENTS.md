@@ -1,8 +1,8 @@
 # AGENTS.md
 
-The canonical instructions for AI agents working in this repository live in [`agents/AGENTS.md`](agents/AGENTS.md). Read that file before writing or editing any document here.
+The canonical instructions for AI agents working in this repository live in [`ai/AGENTS.md`](ai/AGENTS.md). Read that file before writing or editing any document here.
 
-This root file exists because agent tooling looks for `AGENTS.md` at the repository root. It is a pointer, not a second standard. When the two would disagree, `agents/AGENTS.md` is correct and this file is stale.
+This root file exists because agent tooling looks for `AGENTS.md` at the repository root. It is a pointer, not a second standard. When the two would disagree, `ai/AGENTS.md` is correct and this file is stale.
 
 Summary of what that file requires, so a shallow read still gets the rules right:
 
@@ -21,6 +21,6 @@ Run `node scripts/lint-docs.mjs` before committing. It enforces the mechanical r
 
 ## Related
 
-- [agents/AGENTS.md](agents/AGENTS.md), the canonical standard
+- [ai/AGENTS.md](ai/AGENTS.md), the canonical standard
 - [CONTRIBUTING.md](CONTRIBUTING.md)
 - [Documenting your work](development/documenting-your-work.md)

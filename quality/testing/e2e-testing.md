@@ -2,7 +2,7 @@
 
 This document is the Dotfusion default for setting up and writing Playwright end-to-end tests. It covers the configuration, folder layout, locator strategy, authentication pattern, mocking approach, and CI setup we use across projects. For the reasoning behind what to test at this level, read [Testing strategy](../testing-strategy.md) first, then [Testing types](testing-types.md) to confirm end-to-end is the right level for the behavior in front of you.
 
-The full reference library sits in the vendored [`playwright-best-practices`](../../agents/skills/playwright-best-practices/SKILL.md) skill, which covers cases this document does not.
+The full reference library sits in the vendored [`playwright-best-practices`](../../ai/skills/playwright-best-practices/SKILL.md) skill, which covers cases this document does not.
 
 Everything here is a default. The values a project actually uses (its `baseURL`, which browsers it runs, which flows it treats as critical, and which of these patterns it needs) belong in that project's own `/docs`, because they differ per project and this repository is public.
 

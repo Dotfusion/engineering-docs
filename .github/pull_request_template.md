@@ -12,7 +12,7 @@
 
 - [ ] New or changed global standard
 - [ ] Correction or clarification of an existing document
-- [ ] Skill change (`agents/skills/`)
+- [ ] Skill change (`ai/skills/`)
 - [ ] Repository tooling, formatting, or structure
 
 ## Checklist
@@ -24,7 +24,7 @@
 - [ ] Unconfirmed facts are marked `Unknown:` or `To confirm`
 - [ ] Nothing client-specific, private, or secret has been added (see the [visibility rule](../README.md#what-never-goes-in-this-repository))
 - [ ] The `Related` section links the neighboring documents
-- [ ] Affected `agents/skills/` entries updated in the same pull request
+- [ ] Affected `ai/skills/` entries updated in the same pull request
 - [ ] Run `/dotfusion-docs:writing-guidelines` over the changed files
 
 ## Skill impact

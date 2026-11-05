@@ -22,7 +22,7 @@ To confirm: the repository names of the two front-end boilerplates, their access
 1. **Clone the boilerplate that matches the CMS.** Do not start from an empty Next.js install, and do not copy a previous client project. A previous project carries that client's decisions mixed in with our defaults, and separating them later costs more than starting clean.
 2. **Finish the install with the matching skill.** `finish-the-install-agility` or `finish-the-install-storyblok` completes the per-project setup: environment variables, brand colors, fonts, and site metadata, then verifies the result. Both skills are written to ask for the values they need rather than guess, and to leave secrets in 1Password.
 3. **Set up the secrets.** Create the project's 1Password Developer environment, named exactly after the repository, and populate it. See [How to manage .env files](../security/how-to-manage-env.md). The `.env.sample` in the boilerplate is the list of what the project needs.
-4. **Scaffold the documentation.** Run the `project-docs` skill to create `/docs` from `template-project`, and `project-readme` to write the root `README.md` from the actual codebase. Both are described in [Documentation standards](../agents/documentation-standards.md).
+4. **Scaffold the documentation.** Run the `project-docs` skill to create `/docs` from `template-project`, and `project-readme` to write the root `README.md` from the actual codebase. Both are described in [Documentation standards](../ai/documentation-standards.md).
 5. **Wire the pipeline.** Confirm the checks in [CI/CD](../delivery/ci-cd.md) run on a pull request, and set them as required branch-protection rules before the first real branch exists. Adding required checks to a repository with open pull requests is more disruptive than adding them on day one.
 6. **Record what is different.** Anything about this project that departs from a global standard goes in the project's `/docs` as an override, with its reason, at the moment the decision is made rather than at the end.
 
@@ -42,8 +42,8 @@ The boilerplates and `template-project` are private because they carry configura
 ## Related
 
 - [Engineering principles](engineering-principles.md)
-- [Documentation standards](../agents/documentation-standards.md)
-- [Claude Code plugins setup](../agents/PLUGIN-SETUP.md)
+- [Documentation standards](../ai/documentation-standards.md)
+- [Claude Code plugins setup](../ai/PLUGIN-SETUP.md)
 - [How to manage .env files](../security/how-to-manage-env.md)
 - [CI/CD](../delivery/ci-cd.md)
 - [Glossary](glossary.md)

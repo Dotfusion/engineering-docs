@@ -1,6 +1,6 @@
 ---
 name: writing-guidelines
-description: Review docs/prose for Dotfusion writing guidelines compliance. Use when asked to "review my docs", "check writing style", "audit prose", "review docs voice and tone", or "check this page against the writing handbook". Applies the Vercel writing checklist layered on top of the repository's canonical standard in agents/AGENTS.md, which wins on any conflict.
+description: Review docs/prose for Dotfusion writing guidelines compliance. Use when asked to "review my docs", "check writing style", "audit prose", "review docs voice and tone", or "check this page against the writing handbook". Applies the Vercel writing checklist layered on top of the repository's canonical standard in ai/AGENTS.md, which wins on any conflict.
 metadata:
   author: vercel (adapted by Dotfusion)
   version: "1.1.0"
@@ -14,7 +14,7 @@ Review files for compliance with Writing Guidelines.
 ## How It Works
 
 1. Read the specified files (or prompt user for files/pattern)
-2. Read `agents/AGENTS.md` for the repository's canonical writing standard, which overrides any conflicting rule
+2. Read `ai/AGENTS.md` for the repository's canonical writing standard, which overrides any conflicting rule
 3. Check against the rules in `command.md` (co-located with this skill), honoring the "Repository context" deferrals at the top
 4. Output findings in the terse `file:line` format
 
@@ -30,6 +30,6 @@ If no files specified, ask the user which files to review.
 
 ## Related
 
-- [AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/agents/AGENTS.md), the canonical standard that wins on any conflict
+- [AGENTS.md](https://github.com/Dotfusion/engineering-docs/blob/main/ai/AGENTS.md), the canonical standard that wins on any conflict
 - [Documenting your work](https://github.com/Dotfusion/engineering-docs/blob/main/development/documenting-your-work.md)
 - [Contributing](https://github.com/Dotfusion/engineering-docs/blob/main/CONTRIBUTING.md)

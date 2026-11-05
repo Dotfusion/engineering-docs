@@ -41,4 +41,4 @@ A feature is not complete if nobody knows how to operate it.
 - [Glossary](glossary.md)
 - [Code standards](../development/code-standards.md)
 - [Development workflow](../development/development-workflow.md)
-- [Documentation standards](../agents/documentation-standards.md)
+- [Documentation standards](../ai/documentation-standards.md)

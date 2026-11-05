@@ -10,7 +10,7 @@
       "name": "dotfusion-docs",
       "source": "./",
       "description": "Applies Dotfusion's engineering standards while you work: routes a task to the standard that governs it, generates and audits project READMEs and /docs, finishes the per-project setup of our Next.js boilerplates, and reviews prose, tests, React performance, and accessibility.",
-      "skills": "./agents/skills",
+      "skills": "./ai/skills",
       "strict": false
     }
   ]

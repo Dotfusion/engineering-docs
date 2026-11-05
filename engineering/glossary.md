@@ -11,8 +11,8 @@ Terms are grouped by the part of the work they belong to. Where a term has its o
 - **Project documentation.** The reality of one project: its architecture, setup, deployment, integrations, runbooks, decisions, and exceptions to global standards. Lives in that project's repository under `/docs`.
 - **Override.** A documented, deliberate deviation from a global standard for one project, recorded in that project's `/docs` with its reason.
 - **Runbook.** Written steps for an operational task, such as a deploy, a rollback, or a recovery, that someone can follow under pressure without improvising.
-- **AGENTS.md.** The canonical writing standard for this repository, and the file AI coding tools read to learn our conventions. See [AGENTS.md](../agents/AGENTS.md).
-- **Skill.** A folder of instructions that Claude Code loads to perform a task our way. Distributed to the team through the `dotfusion-docs` plugin. See [Claude Code plugins setup](../agents/PLUGIN-SETUP.md).
+- **AGENTS.md.** The canonical writing standard for this repository, and the file AI coding tools read to learn our conventions. See [AGENTS.md](../ai/AGENTS.md).
+- **Skill.** A folder of instructions that Claude Code loads to perform a task our way. Distributed to the team through the `dotfusion-docs` plugin. See [Claude Code plugins setup](../ai/PLUGIN-SETUP.md).
 
 ## Development and delivery
 
@@ -89,6 +89,6 @@ Terms are grouped by the part of the work they belong to. Where a term has its o
 ## Related
 
 - [Engineering principles](engineering-principles.md)
-- [Documentation standards](../agents/documentation-standards.md)
-- [AGENTS.md](../agents/AGENTS.md)
+- [Documentation standards](../ai/documentation-standards.md)
+- [AGENTS.md](../ai/AGENTS.md)
 - [Boilerplates and templates](boilerplates-and-templates.md)

@@ -8,6 +8,11 @@ Newest first. Date format is `YYYY-MM-DD`.
 
 ## Unreleased
 
+### Changed, agents folder renamed to ai
+
+- The `agents/` folder is now `ai/`, so the writing standard is `ai/AGENTS.md`, the plugin guide is `ai/PLUGIN-SETUP.md`, and the skills are under `ai/skills/`. The `dotfusion-docs` plugin's root is this whole repository, and Claude Code loads every Markdown file under a plugin's `agents/` folder as a subagent. Each developer's session therefore listed 159 subagents that were handbook pages and skill reference files, including every skill a second time. An `agents` list in the marketplace entry or in a `plugin.json` does not stop this for a marketplace install. After the rename, a session lists no subagents from the plugin, and all twelve skills still load. Every internal link, the plugin manifest, the docs-check workflow, `scripts/lint-docs.mjs`, `CODEOWNERS`, and `LICENSE` point at the new paths. Older entries below keep the paths as they were at the time.
+- Links from other repositories to `engineering-docs/blob/main/agents/...` or `engineering-docs/tree/main/agents/...` now return 404 and must change to `.../main/ai/...`. Both Next.js boilerplates carry such links.
+
 ### Changed, Agility install skill
 
 - `agents/skills/finish-the-install-agility/SKILL.md` caught up with the boilerplate's signed-webhook revalidation, global data, and preview proxy. It now handles `AGILITY_WEBHOOK_SECRET` and `AGILITY_FETCH_CACHE_DURATION`, and leaves the webhook secret for after the first deploy because the webhook needs a deployed URL. It checks 1Password access with `op vault list` instead of `op whoami`, installs with `nvm use` and `npm ci` so the lockfile stays in sync with CI, and adds `format:check` to the verification.

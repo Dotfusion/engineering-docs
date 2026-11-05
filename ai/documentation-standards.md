@@ -20,8 +20,8 @@ Project documentation should not copy global standards. It should reference them
 flowchart TD
     subgraph GLOBAL["Global: this repository, public"]
         G1["Standards<br/>principles, workflow, testing,<br/>security, accessibility, delivery"]
-        G2["Writing standard<br/>agents/AGENTS.md"]
-        G3["Skills<br/>agents/skills/"]
+        G2["Writing standard<br/>ai/AGENTS.md"]
+        G3["Skills<br/>ai/skills/"]
     end
 
     subgraph PROJECT["Project: each repository, private"]
@@ -46,7 +46,7 @@ The arrow that matters is the one from global standards to project docs: it poin
 
 ## Project README
 
-Every project repository has a `README.md` at its root as the entry point for anyone joining the project. It is generated and kept current with the `project-readme` Claude Code skill (in this repo under `agents/skills/project-readme/`), which is the **source of truth** for README structure and our documentation conventions, including the link back to these global docs.
+Every project repository has a `README.md` at its root as the entry point for anyone joining the project. It is generated and kept current with the `project-readme` Claude Code skill (in this repo under `ai/skills/project-readme/`), which is the **source of truth** for README structure and our documentation conventions, including the link back to these global docs.
 
 This document explains the *why*; the skill encodes the *how*. When a README convention changes, change it in the skill. Always read and verify generated output before committing.
 

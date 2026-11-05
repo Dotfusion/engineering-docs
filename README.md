@@ -32,7 +32,7 @@ You do not install it by hand. The Dotfusion Claude organization installs the pl
 /plugin install dotfusion-docs --marketplace Dotfusion/engineering-docs
 ```
 
-[Claude Code plugins setup](agents/PLUGIN-SETUP.md) covers the manual install for when that does not happen, how to check that all twelve skills loaded, how to remove a stale copy of a skill, and how to author skills locally.
+[Claude Code plugins setup](ai/PLUGIN-SETUP.md) covers the manual install for when that does not happen, how to check that all twelve skills loaded, how to remove a stale copy of a skill, and how to author skills locally.
 
 ### What the skills do
 
@@ -40,17 +40,17 @@ Find a skill by the task in front of you, not by its name.
 
 | When you are | Use | What it does |
 | --- | --- | --- |
-| Starting your first week | [`onboarding`](agents/skills/onboarding/) | Verifies your accounts and toolchain, walks the required reading, gets your assigned project running, and finishes at your first merged pull request |
-| About to write or change code | [`engineering-standards`](agents/skills/engineering-standards/) | Routes the task to the standard that governs it and names the rules that block a merge. Start here. |
-| Setting up a freshly cloned project | [`finish-the-install-agility`](agents/skills/finish-the-install-agility/) [`finish-the-install-storyblok`](agents/skills/finish-the-install-storyblok/) | Completes per-project setup for the AgilityCMS or Storyblok boilerplate: environment variables, brand colors, fonts, metadata, then verifies it |
-| About to open a pull request | [`pr-review`](agents/skills/pr-review/) | Reviews a diff against the handbook: the rules that block a merge, correctness, accessibility, secrets, tests, and whether docs changed with behavior |
-| Documenting a repository | [`project-readme`](agents/skills/project-readme/) | Writes the root `README.md` from the actual codebase, asking about what it cannot determine |
-| Setting up or auditing project docs | [`project-docs`](agents/skills/project-docs/) | Scaffolds `/docs`, fills it from the code, audits it for drift, and records architecture decisions |
-| Writing any prose | [`writing-guidelines`](agents/skills/writing-guidelines/) | Reviews a document against our writing standard |
-| Writing React or Next.js | [`react-best-practices`](agents/skills/react-best-practices/) | Performance rules for components, rendering, bundling, and data fetching |
-| Writing or fixing tests | [`playwright-best-practices`](agents/skills/playwright-best-practices/) | Patterns for writing, structuring, and debugging Playwright tests |
-| Exploring a page or generating a test | [`playwright-cli`](agents/skills/playwright-cli/) | Spec-driven test generation and live page inspection |
-| Improving accessibility | [`accessibility`](agents/skills/accessibility/) | Audits against WCAG and proposes fixes |
+| Starting your first week | [`onboarding`](ai/skills/onboarding/) | Verifies your accounts and toolchain, walks the required reading, gets your assigned project running, and finishes at your first merged pull request |
+| About to write or change code | [`engineering-standards`](ai/skills/engineering-standards/) | Routes the task to the standard that governs it and names the rules that block a merge. Start here. |
+| Setting up a freshly cloned project | [`finish-the-install-agility`](ai/skills/finish-the-install-agility/) [`finish-the-install-storyblok`](ai/skills/finish-the-install-storyblok/) | Completes per-project setup for the AgilityCMS or Storyblok boilerplate: environment variables, brand colors, fonts, metadata, then verifies it |
+| About to open a pull request | [`pr-review`](ai/skills/pr-review/) | Reviews a diff against the handbook: the rules that block a merge, correctness, accessibility, secrets, tests, and whether docs changed with behavior |
+| Documenting a repository | [`project-readme`](ai/skills/project-readme/) | Writes the root `README.md` from the actual codebase, asking about what it cannot determine |
+| Setting up or auditing project docs | [`project-docs`](ai/skills/project-docs/) | Scaffolds `/docs`, fills it from the code, audits it for drift, and records architecture decisions |
+| Writing any prose | [`writing-guidelines`](ai/skills/writing-guidelines/) | Reviews a document against our writing standard |
+| Writing React or Next.js | [`react-best-practices`](ai/skills/react-best-practices/) | Performance rules for components, rendering, bundling, and data fetching |
+| Writing or fixing tests | [`playwright-best-practices`](ai/skills/playwright-best-practices/) | Patterns for writing, structuring, and debugging Playwright tests |
+| Exploring a page or generating a test | [`playwright-cli`](ai/skills/playwright-cli/) | Spec-driven test generation and live page inspection |
+| Improving accessibility | [`accessibility`](ai/skills/accessibility/) | Audits against WCAG and proposes fixes |
 
 ## The handbook
 
@@ -90,9 +90,9 @@ Every standard, grouped by what you are doing. If you are new, [Start here](star
 ### Documenting it
 
 - [Documenting your work](development/documenting-your-work.md). What to write at each point in the work, and which skill to invoke for it.
-- [Documentation standards](agents/documentation-standards.md). What a project must document, and how documentation stays alive.
-- [AGENTS.md](agents/AGENTS.md). The canonical writing standard, for people and for AI agents.
-- [Claude Code plugins setup](agents/PLUGIN-SETUP.md). Installing, updating, and authoring the skills.
+- [Documentation standards](ai/documentation-standards.md). What a project must document, and how documentation stays alive.
+- [AGENTS.md](ai/AGENTS.md). The canonical writing standard, for people and for AI agents.
+- [Claude Code plugins setup](ai/PLUGIN-SETUP.md). Installing, updating, and authoring the skills.
 - [Contributing](CONTRIBUTING.md). How to propose a change to any of this.
 
 ### How the team works
@@ -166,13 +166,13 @@ This handbook is public, and you are welcome to hold us to it.
 
 - **Why it is public.** These standards describe how we work, not what we know about your business. A client, a partner agency, or a developer joining a shared project can read them without asking.
 - **What it commits us to.** These are our defaults. Where a project departs from one, the exception is recorded in that project's own documentation with its reason.
-- **Working on a shared codebase with us.** These are the conventions we follow and the ones we raise in review. [Start here](start-here.md) has a route for you. [`engineering-standards`](agents/skills/engineering-standards/) states the rules that block a merge.
+- **Working on a shared codebase with us.** These are the conventions we follow and the ones we raise in review. [Start here](start-here.md) has a route for you. [`engineering-standards`](ai/skills/engineering-standards/) states the rules that block a merge.
 - **Reusing this.** It is MIT licensed, so you can fork it and adapt it. Attribution is appreciated and not required.
 - **Reporting a mistake.** [Open an issue](https://github.com/Dotfusion/engineering-docs/issues/new/choose). Corrections from outside the team are welcome. For anything commercial, or to report a security concern privately, reach us through [dotfusion.com](https://www.dotfusion.com) instead of a public issue.
 
 ## Contributing
 
-Changes to a global standard go through a pull request, get reviewed, and pass the automated checks, for the same reason we require it of project code. [CONTRIBUTING.md](CONTRIBUTING.md) covers how to propose one, and [AGENTS.md](agents/AGENTS.md) is the writing standard every document is held to.
+Changes to a global standard go through a pull request, get reviewed, and pass the automated checks, for the same reason we require it of project code. [CONTRIBUTING.md](CONTRIBUTING.md) covers how to propose one, and [AGENTS.md](ai/AGENTS.md) is the writing standard every document is held to.
 
 ## License
 

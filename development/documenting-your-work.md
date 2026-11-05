@@ -1,6 +1,6 @@
 # Documenting your work
 
-This document tells you what to do about documentation, and when. [Documentation standards](../agents/documentation-standards.md) defines what documentation has to exist and why it is structured the way it is. This document is the part you do, during the work, in the pull request in front of you.
+This document tells you what to do about documentation, and when. [Documentation standards](../ai/documentation-standards.md) defines what documentation has to exist and why it is structured the way it is. This document is the part you do, during the work, in the pull request in front of you.
 
 It also says which Claude Code skill to reach for at each point, so you are not writing project documentation from memory when a skill already knows our conventions.
 
@@ -72,14 +72,14 @@ Effort spent on the wrong documentation is the reason people stop trusting docum
 
 ## Where this stops
 
-This document covers the practice for every project. What goes in each file, and the shape of the `/docs` folder itself, is defined by [Documentation standards](../agents/documentation-standards.md) and by the `project-docs` skill, which scaffolds from `Dotfusion/template-project`. Anything true of only one project belongs in that project's own `/docs`.
+This document covers the practice for every project. What goes in each file, and the shape of the `/docs` folder itself, is defined by [Documentation standards](../ai/documentation-standards.md) and by the `project-docs` skill, which scaffolds from `Dotfusion/template-project`. Anything true of only one project belongs in that project's own `/docs`.
 
 ## Related
 
-- [Documentation standards](../agents/documentation-standards.md)
-- [AGENTS.md](../agents/AGENTS.md)
+- [Documentation standards](../ai/documentation-standards.md)
+- [AGENTS.md](../ai/AGENTS.md)
 - [Development workflow](development-workflow.md)
 - [Architecture Decision Records](../engineering/architecture-decision-records.md)
 - [Boilerplates and templates](../engineering/boilerplates-and-templates.md)
 - [Team working model](../process/team-working-model.md)
-- [Claude Code plugins setup](../agents/PLUGIN-SETUP.md)
+- [Claude Code plugins setup](../ai/PLUGIN-SETUP.md)

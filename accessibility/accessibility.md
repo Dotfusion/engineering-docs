@@ -67,7 +67,7 @@ This is the default toolchain for Dotfusion web projects. Each project should co
 
 ### Automated checks (CI and local)
 
-- axe-core, the engine behind most accessibility testing, run two ways: directly for component and page checks, and through our Playwright end-to-end suite so accessibility assertions live with the rest of the tests. See the [Playwright best practices](../agents/skills/playwright-best-practices/SKILL.md) skill, which documents accessibility testing with axe-core.
+- axe-core, the engine behind most accessibility testing, run two ways: directly for component and page checks, and through our Playwright end-to-end suite so accessibility assertions live with the rest of the tests. See the [Playwright best practices](../ai/skills/playwright-best-practices/SKILL.md) skill, which documents accessibility testing with axe-core.
 - pa11y for command-line and CI checks against URLs, useful for crawling and asserting against a set of pages.
 - Lighthouse (including the accessibility category) for page-level scoring, runnable locally and in CI.
 

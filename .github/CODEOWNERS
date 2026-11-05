@@ -7,5 +7,5 @@
 * @Dotfusion/engineering
 
 # The writing standard and the skills that enforce it change together.
-/agents/                @Dotfusion/engineering
+/ai/                    @Dotfusion/engineering
 /.claude-plugin/        @Dotfusion/engineering

@@ -1,6 +1,6 @@
 # Dotfusion Claude Code plugins setup
 
-Our team skills are distributed as a Claude Code plugin, `dotfusion-docs`, from this repository (`Dotfusion/engineering-docs`), which doubles as a plugin marketplace named `dotfusion`. The skill is the source of truth; `agents/documentation-standards.md` is the human-readable explainer that points back to it.
+Our team skills are distributed as a Claude Code plugin, `dotfusion-docs`, from this repository (`Dotfusion/engineering-docs`), which doubles as a plugin marketplace named `dotfusion`. The skill is the source of truth; `ai/documentation-standards.md` is the human-readable explainer that points back to it.
 
 This page covers how the plugin reaches a developer, how to check that every skill is installed, and how to author skills. A new developer follows [Developer onboarding](../process/developer-onboarding.md), which links here for the checks.
 
@@ -80,7 +80,7 @@ Its `Skills (12)` line names every skill the plugin installs, and in a Claude Co
 - `react-best-practices`, whose `SKILL.md` names itself `vercel-react-best-practices`
 - `writing-guidelines`
 
-When a skill is added to or removed from `agents/skills/`, update this list in the same pull request.
+When a skill is added to or removed from `ai/skills/`, update this list in the same pull request.
 
 ## Keep one copy of each skill
 
@@ -115,7 +115,9 @@ To iterate without publishing, point Claude Code at your local checkout. The loc
 claude --plugin-dir /path/to/engineering-docs
 ```
 
-Edit `agents/skills/<name>/SKILL.md`, run `/reload-plugins` to reload, and commit and push when you're happy.
+Edit `ai/skills/<name>/SKILL.md`, run `/reload-plugins` to reload, and commit and push when you're happy.
+
+Do not add a folder named `agents/` at the repository root. The plugin's root is this whole repository, and Claude Code loads every Markdown file under a plugin's `agents/` folder as a subagent, whatever the manifest lists. That is why the handbook's agent files live in `ai/`.
 
 ## Troubleshooting
 

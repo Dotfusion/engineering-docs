@@ -26,10 +26,10 @@ Recording an exception in a project's `/docs` is the normal outcome, not a sign 
 
 1. **Open an issue first for anything substantive.** A new standard, or a change to an existing one, is worth discussing before it is written. Use [Propose a change to a standard](https://github.com/Dotfusion/engineering-docs/issues/new/choose). A typo or a broken link needs no issue.
 2. **Branch from `main`.** Use the naming convention in [Development workflow](development/development-workflow.md).
-3. **Write to the standard.** [AGENTS.md](agents/AGENTS.md) is the canonical writing standard and wins over any other style guidance, including the `writing-guidelines` skill. The rules the linter rejects most often: sentence case headings, no em dash, straight quotes, American spelling, a language tag on every code block, and no use of "easy", "simple", or "quick" to describe an action. <!-- lint-ignore -->
+3. **Write to the standard.** [AGENTS.md](ai/AGENTS.md) is the canonical writing standard and wins over any other style guidance, including the `writing-guidelines` skill. The rules the linter rejects most often: sentence case headings, no em dash, straight quotes, American spelling, a language tag on every code block, and no use of "easy", "simple", or "quick" to describe an action. <!-- lint-ignore -->
 4. **Run the checks locally.** `node scripts/lint-docs.mjs` enforces the mechanical rules and verifies every internal link and anchor. It runs on every pull request, so running it first saves a round trip.
 5. **Run the writing skill.** `/dotfusion-docs:writing-guidelines` on the files you changed catches what the linter cannot: passive voice, vague qualifiers, paragraphs covering two ideas.
-6. **Update the skill in the same pull request.** A standard and the skill that encodes it change together. If you change a rule that [`engineering-standards`](agents/skills/engineering-standards/) states, or a convention that [`project-readme`](agents/skills/project-readme/) or [`project-docs`](agents/skills/project-docs/) bakes in, change both. A skill that contradicts a standard is worse than no skill, because developers trust it.
+6. **Update the skill in the same pull request.** A standard and the skill that encodes it change together. If you change a rule that [`engineering-standards`](ai/skills/engineering-standards/) states, or a convention that [`project-readme`](ai/skills/project-readme/) or [`project-docs`](ai/skills/project-docs/) bakes in, change both. A skill that contradicts a standard is worse than no skill, because developers trust it.
 7. **Open the pull request** and fill in the template. Say what changed, why, and which skills it affects.
 
 ## What a reviewer checks
@@ -56,15 +56,15 @@ A new document needs, at minimum:
 
 ## Changing a skill
 
-Skills live in [`agents/skills/`](agents/skills/) and are the executable form of these standards. To iterate without publishing, point Claude Code at your local checkout:
+Skills live in [`ai/skills/`](ai/skills/) and are the executable form of these standards. To iterate without publishing, point Claude Code at your local checkout:
 
 ```text
 claude --plugin-dir /path/to/engineering-docs
 ```
 
-Edit the `SKILL.md`, run `/reload-plugins`, and confirm the skill triggers on the phrasing a developer would use. See [Claude Code plugins setup](agents/PLUGIN-SETUP.md).
+Edit the `SKILL.md`, run `/reload-plugins`, and confirm the skill triggers on the phrasing a developer would use. See [Claude Code plugins setup](ai/PLUGIN-SETUP.md).
 
-Four skills under `agents/skills/` are third-party work vendored under their own licenses, listed in [LICENSE](LICENSE): `playwright-best-practices`, `react-best-practices`, `accessibility`, and `writing-guidelines`. Avoid editing those in place, because pulling a later version from upstream would overwrite the change. Where our conventions differ from a vendored skill, state the difference in one of our own documents and let ours win, which is what [AGENTS.md](agents/AGENTS.md) already does for `writing-guidelines`.
+Four skills under `ai/skills/` are third-party work vendored under their own licenses, listed in [LICENSE](LICENSE): `playwright-best-practices`, `react-best-practices`, `accessibility`, and `writing-guidelines`. Avoid editing those in place, because pulling a later version from upstream would overwrite the change. Where our conventions differ from a vendored skill, state the difference in one of our own documents and let ours win, which is what [AGENTS.md](ai/AGENTS.md) already does for `writing-guidelines`.
 
 ## After merging
 
@@ -72,7 +72,7 @@ Every commit to `main` counts as a new plugin version, so each developer picks t
 
 ## Related
 
-- [AGENTS.md](agents/AGENTS.md)
-- [Documentation standards](agents/documentation-standards.md)
+- [AGENTS.md](ai/AGENTS.md)
+- [Documentation standards](ai/documentation-standards.md)
 - [Development workflow](development/development-workflow.md)
-- [Claude Code plugins setup](agents/PLUGIN-SETUP.md)
+- [Claude Code plugins setup](ai/PLUGIN-SETUP.md)

@@ -47,7 +47,7 @@ On our stack, a small number of decisions account for most of the result, and ea
 - **Defer third-party scripts.** Analytics, chat widgets, tag managers, and consent tools block the main thread, which is what a failing INP usually measures, and they are the code we control least. Load them after the page is interactive, and review the list at least once a release cycle against what anyone still uses.
 - **Cache deliberately.** Static generation and incremental regeneration on a headless CMS project mean a visitor rarely waits for the CMS. Know what is cached, for how long, and what invalidates it.
 
-The [`react-best-practices`](../agents/skills/react-best-practices/) skill states the component-level rules behind these practices, as checks a reviewer can apply. Invoke it when writing or refactoring components rather than working from memory. Its skill name is `vercel-react-best-practices`, because it is vendored from Vercel.
+The [`react-best-practices`](../ai/skills/react-best-practices/) skill states the component-level rules behind these practices, as checks a reviewer can apply. Invoke it when writing or refactoring components rather than working from memory. Its skill name is `vercel-react-best-practices`, because it is vendored from Vercel.
 
 ## Performance and accessibility overlap
 
